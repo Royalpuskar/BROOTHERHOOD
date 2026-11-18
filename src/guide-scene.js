@@ -19,16 +19,18 @@ export async function launchJourney() {
   const fallback=document.getElementById('guide-fallback');
   if(prefersLess.matches || !('WebGLRenderingContext' in window) || navigator.connection?.saveData){
     setCaption('Explore each world with the accessible learning cards below. Motion is optional.');
+    const toggle=document.getElementById('guide-render-toggle'); if(toggle){toggle.textContent='3D paused for accessibility';toggle.disabled=true;}
     return;
   }
   let THREE;
   try { THREE=await import(CDN); } catch {
     setCaption('3D is unavailable right now. All three interactive labs remain available below.');
+    const toggle=document.getElementById('guide-render-toggle'); if(toggle){toggle.textContent='3D unavailable';toggle.disabled=true;}
     return;
   }
   let renderer;
   try { renderer=new THREE.WebGLRenderer({alpha:true,antialias:true,powerPreference:onSmallScreen.matches?'low-power':'high-performance'}); }
-  catch {setCaption('Your device does not support WebGL. Explore the fully functional labs below.');return;}
+  catch {setCaption('Your device does not support WebGL. Explore the fully functional labs below.');const toggle=document.getElementById('guide-render-toggle');if(toggle){toggle.textContent='3D unsupported';toggle.disabled=true;}return;}
   renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,onSmallScreen.matches?1.15:1.75));
   renderer.outputColorSpace=THREE.SRGBColorSpace;
   renderer.toneMapping=THREE.ACESFilmicToneMapping;
@@ -184,7 +186,7 @@ export async function launchJourney() {
     guide.position.x=currentX;
     guide.position.y=.03+Math.sin(now*1.6)*.02;
     const moving=Math.abs(targetX-currentX)>.06;
-    const mode=now<actionUntil?action:(moving?'walk':'idle');
+    const mode=performance.now()<actionUntil?action:(moving?'walk':'idle');
     const ease=clamp(dt*7,0,1);
     const stride=now*7.4;
     const swing=mode==='walk'?Math.sin(stride)*.55:0;

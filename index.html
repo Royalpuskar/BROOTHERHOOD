@@ -11,6 +11,7 @@
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="./digital.css">
 <link rel="stylesheet" href="./academy.css">
+<link rel="stylesheet" href="./float-motion.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -21,13 +22,13 @@
   </a>
   <button class="menu-button" id="menu-button" type="button" aria-controls="main-nav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
   <nav id="main-nav" aria-label="Primary navigation">
-    <a href="#home" class="nav-active">Home</a><a href="#programming-academy">Code Academy</a><a href="#worlds">Learn</a><a href="#cinematic">Explore</a><a href="#missions">Missions</a><a href="#progress">Progress</a><a href="#about">About</a>
+    <a href="#home" class="nav-active">Home</a><a href="#programming-academy">Code Academy</a><a href="#worlds">Learn</a><a href="#flight">Explore</a><a href="#missions">Missions</a><a href="#progress">Progress</a><a href="#about">About</a>
   </nav>
   <span class="horizon-badge">🏆 HORIZON 2026</span>
 </header>
 <main id="main">
 <section id="home" class="digital-hero" aria-labelledby="hero-title">
-  <div class="space-layers" aria-hidden="true"><div class="stars layer-one"></div><div class="stars layer-two"></div><div class="halo"></div><div class="hero-grid"></div><div class="planet"></div></div>
+  <div class="hero-holo-float" aria-hidden="true"><i class="holo-cube cube-a">⌘</i><i class="holo-cube cube-b">AI</i><i class="holo-cube cube-c">⛨</i><i class="holo-cube cube-d">0101</i><i class="holo-particle p-a"></i><i class="holo-particle p-b"></i><i class="holo-particle p-c"></i><i class="holo-particle p-d"></i></div><div class="space-layers" aria-hidden="true"><div class="stars layer-one"></div><div class="stars layer-two"></div><div class="halo"></div><div class="hero-grid"></div><div class="planet"></div></div>
   <div class="hero-visual" id="hero-visual" aria-hidden="true"><div id="universe-canvas" class="universe-canvas"></div><div class="scene-fallback"><span class="fallback-symbol">◈</span><span>THE DIGITAL UNIVERSE</span></div></div>
   <div class="hero-guide-card glass"><span class="message-glow">✦</span><strong>Hi there! 👋</strong><p>I'm your digital learning guide.<br>Ready for an adventure?</p></div>
   <div class="hero-left">
@@ -66,6 +67,36 @@
     <a href="#network-nexus" class="overview-card"><span class="overview-icon network">⌁</span><span class="overview-index">WORLD 04</span><h3>Network Nexus</h3><p>Follow a simulated packet from your browser through DNS to a server.</p><span class="overview-link">Launch world →</span></a>
     <a href="#builders-realm" class="overview-card"><span class="overview-icon build">▤</span><span class="overview-index">WORLD 05</span><h3>Builders' Realm</h3><p>Assemble the frontend, API, and database in a logical software architecture.</p><span class="overview-link">Launch world →</span></a>
   </div>
+</section>
+
+
+<section id="flight" class="flight-section" aria-labelledby="flight-title">
+ <div class="flight-stage">
+  <div class="flight-sky" aria-hidden="true">
+   <div class="flight-back-grid"></div><div class="flight-nebula flight-nebula-a"></div><div class="flight-nebula flight-nebula-b"></div>
+   <div class="flight-orbit flight-orbit-a"></div><div class="flight-orbit flight-orbit-b"></div><div class="flight-orbit flight-orbit-c"></div>
+   <div class="flight-core"><div class="flight-core-inner">◈</div><span>THE DIGITAL NEXUS</span></div>
+   <div class="flight-satellite satellite-a">⌘ <small>CODE</small></div>
+   <div class="flight-satellite satellite-b">⛨ <small>DEFEND</small></div>
+   <div class="flight-satellite satellite-c">✺ <small>AI</small></div>
+   <div class="flight-satellite satellite-d">⌁ <small>NETWORK</small></div>
+   <div class="flight-satellite satellite-e">▤ <small>BUILD</small></div>
+   <div class="flight-sparks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="flight-stage-copy">
+   <p class="kicker">FIVE WORLDS · ONE CONNECTED UNIVERSE</p><h2 id="flight-title">Scroll through <em>the future.</em></h2>
+   <p id="flight-caption" role="status" aria-live="polite">01 / Programming — turn ideas into software.</p>
+  </div>
+  <div class="flight-progress"><span>JOURNEY PROGRESS</span><div class="flight-progress-track"><div class="flight-progress-bar"></div></div><span id="flight-count">01 / 05</span></div>
+  <div class="flight-direct"><a href="#programming-academy">Enter Programming Academy <span aria-hidden="true">↗</span></a><span>Scroll to travel · Tap a world to explore</span></div>
+ </div>
+ <div class="flight-chapters">
+  <article class="flight-chapter flight-active" data-flight="0"><span>01 · CODE LAB</span><h3>Every great idea starts with code.</h3><p>Program the world around you. Solve exercises and run real programs in your browser.</p><a href="#programming-academy">Launch the Academy →</a></article>
+  <article class="flight-chapter" data-flight="1"><span>02 · CYBER DEFENSE</span><h3>Secure what matters.</h3><p>Investigate safe simulated threats and learn the habits that help defend digital accounts.</p><a href="#cyber-arena">Enter Cyber Defense →</a></article>
+  <article class="flight-chapter" data-flight="2"><span>03 · ARTIFICIAL INTELLIGENCE</span><h3>See the intelligence behind decisions.</h3><p>Test training data and explore genuine machine-learning calculations.</p><a href="#ai-core">Explore AI Core →</a></article>
+  <article class="flight-chapter" data-flight="3"><span>04 · NETWORK NEXUS</span><h3>Follow the invisible pathways.</h3><p>Trace a simulated request as it travels from your browser to a server.</p><a href="#network-nexus">Trace a Packet →</a></article>
+  <article class="flight-chapter" data-flight="4"><span>05 · BUILDERS' REALM</span><h3>Connect the pieces. Build the future.</h3><p>Assemble interactive software systems and discover how application layers work.</p><a href="#builders-realm">Become a Builder →</a></article>
+ </div>
 </section>
 
 <section class="cinematic-section" id="cinematic" aria-labelledby="cinematic-title">

@@ -170,16 +170,21 @@ const EXTRA={
  ['What does map produce for a collection?','A transformed collection','A raw thread','A database transaction','map applies a function to each element and creates a result collection.'],
  ['What does Future represent in Scala?','An eventual result of asynchronous computation','A CSS animation','An immutable integer only','Futures represent results that may become available later.']]
 };
-export const QUESTIONS=Object.freeze(Object.fromEntries(Object.entries(Q).map(([language,entries])=>[
- language,Object.freeze([...entries,...EXTRA[language]].map(([question,correct,w1,w2,explanation],index)=>{
+const builtQuestions = Object.entries(Q).map(([language,entries])=>{
+ const all=[...entries,...EXTRA[language]];
+ const questions=all.map(([question,correct,w1,w2,explanation],index)=>{
   const position=(index+language.length)%3;
-  const choices=[w1,w2];choices.splice(position,0,correct);
+  const choices=[w1,w2];
+  choices.splice(position,0,correct);
   return Object.freeze({
-    id:language+'-'+(index+1),language,question,choices:Object.freeze(choices),answer:position,explanation,
-    difficulty:['Foundation','Practice','Challenge','Debugging','Secure design'][index]
+   id:language+'-'+(index+1),language,question,choices:Object.freeze(choices),
+   answer:position,explanation,
+   difficulty:['Foundation','Practice','Challenge','Debugging','Secure design'][index]
   });
- })
-])));
+ });
+ return [language,Object.freeze(questions)];
+});
+export const QUESTIONS=Object.freeze(Object.fromEntries(builtQuestions));
 export function grade(question,choice){if(!question||!Number.isInteger(choice)||choice<0||choice>=question.choices.length)return{valid:false,correct:false};return{valid:true,correct:choice===question.answer,explanation:question.explanation};}
 export function safeQuestionProgress(raw){let x;try{x=JSON.parse(raw);}catch{return [];}if(!Array.isArray(x))return[];const allowed=new Set(Object.values(QUESTIONS).flat().map(q=>q.id));return [...new Set(x.filter(v=>typeof v==='string'&&allowed.has(v)))];}
 export function questionStats(progress){return{solved:safeQuestionProgress(JSON.stringify(progress)).length,total:Object.values(QUESTIONS).reduce((n,x)=>n+x.length,0)};}

@@ -1,0 +1,60 @@
+name: Compiler connectivity smoke check
+
+on:
+  push:
+    branches: [feature/pro-ide-multilanguage-compiler]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe-public-demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Probe demo API, CORS and one C++ compilation
+        run: |
+          node --input-type=module <<'NODE'
+          const root = "https://ce.judge0.com";
+          const opts = {headers:{Accept:"application/json",Origin:"https://royalpuskar.github.io"}};
+          const c = AbortSignal.timeout(20000);
+          try {
+            const get = await fetch(root+"/languages",{...opts,signal:c});
+            console.log("LANGUAGES_HTTP",get.status);
+            console.log("CORS_ORIGIN_HEADER",get.headers.get("access-control-allow-origin") || "not supplied");
+            if(!get.ok)throw Error("Language list unavailable");
+            const list=await get.json();
+            const cpp=list.filter(x=>/^C\+\+ \(GCC/i.test(x.name)).sort((a,b)=>b.id-a.id)[0];
+            if(!cpp)throw Error("GCC C++ compiler unavailable");
+            console.log("COMPILER",cpp.name,"ID",cpp.id);
+            const response=await fetch(root+"/submissions?base64_encoded=false&wait=false",{
+              method:"POST",
+              headers:{...opts.headers,"Content-Type":"application/json"},
+              body:JSON.stringify({language_id:cpp.id,source_code:"#include <iostream>\nint main(){int a,b;std::cin>>a>>b;std::cout<<\"Sum: \"<<a+b<<\"\\n\";}",stdin:"3 4\n",cpu_time_limit:2,wall_time_limit:6,memory_limit:196608}),
+              signal:AbortSignal.timeout(18000)
+            });
+            console.log("COMPILE_HTTP",response.status);
+            console.log("COMPILE_CORS_HEADER",response.headers.get("access-control-allow-origin")||"not supplied");
+            const body=await response.json().catch(()=>({}));
+            if(!response.ok||!body.token)throw Error("Demo did not create job: "+JSON.stringify(body).slice(0,400));
+            for(let n=0;n<18;n++){
+              await new Promise(ok=>setTimeout(ok,750));
+              const p=await fetch(root+"/submissions/"+encodeURIComponent(body.token)+"?fields=status,stdout,stderr,compile_output",{...opts,signal:AbortSignal.timeout(12000)});
+              const result=await p.json();
+              if(result.status?.id>2){
+                console.log("FINAL_STATUS",result.status.description);
+                console.log("STDOUT",JSON.stringify(result.stdout));
+                console.log("COMPILE_ERRORS",JSON.stringify(result.compile_output));
+                if(result.status.id===3&&result.stdout?.trim()==="Sum: 7"){console.log("C++ COMPILE AND EXECUTE: VERIFIED");process.exit(0);}
+                throw Error("C++ compilation did not produce expected result");
+              }
+            }
+            throw Error("Demo timed out without a result");
+          } catch(error) {
+            console.error("C++ DEMO UNVERIFIED:",error.message);
+            // Informational check: public demo may be unavailable or rate limited.
+            // The Studio also supports custom Judge0 endpoints.
+            process.exit(0);
+          }
+          NODE

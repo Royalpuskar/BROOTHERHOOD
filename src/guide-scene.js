@@ -155,14 +155,16 @@ export async function launchJourney() {
   };
   const chapters=[...section.querySelectorAll('.guide-chapter')];
   let currentIndex=0;
+  let welcomed=false;
   function updateSceneTarget() {
     const p=scrollPosition();
     targetX=-5+p*10;
     const i=p<.333?0:p<.666?1:2;
+    if(!welcomed && p>0.045){welcomed=true;setCaption(introText.fractions);}
     if(i!==lastIndex){
       lastIndex=i;currentIndex=i;
       const key=['fractions','circuit','eco'][i];
-      setCaption(introText[key]);
+      if(welcomed)setCaption(introText[key]);
       chapters.forEach((el,n)=>el.classList.toggle('guide-chapter-active',n===i));
     }
   }
@@ -225,7 +227,7 @@ export async function launchJourney() {
   }
   const observer=new IntersectionObserver(entries=>{
     active=entries[0].isIntersecting;
-    if(active&&!paused){resize();last=0;cancelAnimationFrame(raf);raf=requestAnimationFrame(onFrame);}
+    if(active&&!paused){action='wave';actionUntil=performance.now()+1500;resize();last=0;cancelAnimationFrame(raf);raf=requestAnimationFrame(onFrame);}
     else cancelAnimationFrame(raf);
   },{threshold:0.02});
   const resizeObserver=new ResizeObserver(resize);resizeObserver.observe(host);

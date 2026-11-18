@@ -12,14 +12,14 @@ test('20 distinctly named programming language tracks and honest browser executi
  assert.deepEqual(RUNNABLE,['javascript','python','sql','html','typescript']);
  for(const lang of LANGUAGES){assert.ok(lang.name&&lang.subject&&lang.starter);assert.equal(LANGUAGE_BY_ID[lang.id].mode,lang.mode);}
 });
-test('60 complete, uniquely identified original quiz questions have validated answers and explanations',()=>{
+test('100 complete, uniquely identified original quiz questions have validated answers and explanations',()=>{
  const all=Object.values(QUESTIONS).flat();
- assert.equal(all.length,60);
- assert.equal(new Set(all.map(q=>q.id)).size,60);
+ assert.equal(all.length,100);
+ assert.equal(new Set(all.map(q=>q.id)).size,100);
  for(const q of all){
   assert.equal(q.choices.length,3);assert.ok(q.question.length>=10&&q.explanation.length>=15);
   assert.deepEqual(grade(q,q.answer).correct,true);
-  assert.equal(grade(q,0).correct,false);
+  assert.equal(grade(q,(q.answer+1)%3).correct,false);
   assert.equal(grade(q,3).valid,false);
  }
 });
@@ -27,7 +27,7 @@ test('Quiz progress cannot be inflated by malformed, duplicate or nonexistent qu
  assert.deepEqual(safeQuestionProgress('nonsense'),[]);
  assert.deepEqual(safeQuestionProgress('{"bad":true}'),[]);
  assert.deepEqual(safeQuestionProgress('["javascript-1","javascript-1","not-real","python-2"]'),['javascript-1','python-2']);
- assert.deepEqual(questionStats(['javascript-1','javascript-1']),{solved:1,total:60});
+ assert.deepEqual(questionStats(['javascript-1','javascript-1']),{solved:1,total:100});
 });
 test('Runnable JavaScript starter performs real arithmetic in a controlled Node test sandbox',()=>{
  const captured=[];

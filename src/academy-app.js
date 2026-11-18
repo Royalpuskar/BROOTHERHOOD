@@ -8,7 +8,7 @@ function readArray(key,parse){
  try{return parse(localStorage.getItem(key));}catch{return [];}
 }
 let solved=readArray(STORAGE_QUESTIONS,safeQuestionProgress);
-const allTasks=['javascript','python','sql','html','typescript'].flatMap(id=>[0,1,2].map(i=>id+'-'+i));
+const allTasks=['javascript','python','sql','html','typescript'].flatMap(id=>[0,1,2,3,4].map(i=>id+'-'+i));
 let codePassed=readArray(STORAGE_CODE,raw=>{
  try{const v=JSON.parse(raw);return Array.isArray(v)?[...new Set(v.filter(x=>allTasks.includes(x)))]:[];}catch{return [];}
 });
@@ -39,9 +39,9 @@ const TASKS={
   {title:'03 · Python functions',description:'Define a function square and use it to print 49 for input 7.',starter:'def square(number):\n    return number * number\n\nprint(square(7))',hint:'Return number * number, then call square(7).',expected:'49'}
  ],
  sql:[
-  {title:'01 · SELECT and WHERE',description:'Find learners scoring at least 80. The sample table contains 3 qualifying rows.',starter:LANGUAGE_BY_ID.sql.starter,hint:'SELECT ... FROM learners WHERE score >= 80',expectedRows:3},
+  {title:'01 · SELECT and WHERE',description:'Find learners scoring at least 80. The sample table contains 3 qualifying rows.',starter:LANGUAGE_BY_ID.sql.starter,hint:'SELECT ... FROM learners WHERE score >= 80',expectedRows:3,expectedNames:['Ada','Grace','Margaret']},
   {title:'02 · Aggregate functions',description:'Find the number of learners in the table. One row should contain the count 5.',starter:'SELECT COUNT(*) AS total_learners FROM learners;',hint:'COUNT(*) counts matching rows.',expectedValue:5},
-  {title:'03 · ORDER BY',description:'Show all five learners, with their scores from highest to lowest.',starter:'SELECT name, score FROM learners ORDER BY score DESC;',hint:'Use ORDER BY score DESC to sort from largest to smallest.',expectedRows:5,descending:true}
+  {title:'03 · ORDER BY',description:'Show all five learners, with their scores from highest to lowest.',starter:'SELECT name, score FROM learners ORDER BY score DESC;',hint:'Use ORDER BY score DESC to sort from largest to smallest.',expectedRows:5,descending:true,expectedNumbers:[96,90,88,75,67]}
  ],
  html:[
   {title:'01 · Semantic headings',description:'Create a visible h1 heading to welcome a learner.',starter:LANGUAGE_BY_ID.html.starter,hint:'Use an h1 element inside the main page content.',pattern:/<h1(?:\s|>)[\s\S]*?<\/h1>/i},
@@ -49,6 +49,32 @@ const TASKS={
   {title:'03 · CSS layout',description:'Use CSS Grid to lay out at least two cards.',starter:'<div class="grid"><article>Code Lab</article><article>AI Core</article></div>\n<style>.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}article{padding:20px;background:#153555;color:white}</style>',hint:'display: grid and grid-template-columns create a two-column layout.',pattern:/display\s*:\s*grid/i,gridCheck:true}
  ]
 };
+
+// Further guided exercises deepen each executable language beyond its first three examples.
+const EXTRA_TASKS={
+ javascript:[
+  {title:'04 · Functions',description:'Write a reusable function that doubles 9 and prints 18.',starter:'function double(value){return value*2;}\nconsole.log(double(9));',hint:'Return value * 2 from a function and call it with 9.',expected:'18'},
+  {title:'05 · Filtering data',description:'Count how many of [60, 85, 95] are at least 80. Print 2.',starter:'const scores=[60,85,95];\nconsole.log(scores.filter(score=>score>=80).length);',hint:'Use array.filter and then read the length of the filtered array.',expected:'2'}
+ ],
+ python:[
+  {title:'04 · Dictionaries',description:'Use a dictionary to get Ada’s score of 96 and print 96.',starter:'scores={"Ada":96,"Grace":90}\nprint(scores["Ada"])',hint:'Python dictionaries are keyed; read scores["Ada"].',expected:'96'},
+  {title:'05 · List comprehensions',description:'Count the scores at least 80 from [60,85,95] and print 2.',starter:'scores=[60,85,95]\nprint(len([score for score in scores if score>=80]))',hint:'Use a list comprehension with if score>=80.',expected:'2'}
+ ],
+ sql:[
+  {title:'04 · Multiple WHERE conditions',description:'Find the learner scoring above 80 and learning Python. The result should contain Ada.',starter:"SELECT name, score FROM learners WHERE score > 80 AND language = 'Python';",hint:'Combine conditions with AND in the WHERE clause.',expectedRows:1,expectedNames:['Ada']},
+  {title:'05 · Aggregation',description:'Find the maximum score in the sample table. The result should show 96.',starter:'SELECT MAX(score) AS best_score FROM learners;',hint:'Use MAX(score) to find the highest numeric score.',expectedValue:96}
+ ],
+ html:[
+  {title:'04 · Accessible forms',description:'Create a form, a label associated with an input, and a submit button.',starter:'<form>\n <label for="email">Email</label>\n <input id="email" type="email" required>\n <button type="submit">Join</button>\n</form>',hint:'The label for attribute should match the input id, and a form wraps the controls.',pattern:/<form(?:\s|>)[\s\S]*?<\/form>/i,labelCheck:true},
+  {title:'05 · Responsive layouts',description:'Add an @media rule that changes the layout at narrow screen widths.',starter:'<div class="layout"><article>Code Lab</article><article>AI Core</article></div>\n<style>.layout{display:grid;grid-template-columns:1fr 1fr;gap:1rem}@media(max-width:600px){.layout{grid-template-columns:1fr}}</style>',hint:'Use @media (max-width: 600px) with CSS rules for the small viewport.',pattern:/@media\s*\(/i}
+ ],
+ typescript:[
+  {title:'04 · Typed interfaces',description:'Create an interface with a label property and print secure.',starter:'interface Mission { label: string; }\nconst mission: Mission = {label:"secure"};\nconsole.log(mission.label);',hint:'Declare interface Mission {label:string} and create an object of that type.',expected:'secure'},
+  {title:'05 · Union types and branches',description:'Create a union type success | error and print ready for success.',starter:"type State = 'success' | 'error';\nlet state: State = 'success';\nconsole.log(state === 'success' ? 'ready' : 'retry');",hint:'Use a union type and check which variant was selected.',expected:'ready'}
+ ]
+};
+for(const [id,tasks] of Object.entries(EXTRA_TASKS))TASKS[id].push(...tasks);
+
 const filenames={javascript:'main.js',python:'main.py',sql:'learners.sql',html:'index.html',typescript:'main.ts',java:'Main.java',c:'main.c',cpp:'main.cpp',csharp:'Program.cs',go:'main.go',rust:'main.rs',ruby:'main.rb',php:'index.php',kotlin:'Main.kt',swift:'main.swift',r:'analysis.R',bash:'script.sh',dart:'main.dart',lua:'main.lua',scala:'Main.scala'};
 let language='javascript',challenge=0,quizLanguage='javascript',quizIndex=0, activeRun=null,persistentWorkers={};
 const codeEl=$('academy-code');
@@ -141,7 +167,11 @@ function testResult(output,result){
   const rows=result.values||[],count=rows.length;
   if(task.expectedValue!==undefined)return rows.length===1&&rows[0].some(x=>x===task.expectedValue);
   if(count!==task.expectedRows)return false;
-  if(task.descending){const numbers=rows.map(r=>Number(r[1]));return numbers.every((n,i)=>i===0||numbers[i-1]>=n);}
+  if(task.expectedNames){
+   const nameIndex=(result.columns||[]).findIndex(name=>String(name).toLowerCase()==='name');
+   if(nameIndex<0||rows.map(r=>String(r[nameIndex])).sort().join('|')!==task.expectedNames.slice().sort().join('|'))return false;
+  }
+  if(task.descending){const numbers=rows.map(r=>Number(r[1]));return numbers.every((n,i)=>i===0||numbers[i-1]>=n)&&(!task.expectedNumbers||numbers.every((n,i)=>n===task.expectedNumbers[i]));}
   return true;
  }
  if(language==='html'){

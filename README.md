@@ -64,9 +64,9 @@ The optional 3D renderer loads a version-pinned Three.js dependency from jsDeliv
 
 Our new browser-based learning workbench goes beyond a static programming catalog.
 
-- **20 programming languages** with original editable sample programs and **60 assessed questions**, three per language, including explanations and locally saved completion.
+- **20 programming languages** with original editable sample programs and **100 assessed questions**, five per language, including explanations and locally saved completion.
 - **Five genuine execution/preview tracks:** JavaScript in a disposable Web Worker; TypeScript transpilation followed by JavaScript execution; Python through browser-based Pyodide; SQLite with a temporary local SQL database; and HTML/CSS preview inside a script-disabled sandboxed frame.
-- **15 guided coding missions** (three per runnable track) with objectives, hints, result checks and achievement tracking.
+- **25 guided coding missions** (five per runnable track) with objectives, hints, result checks and achievement tracking.
 - Beginner-friendly editor with tab indentation, keyboard-run shortcut, copy, reset and local file export.
 - Clear **Study Mode** for Java, C, C++, C#, Go, Rust, Ruby, PHP, Kotlin, Swift, R, Bash, Dart, Lua and Scala. These have examples and questions, not falsely advertised browser compilers.
 - Runtime libraries are fetched on demand from version-pinned public CDN resources; Python, SQLite and TypeScript can require larger initial downloads and Internet access.

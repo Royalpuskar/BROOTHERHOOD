@@ -2,82 +2,102 @@
 
 # BROOTHERHOOD
 
-### Every Mind Can Explore
+### GUIDED BY DISCOVERY
 
-**Interactive learning, real understanding, and a more inclusive future.**
+**A cinematic learning universe where curiosity leads the way.**
 
-**HORIZON 2026 · CRACK THE EGG · WEB DEVELOPMENT**
+**HORIZON 2026 · CRACK THE EGG · SDG 4: QUALITY EDUCATION**
 
-**SDG 4 — Quality Education**
+### [ENTER THE WEBSITE](https://royalpuskar.github.io/BROOTHERHOOD/)
 
-[**Explore the Website**](https://royalpuskar.github.io/BROOTHERHOOD/) · [**Explore the Source Code**](https://github.com/Royalpuskar/BROOTHERHOOD) · [**Project Quality Checks**](https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml)
+[Explore the source code](https://github.com/Royalpuskar/BROOTHERHOOD) · [Quality checks](https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml)
 
 </div>
 
 ---
 
-## The idea
+## The vision
 
-Learning becomes powerful when ideas can be seen, touched, tested, and understood. Yet traditional learning materials often depend on passive reading and memorization, leaving visual and hands-on learners behind.
+Every mind has the power to discover. But not every learner thrives through memorization, lectures, or static diagrams.
 
-**Brootherhood** addresses that gap with an original, responsive learning experience that turns foundational concepts into interactive experiments. The platform supports more inclusive, engaging learning in line with **United Nations Sustainable Development Goal 4: Quality Education**.
+**Brootherhood** transforms foundational concepts into a personal exploration experience: a walking 3D human-style guide, three floating educational worlds, interactive experiments, and meaningful challenges that reward understanding rather than speed.
 
-## Three discovery labs
+Designed for the **Horizon 2026 — Crack the Egg** responsive web development competition, the project addresses the official theme of **interactive digital learning through visualization and simulation**, supporting the ambitions of **SDG 4: Quality Education**.
 
-| Lab | Learning experience | What learners discover |
+## The 3D guided journey
+
+A stylized, articulated, original 3D explorer walks through a floating learning environment. As visitors progress through the story, a responsive camera follows the experience and introduces three worlds:
+
+| World | Discovery | Real experiment |
 | --- | --- | --- |
-| **Fraction Playground** | Explore parts of a whole with interactive shapes, adjustable values, and equivalent-fraction challenges | Fractions, ratios, percentages, and visual reasoning |
-| **Electricity Studio** | Explore a simplified circuit by changing voltage and resistance | Ohm’s law, current, power, and cause-and-effect |
-| **Eco Choices** | Compare hypothetical transportation choices in an interactive environmental model | How choices affect a simplified emissions indicator |
+| **01 · Fraction Playground** | Turn equal parts into a visual understanding of percentages | Adjust numerator and denominator; solve a half-of-a-whole challenge |
+| **02 · Electricity Studio** | See how current responds to changes in voltage and resistance | Adjust an idealized circuit; reach a target current |
+| **03 · Eco Choices** | Explore how hypothetical transport decisions change a scenario | Compare car and bus trips under explicitly assumed emissions values |
 
-Each lab combines **visual experimentation**, **instant feedback**, and **a hands-on learning mission**.
+The 3D scene includes original geometric learning artifacts, illuminated floating platforms, atmospheric particles, lighting, articulated character movement, and responsive rendering. The 3D view is an enhancement: **the educational tools remain usable with 3D unavailable or disabled**.
 
-## The experience
+## BROOTHERHOOD Discovery Engine
 
-- **Floating, high-resolution interface:** Original vector graphics, layered depth, interactive lighting, and motion designed to scale gracefully from phones to 4K desktops.
-- **Discovery Passport:** Private, browser-local progress that celebrates completed missions without user accounts.
-- **Accessible design:** Semantic structure, keyboard controls, helpful labels, and reduced-motion support.
-- **Privacy by design:** No analytics, trackers, external accounts, or third-party scripts.
-- **Offline revisits:** A service worker can retain the static experience after a successful first visit.
+Nine educational challenges across the three worlds, at three difficulty levels:
 
-## How it works
+- **Starter** — Introduce the core concept.
+- **Explorer** — Apply the concept to a more challenging example.
+- **Master** — Solve a multistep reasoning case.
 
-Learners explore the three labs, move the controls to test ideas, observe the changes, and complete each mission. Their achievements appear in the Discovery Passport. The site runs in a modern web browser without an account.
+Each challenge includes a learning objective, hint, validated answer, explanation, reflection prompt, and local achievement progress.
 
-## Built with purpose
+**Discovery titles:** New Explorer · First Spark · Curious Explorer · Trailblazer · Master of Discovery.
 
-| Area | Technology |
+The guide responds with contextual captions and animated gestures when students explore, try again, or complete a challenge. This is a **deterministic, reviewed educational guide**, not an unimplemented conversational AI service.
+
+## Designed for everyone
+
+- Responsive layouts for mobile, tablet, laptop, and large displays.
+- Real interactive laboratory controls, working navigation, and keyboard access.
+- Reduced-motion preference support, accessible text alternatives, labels, and feedback.
+- Rendering scaled to device capabilities rather than forcing 4K GPU resolution.
+- Progress saved on the learner's own device, without registration or cloud accounts.
+- No analytics, marketing trackers, or third-party advertisements.
+
+## Engineering
+
+| Layer | Implementation |
 | --- | --- |
-| Interface | Semantic HTML5 and responsive CSS3 |
-| Learning interactions | Modular, dependency-free JavaScript |
-| Verification | Node.js built-in test runner and GitHub Actions |
-| Website delivery | Static deployment through GitHub Pages |
-| Visual identity | Original scalable graphics and CSS-based floating effects |
+| Website | HTML5, responsive CSS3, modular JavaScript |
+| Cinematic 3D | Three.js with original procedurally articulated character and environment |
+| Core learning simulations | Pure and unit-tested JavaScript models |
+| Discovery Engine | Deterministic challenge validation, hints, explanations, and private local achievements |
+| Quality | Node.js built-in tests and GitHub Actions |
+| Delivery | GitHub Pages static website |
+| Accessibility | Semantic navigation, keyboard-operable interactions, reduced-motion fallbacks |
 
-The website is **original work**, not an off-the-shelf website-builder template.
+The 3D enhancement loads a version-pinned Three.js module from jsDelivr when WebGL and motion preferences allow. The 2D labs do not depend on this external resource. Original on-page graphics and the explorer geometry are authored for this project.
 
-## Beyond the screen
+## Responsible educational design
 
-Brootherhood was created for **Horizon 2026 — Crack the Egg**, responding to the official subtheme on *interactive digital learning through visualization and simulation*. It demonstrates how a focused browser-based tool can encourage curiosity, independent discovery, and wider access to engaging education.
+The electrical experience demonstrates an idealized circuit using **Ohm's law**. The environmental experience uses **hypothetical coefficients**, not real-world measured transport emissions. These scenarios are designed for learning and should not be used as scientific measurement or engineering guidance.
 
-**Educational note:** The electrical lab presents an idealized DC model. The ecological lab uses illustrative assumed values, not measured real-world CO₂ output. These simulations are educational demonstrations, not engineering or scientific measurement tools.
+No private data or identity information is requested. Progress and achievements are stored locally in the browser.
 
-## Team
+## Project
 
-Created for **Horizon 2026** by [**Royalpuskar**](https://github.com/Royalpuskar) and the **Brootherhood** team.
+**Creator:** [Royalpuskar](https://github.com/Royalpuskar) and the Brootherhood team  
+**Competition:** Horizon 2026 · Crack the Egg · Web Development  
+**Subtheme:** Interactive Learning Through Visualization and Simulation  
+**Mission:** More inclusive, practical, engaging learning
 
-## Project links
-
-- **Website:** https://royalpuskar.github.io/BROOTHERHOOD/
-- **GitHub repository:** https://github.com/Royalpuskar/BROOTHERHOOD
-- **Automated tests:** https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml
+**Website:** https://royalpuskar.github.io/BROOTHERHOOD/  
+**Repository:** https://github.com/Royalpuskar/BROOTHERHOOD  
+**CI:** https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml
 
 ---
 
 <div align="center">
 
-**BROOTHERHOOD · EXPLORE TOGETHER · LEARN FORWARD**
+### THE CHARACTER GUIDES. THE ENVIRONMENT TEACHES. THE STUDENT DISCOVERS.
 
-© 2026 Puskar · Brootherhood. All rights reserved.
+**BROOTHERHOOD · GUIDED BY DISCOVERY**
+
+© 2026 Puskar · Brootherhood. All rights reserved. Third-party software retains its respective licenses.
 
 </div>

@@ -2,101 +2,86 @@
 
 # BROOTHERHOOD
 
-### GUIDED BY DISCOVERY
+## ENTER THE DIGITAL UNIVERSE
 
-**A cinematic learning universe where curiosity leads the way.**
+**THINK. BUILD. SECURE. INNOVATE.**
 
 **HORIZON 2026 · CRACK THE EGG · SDG 4: QUALITY EDUCATION**
 
-### [ENTER THE WEBSITE](https://royalpuskar.github.io/BROOTHERHOOD/)
+### [EXPLORE THE LIVE DIGITAL UNIVERSE](https://royalpuskar.github.io/BROOTHERHOOD/)
 
-[Explore the source code](https://github.com/Royalpuskar/BROOTHERHOOD) · [Quality checks](https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml)
+[Source code](https://github.com/Royalpuskar/BROOTHERHOOD) · [Quality checks](https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml) · [Original discovery labs](https://royalpuskar.github.io/BROOTHERHOOD/legacy/)
 
 </div>
 
 ---
 
-## The vision
+## The experience
 
-Every mind has the power to discover. But not every learner thrives through memorization, lectures, or static diagrams.
+**Brootherhood** is an original, cinematic Informatics education experience that helps learners explore programming, cybersecurity, machine learning, networking and software engineering. It was designed for the **Horizon 2026 — Crack the Egg** responsive website competition under the theme of interactive digital learning through visualizations and simulations.
 
-**Brootherhood** transforms foundational concepts into a personal exploration experience: a walking 3D human-style guide, three floating educational worlds, interactive experiments, and meaningful challenges that reward understanding rather than speed.
+Instead of passive lessons, Brootherhood offers meaningful, interactive decisions with real calculations and immediate educational feedback, supporting the vision of **SDG 4: inclusive, quality education**.
 
-Designed for the **Horizon 2026 — Crack the Egg** responsive web development competition, the project addresses the official theme of **interactive digital learning through visualization and simulation**, supporting the ambitions of **SDG 4: Quality Education**.
+An **original articulated 3D explorer** welcomes visitors to a futuristic environment of floating digital platforms, neon code holograms, network constellations and glowing architectural islands. The explorer uses a procedural joint hierarchy and responsive gestures in a live Three.js scene. It is a stylized 3D character, not a photorealistic imported rigged GLB model; its dialogue is context-aware and prewritten, not a falsely advertised conversational AI.
 
-## The 3D guided journey
+## Five interactive Informatics worlds
 
-A stylized, articulated, original 3D explorer walks through a floating learning environment. As visitors progress through the story, a responsive camera follows the experience and introduces three worlds:
+| World | Subject | Working educational interaction |
+|:---|:---|:---|
+| **Code Lab** | Programming and algorithms | Edit and run real beginner JavaScript in a disposable, time-limited browser worker. Solve variables, conditionals and loop challenges, see console output and get feedback. |
+| **Cyber Defense Arena** | Cybersecurity and digital safety | Examine fictional phishing, password reuse, and unsolicited MFA scenarios. Choose a defensive response and receive reviewed explanations. No real accounts or targets. |
+| **Artificial Intelligence Core** | Machine learning | Use a working k-nearest-neighbors (kNN) algorithm on tiny labeled synthetic data, adjust the feature and neighbor count, add training examples and inspect actual class votes. |
+| **Network Nexus** | Networking and Internet basics | Follow a simulated browser → DNS → router → server packet journey, inspect each role and answer a networking question. Documentation-only addresses are used. |
+| **Builders' Realm** | Software engineering | Assemble a frontend → API → database stack from interactive components and get architecture feedback. |
 
-| World | Discovery | Real experiment |
-| --- | --- | --- |
-| **01 · Fraction Playground** | Turn equal parts into a visual understanding of percentages | Adjust numerator and denominator; solve a half-of-a-whole challenge |
-| **02 · Electricity Studio** | See how current responds to changes in voltage and resistance | Adjust an idealized circuit; reach a target current |
-| **03 · Eco Choices** | Explore how hypothetical transport decisions change a scenario | Compare car and bus trips under explicitly assumed emissions values |
+**Brootherhood Digital Missions** connect these activities with five locally stored achievements. Successful challenges are validated against deterministic learning objectives, and the explorer reacts to student progress. Completed worlds and a rank appear in the learner's private Discovery Passport.
 
-The 3D scene includes original geometric learning artifacts, illuminated floating platforms, atmospheric particles, lighting, articulated character movement, and responsive rendering. The 3D view is an enhancement: **the educational tools remain usable with 3D unavailable or disabled**.
+## Digital world and accessibility
 
-## BROOTHERHOOD Discovery Engine
+- Responsive, layered 3D visual style for phones, tablets, laptops and large 4K-class monitors.
+- Real-time Three.js geometry, animated human-style guide, floating islands, neon holograms and a stylized cyber network environment.
+- Adaptive WebGL resolution, pause motion control, automatic visibility-based animation pause and reduced-motion fallback.
+- All core content remains usable **without** Three.js, JavaScript-powered 3D or high-end graphics.
+- Semantic landmarks, screen-reader feedback, keyboard-operable controls, descriptive labels and clear navigation.
+- Original visual geometry and CSS design rather than an instant website template.
 
-Nine educational challenges across the three worlds, at three difficulty levels:
+**Quality note:** High-resolution layout support does not mean every device is forced to render 3D at native 4K resolution. Rendering is deliberately capped to protect mobile performance.
 
-- **Starter** — Introduce the core concept.
-- **Explorer** — Apply the concept to a more challenging example.
-- **Master** — Solve a multistep reasoning case.
+## Privacy, security and educational limits
 
-Each challenge includes a learning objective, hint, validated answer, explanation, reflection prompt, and local achievement progress.
+No accounts, email collection, analytics, tracking scripts, ad networks or remote user databases are used. Mission achievements are stored locally in the visitor's own browser. The application does not send them to a server.
 
-**Discovery titles:** New Explorer · First Spark · Curious Explorer · Trailblazer · Master of Discovery.
+Code Lab evaluates student-supplied beginner JavaScript in a **separate, short-lived Web Worker** with a time limit and blocked network/system API patterns. This is suitable for small educational exercises, **not** a security-hardened sandbox for adversarial code or a general-purpose cloud code execution service.
 
-The guide responds with contextual captions and animated gestures when students explore, try again, or complete a challenge. This is a **deterministic, reviewed educational guide**, not an unimplemented conversational AI service.
+Cybersecurity lessons are defensive and confined to simulated data. The kNN classifier uses explicitly synthetic examples and should not be mistaken for a production ML service. The network teaching model sends no real packet traffic. Builders' Realm illustrates application architecture rather than provisioning a real database.
 
-## Designed for everyone
+The optional 3D renderer loads a version-pinned Three.js dependency from jsDelivr; licensing is acknowledged in [third-party notices](THIRD_PARTY_NOTICES.md). The original browser-based mathematics, electricity and sustainability learning labs remain preserved in the [Legacy Discovery Labs](legacy/) archive.
 
-- Responsive layouts for mobile, tablet, laptop, and large displays.
-- Real interactive laboratory controls, working navigation, and keyboard access.
-- Reduced-motion preference support, accessible text alternatives, labels, and feedback.
-- Rendering scaled to device capabilities rather than forcing 4K GPU resolution.
-- Progress saved on the learner's own device, without registration or cloud accounts.
-- No analytics, marketing trackers, or third-party advertisements.
+## Technology
 
-## Engineering
-
-| Layer | Implementation |
-| --- | --- |
-| Website | HTML5, responsive CSS3, modular JavaScript |
-| Cinematic 3D | Three.js with original procedurally articulated character and environment |
-| Core learning simulations | Pure and unit-tested JavaScript models |
-| Discovery Engine | Deterministic challenge validation, hints, explanations, and private local achievements |
-| Quality | Node.js built-in tests and GitHub Actions |
-| Delivery | GitHub Pages static website |
-| Accessibility | Semantic navigation, keyboard-operable interactions, reduced-motion fallbacks |
-
-The 3D enhancement loads a version-pinned Three.js module from jsDelivr when WebGL and motion preferences allow. The 2D labs do not depend on this external resource. Original on-page graphics and the explorer geometry are authored for this project.
-
-## Responsible educational design
-
-The electrical experience demonstrates an idealized circuit using **Ohm's law**. The environmental experience uses **hypothetical coefficients**, not real-world measured transport emissions. These scenarios are designed for learning and should not be used as scientific measurement or engineering guidance.
-
-No private data or identity information is requested. Progress and achievements are stored locally in the browser.
-
-## Project
-
-**Creator:** [Royalpuskar](https://github.com/Royalpuskar) and the Brootherhood team  
-**Competition:** Horizon 2026 · Crack the Egg · Web Development  
-**Subtheme:** Interactive Learning Through Visualization and Simulation  
-**Mission:** More inclusive, practical, engaging learning
+| Layer | Technology |
+|:---|:---|
+| Interface | Semantic HTML5, responsive CSS3, native browser interactions |
+| 3D environment | Three.js, procedural geometry, articulated character and WebGL |
+| Code runner | Dedicated disposable JavaScript Web Worker |
+| Informatics simulations | Dependency-free JavaScript models and validation |
+| Learning progress | Browser localStorage |
+| Quality assurance | Node.js built-in test runner and GitHub Actions |
+| Hosting | GitHub Pages with automatic deployment workflow |
 
 **Website:** https://royalpuskar.github.io/BROOTHERHOOD/  
 **Repository:** https://github.com/Royalpuskar/BROOTHERHOOD  
-**CI:** https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml
+**Automated test results:** https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml  
+**Competition:** Horizon 2026, web development, SDG 4  
+**Created by:** [Royalpuskar](https://github.com/Royalpuskar) and the Brootherhood team.
 
 ---
 
 <div align="center">
 
-### THE CHARACTER GUIDES. THE ENVIRONMENT TEACHES. THE STUDENT DISCOVERS.
+### ENTER AS AN EXPLORER. LEAVE AS A BUILDER.
 
-**BROOTHERHOOD · GUIDED BY DISCOVERY**
+**BROOTHERHOOD · THINK. BUILD. SECURE. INNOVATE.**
 
 © 2026 Puskar · Brootherhood. All rights reserved. Third-party software retains its respective licenses.
 

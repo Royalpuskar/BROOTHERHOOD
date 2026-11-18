@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#080e1c">
+<meta name="description" content="BROOTHERHOOD Studio — a desktop-style multilingual programming workspace with real C, C++, Java, Rust, Python and many other compilers when connected to a Judge0 service.">
+<title>BROOTHERHOOD Studio | Code, Compile, Run</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./studio.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css">
+</head>
+<body>
+<a class="skip" href="#code-source">Skip to code editor</a>
+<div class="studio-shell">
+<header class="studio-header">
+ <a class="studio-logo" href="../" title="Return to BROOTHERHOOD">
+  <span class="studio-logo-mark" aria-hidden="true">◈</span>
+  <span><strong>BROOTHERHOOD</strong><small>PRO DEVELOPER STUDIO</small></span>
+ </a>
+ <div class="studio-header-center"><span class="crumb">Workspace</span><span class="crumb-slash">/</span><b id="active-project-name">My First Program</b></div>
+ <div class="studio-header-actions">
+  <span class="event-tag">HORIZON 2026</span>
+  <a href="../#programming-academy" class="nav-link">Learning Academy</a>
+  <a href="../" class="nav-link">Home ↗</a>
+ </div>
+</header>
+<div class="studio-topbar">
+ <div class="studio-topbar-left">
+  <span class="editor-dot" aria-hidden="true"></span><label for="language-select">Language</label>
+  <select id="language-select" aria-label="Programming language"></select>
+  <label class="compiler-label" for="compiler-select">Compiler</label>
+  <select id="compiler-select" aria-label="C and C++ compiler"><option value="gcc">GCC</option><option value="clang">Clang</option></select>
+ </div>
+ <div class="studio-topbar-right">
+  <span id="connection-state" class="connection-state" role="status"><i aria-hidden="true"></i> Checking compiler...</span>
+  <button id="btn-connect" class="btn subtle" type="button" aria-controls="compiler-configuration">Compiler settings <span aria-hidden="true">⚙</span></button>
+  <button id="btn-test" class="btn secondary" type="button" title="Run current code and check challenge output">✓ Test challenge</button>
+  <button id="btn-run" class="btn run" type="button" title="Compile and execute the active file (Ctrl or Cmd + Enter)">▶ Compile &amp; Run</button>
+  <button id="btn-stop" class="btn warning" type="button" hidden>■ Stop</button>
+ </div>
+</div>
+<details id="compiler-configuration" class="compiler-config">
+ <summary>Real compiler configuration and network disclosure</summary>
+ <div class="config-grid">
+  <div><label for="compiler-endpoint">Judge0-compatible compiler service</label><input id="compiler-endpoint" type="url" value="https://ce.judge0.com" autocomplete="off" spellcheck="false"><small>Uses the Judge0 community demo by default. Its availability, rate limits, CORS and supported languages can change. You may connect your own Judge0 server. No secret API keys are embedded.</small></div>
+  <div><label for="compiler-options">Optional C/C++ compiler flags</label><input id="compiler-options" type="text" placeholder="e.g. -std=c++17 -Wall" maxlength="120" spellcheck="false"><small>Source code and standard input are sent to the selected external compiler only when you click Run or Test. Don't submit passwords or confidential code.</small></div>
+  <div class="config-controls"><button id="btn-check-compiler" class="btn secondary" type="button">Connect &amp; detect languages</button><button id="btn-reset-endpoint" class="btn subtle" type="button">Use community demo</button><span id="config-result" aria-live="polite">No API key required for the community demo if available.</span></div>
+ </div>
+</details>
+<div class="studio-layout">
+ <aside class="sidebar" aria-label="Project explorer">
+  <div class="side-heading"><span class="side-eyebrow">PROJECT EXPLORER</span><button id="btn-new" type="button" class="icon-button" title="New source file" aria-label="New source file">＋</button></div>
+  <div class="project-name">◢ <b>MY PROGRAMS</b><span id="file-count" aria-label="Number of files">2</span></div>
+  <div id="file-tree" class="file-tree" role="group" aria-label="Project files"></div>
+  <div class="file-tools"><button id="btn-rename" type="button">Rename</button><button id="btn-delete" type="button">Delete</button></div>
+  <div class="side-heading"><span class="side-eyebrow">QUICK START TEMPLATES</span></div>
+  <div id="template-list" class="template-list" aria-label="Programming starter templates"></div>
+  <div class="sidebar-bottom"><p><span class="status-spark">✳</span> Code stays in your browser until you run it.</p><button id="btn-export" type="button">↓ Download project JSON</button><label for="project-import" class="import-label">↑ Import project JSON</label><input id="project-import" type="file" accept=".json,application/json" hidden></div>
+ </aside>
+ <section class="code-workspace" aria-label="Source code workspace">
+   <div class="editor-tabs"><div id="open-tabs" class="tabs-scroller" role="tablist" aria-label="Open source files"></div><span class="editor-meta">● Autosaved locally</span></div>
+   <div class="editor-subbar"><span id="editor-filename">main.cpp</span><span class="editor-subbar-right"><span id="editor-lang">C++</span><span id="editor-length">0 chars</span><span class="shortcut">⌘/Ctrl + Enter to run</span></span></div>
+   <div id="editor-region" class="editor-region"><div id="cm-host" aria-hidden="true"></div><label for="code-source" class="screenreader-only">Code editor</label><textarea id="code-source" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" rows="18" aria-label="Source code editor">#include &lt;iostream&gt;
+int main() { std::cout &lt;&lt; "Hello"; }</textarea></div>
+   <div class="editor-bottom"><div><span class="editor-ready">◉</span><span id="editor-status">Editor ready</span></div><div><button id="btn-copy" type="button">Copy</button><button id="btn-download" type="button">Download file</button><button id="btn-reset" type="button">Reset template</button></div></div>
+   <div class="dock">
+    <div class="dock-header"><div role="tablist" aria-label="Result panels" class="dock-tabs"><button type="button" class="dock-tab selected" data-dock="output" role="tab" aria-selected="true">OUTPUT</button><button type="button" class="dock-tab" data-dock="compiler" role="tab" aria-selected="false">COMPILER</button><button type="button" class="dock-tab" data-dock="tests" role="tab" aria-selected="false">TEST RESULTS</button></div><button id="btn-clear" type="button" class="dock-clear">Clear ⨯</button></div>
+    <div class="dock-screen" role="tabpanel" id="dock-output"><pre id="output-text" aria-live="polite">Ready to compile. Pick a language and press Compile & Run.
+
+C++ example:
+  Standard input: 3 4
+  Expected output: Sum: 7</pre></div>
+    <div class="dock-screen" role="tabpanel" id="dock-compiler" hidden><pre id="compiler-text" aria-live="polite">Compiler messages and errors appear here after a run.</pre></div>
+    <div class="dock-screen" role="tabpanel" id="dock-tests" hidden><pre id="test-text" aria-live="polite">Select a challenge on the right, then choose Test challenge.</pre></div>
+    <div class="dock-stats"><span id="run-status">● Ready</span><span id="execution-time">Time —</span><span id="execution-memory">Memory —</span><span id="execution-exit">Exit —</span></div>
+   </div>
+ </section>
+ <aside class="learning-rail" aria-label="Learning and input">
+  <div class="rail-head"><span class="side-eyebrow">BUILD • RUN • UNDERSTAND</span><h1>Code like a <em>developer.</em></h1><p>Real source code, real compiler diagnostics, real output.</p></div>
+  <section class="rail-card stdin-card"><div class="rail-card-head"><span>⌨</span><h2>Standard Input (stdin)</h2></div><p>For <code>cin</code>, <code>scanf</code>, <code>input()</code>, or <code>Scanner</code>. Enter the values your program reads.</p><label class="screenreader-only" for="stdin-text">Standard input for running your program</label><textarea id="stdin-text" rows="4" spellcheck="false" placeholder="3 4"></textarea></section>
+  <section class="rail-card problem-card"><div class="rail-card-head"><span>🎯</span><h2>Code Challenges</h2></div><label for="problem-select">Choose a problem</label><select id="problem-select"></select><h3 id="problem-title">Add two numbers</h3><p id="problem-statement">Read two integers and print their sum.</p><div class="sample-grid"><div><span>Sample stdin</span><pre id="problem-input">3 4</pre></div><div><span>Expected output</span><pre id="problem-output">Sum: 7</pre></div></div><button id="btn-load-problem" type="button" class="btn rail-load">Load sample input</button><details class="hint-details"><summary>Show a helpful hint</summary><p id="problem-hint"></p></details></section>
+  <section class="rail-card rail-progress"><div class="rail-card-head"><span>◆</span><h2>Your Developer Progress</h2></div><p id="challenge-progress">0 solved challenges on this device</p><div class="progress-track"><div id="challenge-bar"></div></div><p class="note">Practice achievements are recorded locally. Results from external compilers may vary by service.</p></section>
+  <div class="rail-note"><strong>Real compiler, honest status.</strong><p>We don't pretend that a static website contains GCC. C/C++, Java, Rust and more are compiled by a connected Judge0 service. If it is unavailable, the Studio shows the failure rather than inventing output.</p></div>
+ </aside>
+</div>
+<footer class="studio-footer"><span>◈ BROOTHERHOOD STUDIO · <b>© 2026 Puskar</b></span><span>Single-file compilation · 19 languages · Private workspace</span><span>Made for learners and builders · SDG 4</span></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/clike/clike.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/rust/rust.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/go/go.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/shell/shell.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/sql/sql.min.js" defer></script>
+<script type="module" src="./studio.js"></script>
+</body>
+</html>

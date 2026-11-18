@@ -72,3 +72,8 @@
 .lab-guide-badge{color:#d7f46b;font-size:10px;letter-spacing:.12em;font-weight:900;white-space:nowrap}
 .lab-guide-row p{margin:0;color:#e5f6e7;font-size:12px;line-height:1.65}
 @media(max-width:600px){.lab-guide-row{align-items:flex-start;flex-direction:column;gap:6px}}
+
+.guide-intro-buttons{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:8px}
+.guide-intro-buttons .guide-enter{margin:0;padding:8px 0;font-size:12px}
+.guide-intro-buttons .guide-skip{color:#b9d2d2;border-bottom-color:#769497}
+@media(max-width:650px){.guide-intro-buttons{gap:14px}.guide-intro-buttons .guide-enter{font-size:10px}}

@@ -11,14 +11,14 @@ test('every committed website module has valid JavaScript syntax',()=>{
   }
 });
 test('cinematic journey and discovery mission controls are present and accessible',()=>{
-  const html=text('index.html');
+  const html=text('legacy/index.html');
   for(const id of ['journey','guide-canvas','guide-caption','guide-render-toggle','discovery-engine','discovery-world-buttons','discovery-difficulty','discovery-answer','discovery-check','discovery-hint-button','discovery-next','discovery-score','lab-guide-message']){
     if(id==='discovery-world-buttons') { assert.match(html,/class="discovery-world-buttons"/); continue; }
     assert.ok(html.includes('id="'+id+'"'),id+' must be present in the HTML');
   }
   assert.match(html,/Skip the journey/);
   assert.match(html,/aria-live="polite"/);
-  assert.match(html,/href="\.\/styles-guide\.css"/);
+  assert.ok(html.includes('href="../styles-guide.css"'));
 });
 test('deployment includes all required guide and discovery resources',()=>{
   const pages=text('.github/workflows/pages.yml');

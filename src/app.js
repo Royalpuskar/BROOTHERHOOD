@@ -107,7 +107,7 @@ $$('#mobile-nav a').forEach(link => link.addEventListener('click', () => {
 }));
 renderFractions(); renderCircuit(); renderEco(); updatePassport();
 if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
-  window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+  window.addEventListener('load', () => navigator.serviceWorker.register(new URL('../sw.js', import.meta.url)).catch(() => {}));
 }
 
 // A subtle depth effect is available for pointer devices. Keyboard and reduced-motion users

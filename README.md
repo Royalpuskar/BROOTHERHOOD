@@ -10,6 +10,7 @@
 
 ### [EXPLORE THE LIVE DIGITAL UNIVERSE](https://royalpuskar.github.io/BROOTHERHOOD/)
 
+**Open Horizon Connect:** https://royalpuskar.github.io/BROOTHERHOOD/horizon/  
 **Open Pro Code Studio:** https://royalpuskar.github.io/BROOTHERHOOD/studio/  
 **Programming Academy:** https://royalpuskar.github.io/BROOTHERHOOD/#programming-academy
 
@@ -18,6 +19,20 @@
 </div>
 
 ---
+
+## Horizon Connect — integrated smart event platform
+
+### [OPEN HORIZON CONNECT DASHBOARD](https://royalpuskar.github.io/BROOTHERHOOD/horizon/)
+
+The independent BROOTHERHOOD Horizon concept now includes a connected **12-feature event application**, not only an animation or an academic assignment mock-up: bilingual Horizon guide (server-connected Gemini or explicit FAQ fallback), event schedule, signed-QR registration and one-time attendance, cybersecurity challenges, innovation expo submissions/voting, polling, live-point leaderboard, opt-in student networking, explainable career guidance, campus location links, verifiable PDF certificates and a role-protected admin console.
+
+- **Front end:** a 4K-responsive dark/light event dashboard with accessible navigation, learning modules and floating visual art.
+- **Backend:** FastAPI / Python, MySQL via SQLAlchemy in production, Argon2 password storage, signed access and QR tokens, role-based routes, validated inputs, server-driven voting and attendance.
+- **Real outputs:** PDF certificate generation, QR pass SVG, downloadable admin CSV, announcement publishing, polling results and database-backed event statistics.
+- **AI:** optional Gemini server integration only when a protected `GEMINI_API_KEY` is configured. Otherwise clearly labeled event-FAQ responses are provided.
+- **Live deployment limitation:** GitHub Pages publishes the dashboard and explicit demo examples. The production Python + MySQL service has **not been deployed**, and its features require an independently hosted backend configured through the Dashboard's Backend dialog. No misleading claims of real campus records, university authorization or live event attendance.
+
+[Architecture, production requirements and API installation reference](horizon/DEPLOYMENT.md).
 
 ## The experience
 

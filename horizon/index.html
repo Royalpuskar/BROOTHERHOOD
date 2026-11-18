@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#09142f">
+<meta name="description" content="Horizon Connect by BROOTHERHOOD: event intelligence, cybersecurity, registration, innovation expo, live polling and digital certificates. An independent prototype with explicitly labeled demo data.">
+<title>HORIZON CONNECT | BROOTHERHOOD</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="./portal.css">
+</head><body data-theme="dark">
+<a class="skip" href="#content">Skip to content</a>
+<div class="portal">
+<header class="mast">
+ <a class="brand" href="../"><span class="brand-mark">✳</span><span><strong>HORIZON CONNECT</strong><small>Powered by BROOTHERHOOD · Independent prototype</small></span></a>
+ <div class="mast-actions"><span id="live-indicator" class="server-status" role="status"><i></i> Demo preview</span><button type="button" id="theme-btn" title="Switch dark and light appearance">☼ Theme</button><button type="button" id="api-btn" title="Connect backend">⚙ Backend</button><button type="button" id="login-btn" class="sign-button">Sign in</button><button type="button" id="logout-btn" hidden>Sign out</button></div>
+</header>
+<div class="portal-grid">
+<aside class="navrail" aria-label="Dashboard navigation">
+ <p class="nav-caption">DISCOVER THE HORIZON</p>
+ <nav id="portal-nav">
+  <a href="#dashboard" class="selected" data-link="dashboard">▦ <span>Overview</span></a>
+  <a href="#assistant" data-link="assistant">✺ <span>Horizon AI Guide</span></a>
+  <a href="#schedule" data-link="schedule">▤ <span>Live Schedule</span></a>
+  <a href="#registration" data-link="registration">▣ <span>QR Attendance</span></a>
+  <a href="#cyber" data-link="cyber">⛨ <span>Cybersecurity Arena</span></a>
+  <a href="#expo" data-link="expo">◈ <span>Innovation Expo</span></a>
+  <a href="#polls" data-link="polls">◉ <span>Live Polls</span></a>
+  <a href="#leaderboard" data-link="leaderboard">🏆 <span>Leaderboard</span></a>
+  <a href="#connect" data-link="connect">⌁ <span>Horizon Connect</span></a>
+  <a href="#careers" data-link="careers">◇ <span>Career Guidance</span></a>
+  <a href="#navigation" data-link="navigation">⌖ <span>Campus Navigation</span></a>
+  <a href="#certificate" data-link="certificate">✦ <span>Certificates</span></a>
+  <a href="#admin" data-link="admin" id="admin-link" hidden>⚙ <span>Admin Control</span></a>
+ </nav>
+ <div class="nav-bottom"><p>EXPLORE MORE</p><a href="../studio/">▶ Pro Code Studio</a><a href="../#programming-academy">⌘ Programming Academy</a><a href="../">← Digital Universe</a></div>
+</aside>
+<main class="main" id="content">
+ <section class="welcome" id="dashboard" aria-labelledby="welcome-title">
+  <div class="welcome-copy"><span class="kicker">THE FUTURE OF CONNECTED CAMPUS EVENTS</span><h1 id="welcome-title">One platform.<br><em>Infinite possibilities.</em></h1><p>A smarter digital experience connecting students, lecturers, organizers, visitors and communities through interactive technology.</p><div class="welcome-actions"><a href="#schedule" class="primary-link">Explore event schedule ↗</a><a href="../studio/" class="outline-link">Open Code Studio</a></div><small>Independent BROOTHERHOOD competition concept. Not an official university service.</small></div>
+  <div class="welcome-holo" aria-hidden="true"><div class="halo-ring r1"></div><div class="halo-ring r2"></div><div class="holo-core">◈</div><div class="holo-tile t1">AI</div><div class="holo-tile t2">SECURE</div><div class="holo-tile t3">CODE</div></div>
+ </section>
+ <div class="demo-banner" id="demo-banner"><strong>DEMONSTRATION / NO LIVE SERVER</strong><span>Displayed event entries are fictional examples, not confirmed UMN event schedules. Connect the Horizon backend to enable secure multiuser actions.</span></div>
+ <section class="metrics" aria-label="Live event summary"><div><span>Active events</span><strong id="metric-events">3</strong><small>Published schedule entries</small></div><div><span>Registrations</span><strong id="metric-registrations">—</strong><small>Registered participants</small></div><div><span>QR check-ins</span><strong id="metric-checkins">—</strong><small>Verified attendance</small></div><div><span>Approved projects</span><strong id="metric-expo">2</strong><small>Innovation exhibits</small></div></section>
+ <div class="feature-tiles" aria-label="Feature shortcuts">
+  <a href="#assistant"><span>✳</span><b>Horizon Assistant</b><small>English &amp; Bahasa</small></a><a href="#registration"><span>▣</span><b>Smart QR</b><small>Secure attendance</small></a><a href="#cyber"><span>⛨</span><b>Cyber Challenge</b><small>Earn real points</small></a><a href="#expo"><span>◈</span><b>Innovation Expo</b><small>Student projects</small></a><a href="#leaderboard"><span>🏆</span><b>Leaderboard</b><small>Live rankings</small></a><a href="#navigation"><span>⌖</span><b>Campus Guide</b><small>Find the campus</small></a>
+ </div>
+
+ <section class="module" id="assistant"><div class="module-heading"><div><p class="kicker">01 / HORIZON AI GUIDE</p><h2>Ask. Discover. Navigate.</h2><p>Event questions, bilingual help and verified information. Gemini operates only when the server has an authorized API key.</p></div><span class="module-icon">✺</span></div>
+  <div class="assistant-box"><div id="chat-transcript" class="chat-transcript" aria-live="polite"><div class="chat-bubble bot"><b>Horizon Guide</b><p>Hello! Ask me about the event schedule, registration or venue. Halo! Silakan bertanya tentang jadwal, pendaftaran, atau lokasi.</p></div></div><form id="chat-form" class="chat-form"><label for="chat-language">Language</label><select id="chat-language"><option value="en">English</option><option value="id">Bahasa Indonesia</option></select><input id="chat-question" type="text" minlength="3" maxlength="650" placeholder="Where can I register?" required><button type="submit">Send ↗</button></form><p class="hint" id="chat-mode">When disconnected, only an explicit FAQ preview is available.</p></div>
+ </section>
+
+ <section class="module" id="schedule"><div class="module-heading"><div><p class="kicker">02 / LIVE EVENT DASHBOARD</p><h2>The pulse of Horizon.</h2><p>Organizers publish the schedule and announcements. Connected dashboards refresh automatically.</p></div><span class="module-icon">▤</span></div>
+  <div class="dual-layout"><div class="surface"><h3>Event schedule</h3><div id="event-list" class="event-list"></div></div><div class="surface"><h3>Announcements</h3><div id="announcement-list" class="announcements"></div><p class="hint">Sample entries and unconfirmed venues are clearly marked.</p></div></div>
+ </section>
+
+ <section class="module" id="registration"><div class="module-heading"><div><p class="kicker">03 / QR REGISTRATION</p><h2>One pass. One verified check-in.</h2><p>Authenticated registrations generate a signed QR pass; only organizer/admin accounts can verify attendance.</p></div><span class="module-icon">▣</span></div>
+  <div class="dual-layout"><div class="surface"><h3>Your event passes</h3><p class="hint">Sign in, choose an event and select Register to create a digital pass.</p><div id="my-registrations"></div></div><div class="surface"><h3>Organizer QR scanner</h3><p>Paste a pass token to check in a participant. Camera scanning is optional where supported; server verification rejects duplicates.</p><form id="checkin-form"><label for="checkin-token">Signed QR pass token</label><textarea id="checkin-token" rows="3" placeholder="Paste the QR token" required></textarea><button type="submit">Verify &amp; check in</button></form><p class="response" id="checkin-result" role="status"></p></div></div>
+ </section>
+
+ <section class="module" id="cyber"><div class="module-heading"><div><p class="kicker">04 / CYBERSECURITY CHALLENGE</p><h2>Identify threats. Earn confidence.</h2><p>Practice defending accounts from phishing, MFA abuse and password risks. Correct first-time solves earn server-verified points.</p></div><span class="module-icon">⛨</span></div><div class="surface"><div id="challenge-list" class="challenge-list"></div></div>
+ </section>
+
+ <section class="module" id="expo"><div class="module-heading"><div><p class="kicker">05 / INNOVATION EXPO</p><h2>Ideas worth showcasing.</h2><p>Submit a student project for organizer review. Verified accounts can vote once per approved project.</p></div><span class="module-icon">◈</span></div><div id="expo-list" class="expo-grid"></div><div class="surface spaced"><h3>Submit your innovation</h3><form id="project-form" class="field-grid"><label>Project title<input name="title" required maxlength="140"></label><label>Category<select name="category"><option>Software</option><option>AI</option><option>Robotics</option><option>Multimedia</option></select></label><label class="full">Description<textarea name="description" minlength="15" maxlength="700" required></textarea></label><label class="full">Project link (optional)<input type="url" name="project_url" placeholder="https://github.com/..."></label><button type="submit">Submit for approval</button></form><p class="response" id="project-response"></p></div></section>
+
+ <section class="module" id="polls"><div class="module-heading"><div><p class="kicker">06 / LIVE AUDIENCE POLLING</p><h2>Give the audience a voice.</h2><p>One authenticated vote per poll; public results update from the server. Anonymous personal feedback is separate from vote totals.</p></div><span class="module-icon">◉</span></div><div id="poll-list" class="poll-grid"></div></section>
+
+ <section class="module" id="leaderboard"><div class="module-heading"><div><p class="kicker">07 / HORIZON LEADERBOARD</p><h2>Progress you can prove.</h2><p>Points are awarded by server-validated actions, not by editable browser counters. Public names are anonymized.</p></div><span class="module-icon">🏆</span></div><div class="surface"><div id="leaderboard-list" class="leaderboard-list"></div></div></section>
+
+ <section class="module" id="connect"><div class="module-heading"><div><p class="kicker">08 / HORIZON CONNECT</p><h2>Find your future collaborators.</h2><p>Discover opt-in student profiles and interest-based communities. Private profiles are never publicly listed.</p></div><span class="module-icon">⌁</span></div><div class="dual-layout"><div class="surface"><h3>Communities</h3><div id="community-list"></div></div><div class="surface"><h3>Student connections</h3><div id="profile-list"></div><form id="profile-form"><label for="profile-interests">Your interests (comma separated)</label><input id="profile-interests" placeholder="AI, Cybersecurity, Web Development"><label class="checkline"><input id="public-profile" type="checkbox"> Make my name and interests discoverable</label><button type="submit">Update privacy settings</button></form><p class="response" id="profile-response"></p></div></div></section>
+
+ <section class="module" id="careers"><div class="module-heading"><div><p class="kicker">09 / SMART CAREER GUIDANCE</p><h2>Choose a path. Build your skills.</h2><p>Explore explainable skills-based recommendations. The current model is transparent rules rather than pretending to be an AI prediction.</p></div><span class="module-icon">◇</span></div><div class="surface"><form id="career-form" class="inline-form"><label for="career-interests">Technical interests</label><input id="career-interests" required placeholder="Cybersecurity, Python, Networks" value="Cybersecurity, Python"><button type="submit">Explore career paths</button></form><div id="career-results" class="career-grid"></div></div></section>
+
+ <section class="module" id="navigation"><div class="module-heading"><div><p class="kicker">10 / SMART CAMPUS NAVIGATION</p><h2>Arrive with confidence.</h2><p>Verified campus location and organizer-entered venues. Indoor room positions are shown as unverified until official floorplans are supplied.</p></div><span class="module-icon">⌖</span></div><div class="dual-layout"><div class="surface"><h3>Universitas Multimedia Nusantara</h3><p id="campus-address">Scientia Boulevard, Gading Serpong, Tangerang, Banten, Indonesia.</p><a href="https://www.google.com/maps/search/?api=1&amp;query=Universitas+Multimedia+Nusantara+Gading+Serpong" target="_blank" rel="noopener noreferrer" id="campus-map-link" class="primary-link">Open campus map ↗</a><p class="hint">This independent concept does not use official university logos or imply university endorsement.</p></div><div class="surface"><h3>Event destinations</h3><div id="location-list"></div></div></div></section>
+
+ <section class="module" id="certificate"><div class="module-heading"><div><p class="kicker">11 / DIGITAL CERTIFICATES</p><h2>A record of participation.</h2><p>Certificates are created only after verified attendance, with a server-issued ID and a QR verification link.</p></div><span class="module-icon">✦</span></div><div class="dual-layout"><div class="surface"><h3>My certificates</h3><div id="certificate-list"><p>Sign in and complete a verified event check-in before requesting a certificate.</p></div></div><div class="surface"><h3>Verify certificate</h3><form id="verify-form"><label for="verify-id">Certificate UUID</label><input id="verify-id" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" required><button type="submit">Verify authenticity</button></form><p id="verification-result" class="response" role="status"></p></div></div></section>
+
+ <section class="module" id="admin" hidden><div class="module-heading"><div><p class="kicker">12 / ADMINISTRATOR DASHBOARD</p><h2>Responsible event operations.</h2><p>Organizer and administrator roles control verified attendance, schedules, announcements, polls and reports.</p></div><span class="module-icon">⚙</span></div>
+  <div class="surface"><h3>Administrative analytics</h3><div id="admin-stats" class="mini-stats"></div><a id="export-csv" href="#" class="outline-link" role="button">Download attendance CSV</a></div>
+  <div class="dual-layout spaced"><div class="surface"><h3>Publish announcement</h3><form id="announcement-form"><textarea name="text" maxlength="500" placeholder="Share a verified update" required></textarea><button type="submit">Publish announcement</button></form><p id="admin-announcement-result" class="response"></p></div><div class="surface"><h3>Create live poll</h3><form id="poll-create-form"><label>Question<input name="question" required></label><label>Options (one per line)<textarea name="options" required placeholder="AI&#10;Cybersecurity&#10;Programming"></textarea></label><button type="submit">Create poll</button></form><p class="response" id="admin-poll-result"></p></div></div>
+  <div class="surface spaced"><h3>Create event</h3><form id="event-create-form" class="field-grid"><label>Title<input name="title" required></label><label>Venue<input name="venue" required></label><label>Start date/time<input type="datetime-local" name="start_at" required></label><label>End date/time<input type="datetime-local" name="end_at" required></label><label>Capacity<input type="number" name="capacity" min="1" max="20000" value="200"></label><label>Category<select name="category"><option>activity</option><option>competition</option><option>expo</option><option>keynote</option></select></label><label class="full">Description<textarea name="description"></textarea></label><button type="submit">Publish event</button></form><p class="response" id="admin-event-result"></p></div>
+ </section>
+
+ <footer class="portal-footer"><span>© 2026 Puskar · BROOTHERHOOD. Independent Horizon event platform concept.</span><span>SDG 4 · Quality Education · No official UMN endorsement claimed</span><a href="../studio/">Open Pro Code Studio</a></footer>
+</main>
+</div></div>
+
+<dialog id="login-modal"><form method="dialog" id="close-modal"><button class="close-btn" type="submit" aria-label="Close dialog">✕</button></form><h2>Join Horizon Connect</h2><p>Use your own account for QR passes, event participation and voting.</p><div class="auth-tabs"><button id="show-login" type="button" class="selected">Sign in</button><button id="show-register" type="button">Create account</button></div><form id="login-form"><label>Email<input type="email" name="email" required autocomplete="username"></label><label>Password<input type="password" name="password" required autocomplete="current-password"></label><button type="submit">Sign in securely</button></form><form id="register-form" hidden><label>Name<input name="name" minlength="2" maxlength="90" required></label><label>Email<input type="email" name="email" required></label><label>Password (12+ characters)<input type="password" name="password" minlength="12" required></label><label>Role<select name="role"><option value="student">Student</option><option value="visitor">Visitor</option></select></label><button type="submit">Create account</button></form><p id="auth-response" role="status"></p></dialog>
+
+<dialog id="backend-modal"><form method="dialog"><button class="close-btn" aria-label="Close connection dialog">✕</button></form><h2>Connect Horizon backend</h2><p>The public GitHub Pages site cannot host Python or MySQL. Connect your deployed API to activate registration, AI, votes, attendance, and live multiuser features.</p><form id="backend-form"><label for="api-url">API origin (HTTPS)</label><input type="url" id="api-url" placeholder="https://your-horizon-api.example" required><button type="submit">Test connection</button></form><p id="backend-result" role="status"></p><small>Do not enter API keys here. Gemini credentials and administrator secrets belong on the server.</small></dialog>
+<script type="module" src="./portal.js"></script>
+</body></html>

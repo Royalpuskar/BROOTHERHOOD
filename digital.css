@@ -315,3 +315,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media(max-width:1050px){.ide-spotlight{grid-template-columns:1fr}.ide-spotlight-preview{max-width:100%;transform:none}.ide-spotlight-copy h2{font-size:clamp(42px,6vw,75px)}}
 @media(max-width:600px){.ide-spotlight{padding:70px 18px;gap:26px}.ide-spotlight-copy h2{font-size:42px}.ide-spotlight-copy>p{font-size:14px}.ide-spotlight-preview pre{font-size:12px}.ide-open-link{width:100%;justify-content:center}.academy-studio-cta{align-items:stretch}.academy-studio-cta a{width:100%;text-align:center}}
 @media(prefers-reduced-motion:reduce){.ide-open-link{transition:none}}
+
+.horizon-platform-spotlight{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(25px,6vw,100px);align-items:center;padding:clamp(65px,8vw,145px) clamp(22px,7vw,145px);background:radial-gradient(circle at 70% 25%,#245c9c66,transparent 48%),linear-gradient(125deg,#040d25,#091b36);border-top:1px solid #50bed950;border-bottom:1px solid #50bed950}
+.horizon-platform-spotlight h2{font-size:clamp(40px,5.5vw,85px);line-height:1.04;letter-spacing:-.07em;margin:18px 0;color:#effaff}
+.horizon-platform-spotlight h2 em{font-weight:400;font-family:Georgia,serif;color:#c4ff81}
+.horizon-platform-spotlight p{color:#c5dbe9;line-height:1.9;font-size:16px;max-width:780px}
+.horizon-platform-spotlight .horizon-reality{border-left:3px solid #c5ff85;padding-left:14px;color:#bad7e2;font-size:12px}
+.horizon-cta{margin-top:23px;display:inline-flex;align-items:center;justify-content:center;min-height:57px;padding:15px 26px;border:1px solid #caff82;background:linear-gradient(110deg,#caff85,#80ead9);border-radius:12px;color:#09262e;font-weight:950;box-shadow:0 0 30px #9ff57b54}
+.horizon-cta:hover{transform:translateY(-3px)}
+.horizon-spotlight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;transform:perspective(1200px) rotateY(-9deg)}
+.horizon-spotlight-grid span{padding:clamp(17px,2vw,28px);display:flex;align-items:center;gap:13px;background:linear-gradient(130deg,#194573e0,#0b254bdc);border:1px solid #7de5f47a;border-radius:15px;font-size:clamp(11px,1vw,16px);font-weight:850;color:#e5f5ff;box-shadow:0 12px 32px #0007,0 0 20px #1abaf327;transition:transform .2s}
+.horizon-spotlight-grid span:nth-child(2n){translate:0 -9px}
+.horizon-spotlight-grid span:hover{transform:translateY(-8px)}
+.horizon-spotlight-grid b{font-size:clamp(25px,3vw,43px);color:#baff78;font-weight:800}
+@media(max-width:1000px){.horizon-platform-spotlight{grid-template-columns:1fr}.horizon-spotlight-grid{transform:none}}
+@media(max-width:620px){.horizon-platform-spotlight{padding:65px 19px}.horizon-platform-spotlight h2{font-size:43px}.horizon-platform-spotlight p{font-size:14px}.horizon-spotlight-grid{gap:8px}.horizon-spotlight-grid span{padding:12px 9px;gap:6px}.horizon-spotlight-grid b{font-size:26px}.horizon-cta{width:100%}}
+@media(prefers-reduced-motion:reduce){.horizon-spotlight-grid span,.horizon-cta{transition:none}}

@@ -1,0 +1,12 @@
+{
+  "name": "brootherhood",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Interactive and accessible discovery labs for Horizon 2026.",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "serve": "npx --yes http-server . -p 4173 -c-1"
+  },
+  "engines": { "node": ">=18" }
+}

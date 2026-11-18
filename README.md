@@ -1,99 +1,83 @@
-# BROOTHERHOOD — Every Mind Can Explore
+<div align="center">
 
-**Horizon 2026 · Crack the Egg · Web Development · SDG 4: Quality Education**
+# BROOTHERHOOD
 
-An original, responsive, English-language learning experience: **three interactive simulations designed to make abstract ideas visible**. Built by the Brootherhood team for learners who benefit from experimenting instead of memorizing.
+### Every Mind Can Explore
 
-## Live website
+**Interactive learning, real understanding, and a more inclusive future.**
 
-**Hosting status:** GitHub Pages workflow is configured, but Pages must be enabled under repository Settings → Pages → Build and deployment → Source: **GitHub Actions**. After a successful deployment, verify the live site at `https://royalpuskar.github.io/BROOTHERHOOD/` before submitting. Netlify and Vercel are alternatives.\n\n**Project download:** [Brootherhood Horizon 2026 ZIP](releases/Brootherhood-Horizon-2026.zip).
+**HORIZON 2026 · CRACK THE EGG · WEB DEVELOPMENT**
 
-## The problem
+**SDG 4 — Quality Education**
 
-Learners have different abilities, backgrounds, resources, and ways of understanding concepts. Passive, text-heavy explanations can exclude visual and exploratory learners. Interactive educational software can make foundational concepts approachable without logins, subscriptions, or expensive equipment.
+[**Explore the Website**](https://royalpuskar.github.io/BROOTHERHOOD/) · [**Explore the Source Code**](https://github.com/Royalpuskar/BROOTHERHOOD) · [**Project Quality Checks**](https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml)
 
-## Our solution
+</div>
 
-Brootherhood is a lightweight, inclusive browser learning lab. Students can adjust variables, see a model respond, and complete a self-check challenge. It works in modern mobile and desktop browsers, with keyboard support and reduced-motion settings.
+---
 
-## Features
+## The idea
 
-- **Fraction Playground:** 2–12 equal parts, interactive numerator and denominator, visual shading, percentage conversion, and a fraction equivalence challenge.
-- **Electricity Studio:** Voltage and resistance sliders, a simple circuit visualization, current and power calculations based on Ohm's law, and a target-current challenge.
-- **Eco Choices:** An illustrative transport-emissions model, car and bus trip controls, a visual emissions meter, and a weekly-goal challenge. **The model uses assumed values and does not claim to represent real-world emissions.**
-- **Discovery Passport:** Local progress tracking, with no registration or personal data sent to a server.
-- **Accessibility:** Semantic navigation, skip link, accessible sliders, keyboard-operable tabs, status announcements, mobile layout, and reduced-motion support.
-- **Offline revisit:** An optional service worker caches the static site on HTTPS after the first successful visit.
-- **Privacy and security:** No trackers, cookies, remote APIs, user accounts, or third-party scripts. Hosting-specific restrictive security headers are included.
+Learning becomes powerful when ideas can be seen, touched, tested, and understood. Yet traditional learning materials often depend on passive reading and memorization, leaving visual and hands-on learners behind.
 
-## Tech stack
+**Brootherhood** addresses that gap with an original, responsive learning experience that turns foundational concepts into interactive experiments. The platform supports more inclusive, engaging learning in line with **United Nations Sustainable Development Goal 4: Quality Education**.
 
-- Semantic **HTML5**, responsive **CSS3**, and modular **vanilla JavaScript**
-- **Node.js** built-in test runner for domain logic
-- **GitHub Actions** for continuous integration
-- Ready for static deployment with **Netlify**, **Vercel**, or **GitHub Pages**
+## Three discovery labs
 
-No off-the-shelf website builder, UI template, runtime dependency, or commercial asset is used.
+| Lab | Learning experience | What learners discover |
+| --- | --- | --- |
+| **Fraction Playground** | Explore parts of a whole with interactive shapes, adjustable values, and equivalent-fraction challenges | Fractions, ratios, percentages, and visual reasoning |
+| **Electricity Studio** | Explore a simplified circuit by changing voltage and resistance | Ohm’s law, current, power, and cause-and-effect |
+| **Eco Choices** | Compare hypothetical transportation choices in an interactive environmental model | How choices affect a simplified emissions indicator |
 
-## Run locally
+Each lab combines **visual experimentation**, **instant feedback**, and **a hands-on learning mission**.
 
-1. Download or clone this repository.
-2. Start any local HTTP server in this directory, for example `python -m http.server 4173` or `npm run serve`.
-3. Open `http://localhost:4173` and use the **Interactive Lab** section.
+## The experience
 
-**Note:** Open through an HTTP server, not a `file://` URL, because browser ES modules require appropriate origin rules.
+- **Floating, high-resolution interface:** Original vector graphics, layered depth, interactive lighting, and motion designed to scale gracefully from phones to 4K desktops.
+- **Discovery Passport:** Private, browser-local progress that celebrates completed missions without user accounts.
+- **Accessible design:** Semantic structure, keyboard controls, helpful labels, and reduced-motion support.
+- **Privacy by design:** No analytics, trackers, external accounts, or third-party scripts.
+- **Offline revisits:** A service worker can retain the static experience after a successful first visit.
 
-## Run tests
+## How it works
 
-```bash
-npm test
-```
+Learners explore the three labs, move the controls to test ideas, observe the changes, and complete each mission. Their achievements appear in the Discovery Passport. The site runs in a modern web browser without an account.
 
-The tests cover fraction calculations, Ohm's law, simplified ecology model, input bounds, and local progress validation.
+## Built with purpose
 
-## Deploy
+| Area | Technology |
+| --- | --- |
+| Interface | Semantic HTML5 and responsive CSS3 |
+| Learning interactions | Modular, dependency-free JavaScript |
+| Verification | Node.js built-in test runner and GitHub Actions |
+| Website delivery | Static deployment through GitHub Pages |
+| Visual identity | Original scalable graphics and CSS-based floating effects |
 
-### Netlify (recommended for simplicity)
+The website is **original work**, not an off-the-shelf website-builder template.
 
-1. Create a free Netlify site from your GitHub repository.
-2. Set the **publish directory** to `.` (repository root), with **no build command**.
-3. Deploy and open the public URL. Test on phone and desktop, including each mission.
-4. Add the verified URL to the repository description, the **Live website** section above, and the Horizon submission form.
+## Beyond the screen
 
-### Vercel
+Brootherhood was created for **Horizon 2026 — Crack the Egg**, responding to the official subtheme on *interactive digital learning through visualization and simulation*. It demonstrates how a focused browser-based tool can encourage curiosity, independent discovery, and wider access to engaging education.
 
-1. Import the repository into Vercel.
-2. Choose **Other** or static site framework, leave **build command** unset, and set output to repository root if asked.
-3. Deploy and verify all interactive cases.
+**Educational note:** The electrical lab presents an idealized DC model. The ecological lab uses illustrative assumed values, not measured real-world CO₂ output. These simulations are educational demonstrations, not engineering or scientific measurement tools.
 
-### GitHub Pages
+## Team
 
-Pages can also serve this project because paths are relative. For production security headers use Netlify or Vercel, since GitHub Pages doesn't apply the included platform configs.
+Created for **Horizon 2026** by [**Royalpuskar**](https://github.com/Royalpuskar) and the **Brootherhood** team.
 
-## Collaboration
+## Project links
 
-- Repository owner: **[@Royalpuskar](https://github.com/Royalpuskar)**
-- Additional team members: add registered teammates as GitHub collaborators through **Settings → Collaborators → Add people**. Each invited collaborator must accept the invitation.
-- Suggested workflow: branch from `main`, open a pull request, run automated tests, and review before merge.
-- Do not publish other participants' names or information without their permission.
+- **Website:** https://royalpuskar.github.io/BROOTHERHOOD/
+- **GitHub repository:** https://github.com/Royalpuskar/BROOTHERHOOD
+- **Automated tests:** https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml
 
-## Contest compliance checklist
+---
 
-- [x] Original English-language responsive web project based on the approved *interactive visualizations and simulations* subtheme
-- [x] Problem statement, purpose, features, technology, and usage documented here
-- [x] Source code and automated tests included
-- [x] No accounts, analytics, or third-party scripts
-- [x] Repository created on GitHub: [Royalpuskar/BROOTHERHOOD](https://github.com/Royalpuskar/BROOTHERHOOD)\n- [ ] Registered teammate(s) invited as collaborators
-- [x] GitHub Pages automatic deployment workflow added\n- [ ] GitHub Pages activated in repository settings, public hosted website deployed and manually tested
-- [ ] Each team member registered and eligible under the official competition rules
-- [ ] GitHub repository and verified live-hosting URLs submitted before **November 25, 2026, 23:59 WIB**
+<div align="center">
 
-The Horizon guidebook states a **1–3 member** team, one entry per team, active student eligibility, and a separate registration deadline of **November 18, 2026, 23:59 WIB**. The guidebook contains an inconsistent subtheme count on page 8; this project follows the interactive learning subtheme explicitly shown on page 5. Verify organizational updates with the competition staff.
+**BROOTHERHOOD · EXPLORE TOGETHER · LEARN FORWARD**
 
-## Responsible design and limitations
+© 2026 Puskar · Brootherhood. All rights reserved.
 
-The electricity model is an idealized direct-current example; the animated bulb is symbolic, not a hardware simulator. The eco model uses fixed hypothetical units for classroom exploration; real CO₂ values vary with vehicle type, distance, passengers, and energy source. This project is educational and should not be used as scientific measurement software.
-
-## Copyright
-
-© 2026 Brootherhood · Puskar. All rights reserved. Individual contributors retain their existing rights to contributions, subject to written team agreements. Do not redistribute or reuse without permission.
+</div>

@@ -22,6 +22,7 @@ function renderFractions() {
   setText('#numerator-output', m.numerator); setText('#denominator-output', m.denominator);
   setText('#fraction-value', m.fraction); setText('#fraction-percent', `${m.percent}% filled`);
   setText('#fraction-insight', `${m.numerator} of ${m.denominator} equal pieces are shaded. That's about ${m.percent}% of the whole.`);
+  setText('#lab-guide-message', `Great observation! ${m.numerator} of ${m.denominator} equal pieces represents ${m.percent}% of one whole.`);
   const visual = $('#fraction-visual');
   visual.replaceChildren();
   visual.setAttribute('aria-label', `${m.numerator} of ${m.denominator} equal parts shaded`);
@@ -37,6 +38,7 @@ function renderCircuit() {
   setText('#voltage-output', `${m.voltage} V`); setText('#resistance-output', `${m.resistance} Ω`);
   setText('#current-value', m.currentLabel);
   setText('#circuit-insight', `Ohm's law: current = voltage ÷ resistance. ${m.voltage} V ÷ ${m.resistance} Ω = ${m.currentLabel}. This is a simplified ideal circuit.`);
+  setText('#lab-guide-message', `The circuit shows ${m.currentLabel}. More voltage increases current; more resistance lowers it.`);
   const brightness = Math.min(1, m.current / 3);
   $('#simulation-bulb').style.setProperty('--brightness', String(brightness));
   $('.circuit-simulation').style.setProperty('--electron-speed', `${Math.max(.7, 5 - m.current)}s`);
@@ -48,6 +50,7 @@ function renderEco() {
   $('#eco-meter').setAttribute('aria-valuenow', String(Math.min(m.kg, 25)));
   $('#eco-meter').setAttribute('aria-valuetext', `${m.kg} kilograms of illustrative weekly CO2`);
   setText('#eco-insight', `${m.carTrips} car trips × 3 kg + ${m.busTrips} bus trips × 1 kg = ${m.kgLabel} CO₂. These are illustrative assumptions, not measured travel emissions.`);
+  setText('#lab-guide-message', `In our hypothetical model, these choices add up to ${m.kgLabel} CO₂. Try comparing different trips.`);
 }
 const renderers = { fractions: renderFractions, circuit: renderCircuit, eco: renderEco };
 function selectLab(id, focus = false) {
@@ -83,9 +86,11 @@ $$('[data-check]').forEach(button => button.addEventListener('click', () => {
     progress[id] = true; saveProgress(); updatePassport();
     feedback.textContent = 'Mission solved! Excellent reasoning. You unlocked this discovery.';
     feedback.className = 'feedback feedback-success';
+    setText('#lab-guide-message', 'Wonderful work! You discovered the key relationship. Your passport has been updated.');
   } else {
     feedback.textContent = id === 'fractions' ? 'Not quite. Hint: the filled pieces must be half of the total.' : id === 'circuit' ? 'Keep experimenting. Hint: current is voltage divided by resistance.' : 'Almost there. Try reducing car trips or replacing them with bus trips.';
     feedback.className = 'feedback feedback-hint';
+    setText('#lab-guide-message', 'Good attempt. Use the hint, then adjust the experiment and try again.');
   }
   document.dispatchEvent(new CustomEvent('brootherhood:mission',{detail:{id,passed}}));
 }));

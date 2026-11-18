@@ -15,3 +15,23 @@ jobs:
         with:
           node-version: '22'
       - run: npm test
+
+  horizon-backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install Horizon dependencies
+        run: python -m pip install -r horizon/backend/requirements.txt
+      - name: Check Python syntax and backend functionality
+        run: |
+          python -m compileall -q horizon/backend/app.py horizon/backend/test_app.py
+          cd horizon/backend
+          python -m pytest -q test_app.py
+        env:
+          APP_ENV: test
+          SEED_DEMO: '1'
+          APP_SECRET: test-secret-for-integrated-horizon-event-testing-012345

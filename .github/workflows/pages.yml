@@ -23,20 +23,19 @@ jobs:
     steps:
       - name: Check out source
         uses: actions/checkout@v4
-      - name: Set up Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
       - name: Verify learning simulations
         run: npm test
-      - name: Prepare standalone static website
+      - name: Prepare static website
         run: |
           mkdir -p dist/src dist/assets
           cp index.html styles.css sw.js dist/
           cp src/app.js src/logic.js dist/src/
           cp assets/favicon.svg dist/assets/
-      - name: Configure GitHub Pages
+          touch dist/.nojekyll
+      - name: Enable and configure GitHub Pages
         uses: actions/configure-pages@v5
+        with:
+          enablement: true
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
         with:

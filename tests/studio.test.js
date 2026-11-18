@@ -100,7 +100,7 @@ test('Professional IDE features, keyboard access and true external compiler disc
  for(const id of ['file-tree','open-tabs','language-select','compiler-select','compiler-endpoint','compiler-options','btn-check-compiler','btn-run','btn-test','btn-stop','code-source','cm-host','stdin-text','output-text','compiler-text','test-text','problem-select','btn-new','btn-export','project-import']){
   assert.ok(html.includes('id="'+id+'"'),'Missing IDE control '+id);
  }
- assert.match(html,/CodeMirror/);
+ assert.match(html,/codemirror/i);
  assert.match(html,/aria-live="polite"/);
  assert.match(html,/single-file compilation/i);
  assert.match(script,/submissions\?base64_encoded=false&wait=false/);

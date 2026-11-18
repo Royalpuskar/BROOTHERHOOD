@@ -4,7 +4,7 @@ export const LANGUAGES = Object.freeze([
 ['python','Python','AI & automation','python','values = [2,4,6]\nprint("Total:", sum(values))'],
 ['sql','SQL (SQLite)','Databases','sql','SELECT name, score FROM learners WHERE score >= 80 ORDER BY score DESC;'],
 ['html','HTML & CSS','Web design','html','<main class="card">\n<h1>Hello, Explorer!</h1><p>Welcome to BROOTHERHOOD.</p>\n</main>\n<style>body {background:#071b2a;color:white;font-family:system-ui}.card {border:2px solid cyan;border-radius:20px;padding:2rem}</style>'],
-['typescript','TypeScript','Typed JavaScript','study','type Student = { name:string };\nconst student: Student = {name:"BROOTHERHOOD"};\nconsole.log(student.name);'],
+['typescript','TypeScript','Typed JavaScript','typescript','type Student = { name:string };\nconst student: Student = {name:"BROOTHERHOOD"};\nconsole.log(student.name);'],
 ['java','Java','Backend & Android','study','public class Main {\n public static void main(String[] a){System.out.println("BROOTHERHOOD");}\n}'],
 ['c','C','Systems','study','#include <stdio.h>\nint main(void){ puts("BROOTHERHOOD"); return 0; }'],
 ['cpp','C++','Systems & games','study','#include <iostream>\nint main(){std::cout << "BROOTHERHOOD";}'],

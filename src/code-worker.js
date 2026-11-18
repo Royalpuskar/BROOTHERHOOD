@@ -5,7 +5,7 @@ self.onmessage = event => {
  const id=event.data?.id, source=event.data?.source;
  const logs=[];
  const publish=result=>self.postMessage({id,...result});
- if(typeof id!=='string'||typeof source!=='string'||source.length>3500){publish({ok:false,error:'Code must be text and under 3,500 characters.'});return;}
+ if(typeof id!=='string'||typeof source!=='string'||source.length>6500){publish({ok:false,error:'Code must be text and under 6,500 characters.'});return;}
  if(blocked.test(source)){publish({ok:false,error:'This teaching sandbox only supports local JavaScript. Network and system APIs are unavailable.'});return;}
  const studentConsole=Object.freeze({
   log(...args){if(logs.length<50)logs.push(args.map(x=>typeof x==='string'?x:JSON.stringify(x)).join(' ').slice(0,240));},

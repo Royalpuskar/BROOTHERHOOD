@@ -10,6 +10,8 @@
 <title>BROOTHERHOOD — Enter the Digital Universe</title>
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="./digital.css">
+<link rel="stylesheet" href="./academy.css">
+<link rel="stylesheet" href="./float-motion.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -20,13 +22,13 @@
   </a>
   <button class="menu-button" id="menu-button" type="button" aria-controls="main-nav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
   <nav id="main-nav" aria-label="Primary navigation">
-    <a href="#home" class="nav-active">Home</a><a href="#worlds">Learn</a><a href="#cinematic">Explore</a><a href="#missions">Missions</a><a href="#progress">Progress</a><a href="#about">About</a>
+    <a href="#home" class="nav-active">Home</a><a href="#programming-academy">Code Academy</a><a href="#worlds">Learn</a><a href="#flight">Explore</a><a href="#missions">Missions</a><a href="#progress">Progress</a><a href="#about">About</a>
   </nav>
   <span class="horizon-badge">🏆 HORIZON 2026</span>
 </header>
 <main id="main">
 <section id="home" class="digital-hero" aria-labelledby="hero-title">
-  <div class="space-layers" aria-hidden="true"><div class="stars layer-one"></div><div class="stars layer-two"></div><div class="halo"></div><div class="hero-grid"></div><div class="planet"></div></div>
+  <div class="hero-holo-float" aria-hidden="true"><i class="holo-cube cube-a">⌘</i><i class="holo-cube cube-b">AI</i><i class="holo-cube cube-c">⛨</i><i class="holo-cube cube-d">0101</i><i class="holo-particle p-a"></i><i class="holo-particle p-b"></i><i class="holo-particle p-c"></i><i class="holo-particle p-d"></i></div><div class="space-layers" aria-hidden="true"><div class="stars layer-one"></div><div class="stars layer-two"></div><div class="halo"></div><div class="hero-grid"></div><div class="planet"></div></div>
   <div class="hero-visual" id="hero-visual" aria-hidden="true"><div id="universe-canvas" class="universe-canvas"></div><div class="scene-fallback"><span class="fallback-symbol">◈</span><span>THE DIGITAL UNIVERSE</span></div></div>
   <div class="hero-guide-card glass"><span class="message-glow">✦</span><strong>Hi there! 👋</strong><p>I'm your digital learning guide.<br>Ready for an adventure?</p></div>
   <div class="hero-left">
@@ -67,6 +69,36 @@
   </div>
 </section>
 
+
+<section id="flight" class="flight-section" aria-labelledby="flight-title">
+ <div class="flight-stage">
+  <div class="flight-sky" aria-hidden="true">
+   <div class="flight-back-grid"></div><div class="flight-nebula flight-nebula-a"></div><div class="flight-nebula flight-nebula-b"></div>
+   <div class="flight-orbit flight-orbit-a"></div><div class="flight-orbit flight-orbit-b"></div><div class="flight-orbit flight-orbit-c"></div>
+   <div class="flight-core"><div class="flight-core-inner">◈</div><span>THE DIGITAL NEXUS</span></div>
+   <div class="flight-satellite satellite-a">⌘ <small>CODE</small></div>
+   <div class="flight-satellite satellite-b">⛨ <small>DEFEND</small></div>
+   <div class="flight-satellite satellite-c">✺ <small>AI</small></div>
+   <div class="flight-satellite satellite-d">⌁ <small>NETWORK</small></div>
+   <div class="flight-satellite satellite-e">▤ <small>BUILD</small></div>
+   <div class="flight-sparks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+  <div class="flight-stage-copy">
+   <p class="kicker">FIVE WORLDS · ONE CONNECTED UNIVERSE</p><h2 id="flight-title">Scroll through <em>the future.</em></h2>
+   <p id="flight-caption" role="status" aria-live="polite">01 / Programming — turn ideas into software.</p>
+  </div>
+  <div class="flight-progress"><span>JOURNEY PROGRESS</span><div class="flight-progress-track"><div class="flight-progress-bar"></div></div><span id="flight-count">01 / 05</span></div>
+  <div class="flight-direct"><a href="#programming-academy">Enter Programming Academy <span aria-hidden="true">↗</span></a><span>Scroll to travel · Tap a world to explore</span></div>
+ </div>
+ <div class="flight-chapters">
+  <article class="flight-chapter flight-active" data-flight="0"><span>01 · CODE LAB</span><h3>Every great idea starts with code.</h3><p>Program the world around you. Solve exercises and run real programs in your browser.</p><a href="#programming-academy">Launch the Academy →</a></article>
+  <article class="flight-chapter" data-flight="1"><span>02 · CYBER DEFENSE</span><h3>Secure what matters.</h3><p>Investigate safe simulated threats and learn the habits that help defend digital accounts.</p><a href="#cyber-arena">Enter Cyber Defense →</a></article>
+  <article class="flight-chapter" data-flight="2"><span>03 · ARTIFICIAL INTELLIGENCE</span><h3>See the intelligence behind decisions.</h3><p>Test training data and explore genuine machine-learning calculations.</p><a href="#ai-core">Explore AI Core →</a></article>
+  <article class="flight-chapter" data-flight="3"><span>04 · NETWORK NEXUS</span><h3>Follow the invisible pathways.</h3><p>Trace a simulated request as it travels from your browser to a server.</p><a href="#network-nexus">Trace a Packet →</a></article>
+  <article class="flight-chapter" data-flight="4"><span>05 · BUILDERS' REALM</span><h3>Connect the pieces. Build the future.</h3><p>Assemble interactive software systems and discover how application layers work.</p><a href="#builders-realm">Become a Builder →</a></article>
+ </div>
+</section>
+
 <section class="cinematic-section" id="cinematic" aria-labelledby="cinematic-title">
   <div class="cinematic-glow" aria-hidden="true">◈</div>
   <div class="cinematic-copy"><p class="kicker">MEET YOUR DIGITAL GUIDE</p><h2 id="cinematic-title">A journey led by <em>curiosity.</em></h2><p>Follow our animated explorer through the digital universe, or jump straight to a world. The guide shares concise explanations and reacts as you solve challenges.</p>
@@ -74,6 +106,73 @@
     <div class="guide-controls"><button type="button" id="guide-wave" class="outline-button">Wave hello 👋</button><button type="button" id="motion-toggle" class="outline-button" aria-pressed="false">Pause 3D motion</button><a href="#missions" class="outline-button">Skip to missions →</a></div>
   </div>
   <div class="cinematic-stats"><div><strong>05</strong><span>Informatics worlds</span></div><div><strong>05</strong><span>Core digital missions</span></div><div><strong>100%</strong><span>Local-only progress</span></div></div>
+</section>
+
+
+<section id="programming-academy" class="academy-section section" aria-labelledby="academy-title">
+ <div class="academy-aura" aria-hidden="true"><span>010101</span><span>{ code }</span><span>∞</span><span>def learn():</span></div>
+ <div class="section-heading academy-heading">
+  <p class="kicker">BROOTHERHOOD · ADVANCED PROGRAMMING ACADEMY</p>
+  <h2 id="academy-title">Write code. <em>Make it run.</em></h2>
+  <p>Choose among 20 programming languages, explore 60 concept questions, and open real browser execution environments for JavaScript, TypeScript, Python, SQLite, and HTML/CSS. Languages requiring external compilers are clearly labeled Study Mode.</p>
+ </div>
+ <div class="academy-stat-row" aria-label="Academy features">
+  <span><b>20</b> Language tracks</span><span><b>60</b> Concept questions</span><span><b>5</b> Browser execution modes</span><span><b>15</b> Guided coding challenges</span>
+ </div>
+ <div class="academy-shell">
+  <aside class="academy-sidebar">
+   <label for="academy-search" class="academy-label">FIND A PROGRAMMING LANGUAGE</label>
+   <input type="search" id="academy-search" autocomplete="off" placeholder="Search languages…">
+   <div id="academy-language-list" class="academy-language-list" role="group" aria-label="Available programming languages"></div>
+   <p class="academy-runtime-note">Real execution: JavaScript, TypeScript (transpiled), Python, SQLite, HTML/CSS preview. Other languages: examples and assessed questions; no fake compiler buttons.</p>
+  </aside>
+  <div class="academy-main">
+   <div class="academy-toolbar"><div><span class="academy-overline">INTERACTIVE DEVELOPMENT WORKSPACE</span><h3 id="academy-language-title">JavaScript Workbench</h3><p id="academy-language-subtitle">Write, run, and understand browser programming.</p></div><span id="academy-mode-tag" class="academy-mode-tag">● REAL EXECUTION</span></div>
+   <div class="academy-challengebar">
+    <label for="academy-challenge">Choose a coding challenge</label>
+    <select id="academy-challenge"><option>Loading challenges…</option></select>
+    <p id="academy-challenge-description">Build an actual program and inspect its output.</p>
+    <button type="button" id="academy-show-hint" class="academy-small-btn">Reveal a learning hint</button>
+    <p id="academy-hint" class="academy-hint" hidden></p>
+   </div>
+   <div class="academy-editor">
+    <div class="academy-editor-head"><span><i class="ed-red"></i><i class="ed-gold"></i><i class="ed-green"></i></span><b id="academy-filename">index.js</b><span id="academy-editor-mode">EDITABLE CODE</span></div>
+    <label for="academy-code" class="sr-only">Programming source code editor</label>
+    <textarea id="academy-code" rows="13" spellcheck="false" autocomplete="off" autocapitalize="off" autocorrect="off" aria-describedby="academy-editor-note"></textarea>
+    <div class="academy-editor-tools">
+     <button type="button" id="academy-run" class="academy-run-btn">▶ Run program</button>
+     <button type="button" id="academy-reset" class="academy-small-btn">Reset example</button>
+     <button type="button" id="academy-copy" class="academy-small-btn">Copy code</button>
+     <button type="button" id="academy-save" class="academy-small-btn">Save file</button>
+    </div>
+    <p id="academy-editor-note" class="academy-editor-note">Shortcut: Ctrl/⌘ + Enter to run. No user code is sent to our server.</p>
+   </div>
+   <div class="academy-results">
+    <div class="academy-result-top"><strong>OUTPUT / PREVIEW</strong><span id="academy-runtime-status">READY</span></div>
+    <pre id="academy-console" role="status" aria-live="polite">Select a language, edit the example, and run the program.</pre>
+    <div id="academy-sql-result" class="academy-table-wrap" hidden></div>
+    <iframe id="academy-html-preview" title="Sandboxed HTML and CSS preview" sandbox="" referrerpolicy="no-referrer" hidden></iframe>
+    <p id="academy-validation" role="status" aria-live="polite"></p>
+   </div>
+  </div>
+ </div>
+ <div class="academy-quiz-grid">
+  <article class="academy-quiz-card">
+   <div class="academy-quiz-head"><div><p class="kicker">KNOWLEDGE ARENA</p><h3>Questions that build understanding.</h3></div><span id="academy-quiz-score" class="academy-question-score">0 / 60 solved</span></div>
+   <div class="academy-quiz-filters"><label>Language <select id="academy-quiz-language"></select></label><label>Topic depth <select id="academy-quiz-index"><option value="0">Foundation</option><option value="1">Practice</option><option value="2">Challenge</option></select></label></div>
+   <p class="academy-quiz-prompt" id="academy-quiz-prompt">Choose a language to begin.</p>
+   <fieldset class="academy-quiz-options" id="academy-quiz-options"><legend>Choose one answer</legend></fieldset>
+   <div class="academy-quiz-actions"><button type="button" id="academy-answer" class="academy-run-btn">Check explanation</button><button type="button" id="academy-next-question" class="academy-small-btn">Next question →</button></div>
+   <p id="academy-quiz-feedback" class="academy-quiz-feedback" role="status" aria-live="polite"></p>
+  </article>
+  <article class="academy-roadmap-card">
+   <p class="kicker">YOUR PRIVATE STUDY PROGRESS</p><h3>Every answered question counts.</h3>
+   <div class="academy-ring"><strong id="academy-percent">0%</strong><small id="academy-answered">0 of 60 questions completed</small></div>
+   <p>Question completions and verified coding tasks are stored on this device only. No account, tracking, or artificial certificates.</p>
+   <p id="academy-code-score" class="academy-code-score">0 / 15 guided programs completed</p>
+   <div class="academy-roadmap-guide"><span aria-hidden="true">✳</span><p id="academy-guide-copy">Explore a concept, test an idea, read the explanation, and try again. That is how programmers grow.</p></div>
+  </article>
+ </div>
 </section>
 
 <section id="missions" class="section labs-section" aria-labelledby="missions-title">
@@ -114,5 +213,7 @@ console.log(answer);</textarea><div class="workspace-buttons"><button id="run-co
 </main>
 <footer class="footer"><a href="#top"><strong>BROOTHERHOOD</strong><small>THINK. BUILD. SECURE. INNOVATE.</small></a><nav aria-label="Footer navigation"><a href="#worlds">Worlds</a><a href="#missions">Missions</a><a href="#progress">Progress</a><a href="./legacy/">Original Labs</a><a href="https://github.com/Royalpuskar/BROOTHERHOOD">Source</a></nav><span>HORIZON 2026 · SDG 4</span></footer>
 <script type="module" src="./src/digital-app.js"></script>
+<script type="module" src="./src/academy-app.js"></script>
+<script type="module" src="./src/float-motion.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@ An original, responsive, English-language learning experience: **three interacti
 
 ## Live website
 
-**Hosting link:** Add the verified public URL after deployment. Suggested options: [Netlify](https://app.netlify.com/) or [Vercel](https://vercel.com/). Do not submit this project without a live, tested URL.
+**Hosting status:** GitHub Pages workflow is configured, but Pages must be enabled under repository Settings → Pages → Build and deployment → Source: **GitHub Actions**. After a successful deployment, verify the live site at `https://royalpuskar.github.io/BROOTHERHOOD/` before submitting. Netlify and Vercel are alternatives.\n\n**Project download:** [Brootherhood Horizon 2026 ZIP](releases/Brootherhood-Horizon-2026.zip).
 
 ## The problem
 
@@ -83,8 +83,8 @@ Pages can also serve this project because paths are relative. For production sec
 - [x] Problem statement, purpose, features, technology, and usage documented here
 - [x] Source code and automated tests included
 - [x] No accounts, analytics, or third-party scripts
-- [ ] Repository created on GitHub and team member(s) invited
-- [ ] Public hosted website deployed and tested
+- [x] Repository created on GitHub: [Royalpuskar/BROOTHERHOOD](https://github.com/Royalpuskar/BROOTHERHOOD)\n- [ ] Registered teammate(s) invited as collaborators
+- [x] GitHub Pages automatic deployment workflow added\n- [ ] GitHub Pages activated in repository settings, public hosted website deployed and manually tested
 - [ ] Each team member registered and eligible under the official competition rules
 - [ ] GitHub repository and verified live-hosting URLs submitted before **November 25, 2026, 23:59 WIB**
 

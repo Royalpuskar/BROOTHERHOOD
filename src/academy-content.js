@@ -106,9 +106,80 @@ scala:[
 ['What matches values by cases?','Pattern matching','CSS parser','SQL join','Pattern matching handles structured alternatives.'],
 ['What does Option represent?','Potential missing value','Network port','Filesystem path','Option can be Some or None.']]
 };
-export const QUESTIONS=Object.freeze(Object.fromEntries(Object.entries(Q).map(([language,entries])=>[language,Object.freeze(entries.map(([question,correct,w1,w2,explanation],index)=>Object.freeze({
- id:language+'-'+(index+1),language,question,choices:Object.freeze([w1,correct,w2]),answer:1,explanation,difficulty:['Foundation','Practice','Challenge'][index]
-})))])));
+
+// Advanced practice pairs focus on debugging, safety, architecture and meaningful concepts.
+const EXTRA={
+ javascript:[
+ ['Which API sets user-generated text without parsing HTML?','textContent','innerHTML','document.write','textContent inserts text without interpreting it as HTML.'],
+ ['What does Promise.all do when one input promise rejects?','It rejects','It always returns partial values','It never settles','Promise.all rejects when any provided promise rejects.']],
+ python:[
+ ['What does yield create in a Python function?','A generator function','A compiled class','A SQL query','A function containing yield returns a generator that produces values lazily.'],
+ ['How can a function avoid a shared mutable list default?','Use None and create a list inside','Use [] directly as a default','Use global list','Using None and constructing a list per call avoids sharing a single mutable default.']],
+ sql:[
+ ['What does GROUP BY support?','Aggregate results by group','Always sort ascending','Encrypt records','GROUP BY partitions rows so aggregate functions can summarize each group.'],
+ ['How should values be inserted into SQL queries safely?','Parameterized queries','String concatenation of raw input','Escaping HTML only','Bind variables or prepared statements prevent data being misinterpreted as SQL syntax.']],
+ html:[
+ ['Which CSS feature responds to viewport width?','Media query','SQL WHERE','HTTP cookie','CSS media queries can apply different styles at different viewport widths.'],
+ ['What should an image alt attribute convey?','Meaning or purpose when informative','Random keywords','Source file size','Useful alt text provides an equivalent for meaningful images; decorative images can use empty alt text.']],
+ typescript:[
+ ['What narrows a discriminated union?','Checking a shared literal tag','Removing all type annotations','Adding any to everything','A literal tag lets TypeScript narrow a union to a specific variant.'],
+ ['What is the purpose of strictNullChecks?','Distinguish possibly null values','Disable modules','Remove interfaces','strictNullChecks requires nullable values to be handled explicitly.']],
+ java:[
+ ['Which Java collection dynamically grows as items are added?','ArrayList','Primitive int','Thread only','ArrayList expands storage as more elements are appended.'],
+ ['What is try-with-resources designed to close?','AutoCloseable resources','Every class in the JVM','Only CSS files','Java try-with-resources invokes close on declared AutoCloseable resources.']],
+ c:[
+ ['What helps avoid writing beyond a fixed buffer?','Check bounds before writing','Assume input is always short','Use gets','Buffer bounds must be validated to prevent out-of-bounds writes.'],
+ ['What does sizeof(array) report in its declaring scope for a real array?','The entire array size in bytes','Always the number of elements','Always pointer size','sizeof returns bytes for a real array; after parameter decay a pointer behaves differently.']],
+ cpp:[
+ ['Which smart pointer has exclusive ownership?','std::unique_ptr','std::shared_ptr','std::weak_ptr','unique_ptr exclusively owns its managed resource.'],
+ ['What does std::move itself do?','Cast to an rvalue expression','Allocate new memory','Automatically destroy an object','std::move enables move operations but does not move data by itself.']],
+ csharp:[
+ ['What does a LINQ Where call produce?','A filtered sequence','A compiled EXE immediately','An HTML table','Where returns a sequence of elements matching a predicate.'],
+ ['Why implement IDisposable?','Release resources deterministically','Force every class to be abstract','Create CSS','IDisposable defines explicit cleanup for managed/unmanaged resources.']],
+ go:[
+ ['Why use defer in a Go function?','Schedule a call when the function returns','Spawn a goroutine','Force a compiler error','defer schedules cleanup calls at function exit.'],
+ ['What is context cancellation useful for?','Propagating cancel signals for work','Adding CSS animations','Managing HTML focus','A Context can carry cancellation and deadlines through Go operations.']],
+ rust:[
+ ['What does Result<T,E> model?','Success or error','Only a raw pointer','An HTML element','Result can be Ok(value) or Err(error).'],
+ ['What restriction does Rust generally place on active mutable borrows?','Only one exclusive mutable borrow at a time','Unlimited simultaneous mutable borrows','No immutable references ever','The borrow checker enforces exclusive mutable borrowing.']],
+ ruby:[
+ ['What is a Ruby block used for?','Passing behavior to a method','Compiling SQL','Only declaring constants','Blocks pass executable behavior to methods.'],
+ ['What does Hash store?','Key-value pairs','Only sequential indexes','Only executable files','Ruby Hash maps keys to values.']],
+ php:[
+ ['What helps escape HTML special characters in PHP output?','htmlspecialchars','eval','unlink','htmlspecialchars encodes HTML special characters before embedding untrusted text.'],
+ ['How should PHP connect user values to SQL statements?','Prepared statements','Concatenating raw form input','Running shell commands','Prepared statements bind values separately from query syntax.']],
+ kotlin:[
+ ['What is a suspend function designed for?','Coroutine-friendly suspension','Database table creation','Forcing a thread for every call','suspend marks a function that can pause and resume in a coroutine.'],
+ ['What can a sealed class help model?','Restricted known class hierarchies','Unrestricted inheritance across modules','Only numbers','Sealed hierarchies help exhaustively represent constrained states.']],
+ swift:[
+ ['Why use guard let for an optional?','Unwrap with an early-exit path','Convert it to HTML','Always allocate a class','guard let binds a non-optional value and requires an exit if missing.'],
+ ['Are Swift structs generally value or reference types?','Value types','Always reference types','Neither','Swift structs have value semantics.']],
+ r:[
+ ['What does na.rm=TRUE commonly do in summary functions?','Ignore missing values','Replace values with zero','Sort columns','The na.rm argument requests removal of missing values for many summaries.'],
+ ['Which R structure stores data in rows and named columns?','data.frame','Thread','CSS grid','A data.frame represents tabular data with columns of compatible lengths.']],
+ bash:[
+ ['Why use read -r in Bash?','Avoid backslash escape processing','Automatically encrypt input','Run a web server','read -r treats backslashes literally.'],
+ ['What is the purpose of double bracket tests [[ ... ]]?','Shell conditional expressions','Creating a SQL table','Defining a Java class','Bash [[ ]] offers conditional expression syntax with safer string handling than many test forms.']],
+ dart:[
+ ['How does Stream differ from Future?','It can emit multiple asynchronous events','It always returns immediately with one value','It only creates CSS','A Stream can deliver a sequence of events over time.'],
+ ['What does the ? suffix commonly indicate on a Dart type?','Nullable type','Thread-local type','Database field','A nullable type can contain null.']],
+ lua:[
+ ['What does pairs iterate over?','Table key-value entries','Only integer sequences','HTML elements','pairs traverses table entries and their keys.'],
+ ['What is a metatable used for?','Customizing table behavior','Connecting to SQL automatically','Compiling C','Metatables customize operations such as indexing and arithmetic.']],
+ scala:[
+ ['What does map produce for a collection?','A transformed collection','A raw thread','A database transaction','map applies a function to each element and creates a result collection.'],
+ ['What does Future represent in Scala?','An eventual result of asynchronous computation','A CSS animation','An immutable integer only','Futures represent results that may become available later.']]
+};
+export const QUESTIONS=Object.freeze(Object.fromEntries(Object.entries(Q).map(([language,entries])=>[
+ language,Object.freeze([...entries,...EXTRA[language]].map(([question,correct,w1,w2,explanation],index)=>{
+  const position=(index+language.length)%3;
+  const choices=[w1,w2];choices.splice(position,0,correct);
+  return Object.freeze({
+    id:language+'-'+(index+1),language,question,choices:Object.freeze(choices),answer:position,explanation,
+    difficulty:['Foundation','Practice','Challenge','Debugging','Secure design'][index]
+  });
+ })
+])));
 export function grade(question,choice){if(!question||!Number.isInteger(choice)||choice<0||choice>=question.choices.length)return{valid:false,correct:false};return{valid:true,correct:choice===question.answer,explanation:question.explanation};}
 export function safeQuestionProgress(raw){let x;try{x=JSON.parse(raw);}catch{return [];}if(!Array.isArray(x))return[];const allowed=new Set(Object.values(QUESTIONS).flat().map(q=>q.id));return [...new Set(x.filter(v=>typeof v==='string'&&allowed.has(v)))];}
 export function questionStats(progress){return{solved:safeQuestionProgress(JSON.stringify(progress)).length,total:Object.values(QUESTIONS).reduce((n,x)=>n+x.length,0)};}

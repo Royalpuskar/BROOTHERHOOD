@@ -9,7 +9,7 @@ const text=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 test('20 distinctly named programming language tracks and honest browser execution modes',()=>{
  assert.equal(LANGUAGES.length,20);
  assert.equal(new Set(LANGUAGES.map(x=>x.id)).size,20);
- assert.deepEqual(RUNNABLE,['javascript','python','sql','html']);
+ assert.deepEqual(RUNNABLE,['javascript','python','sql','html','typescript']);
  for(const lang of LANGUAGES){assert.ok(lang.name&&lang.subject&&lang.starter);assert.equal(LANGUAGE_BY_ID[lang.id].mode,lang.mode);}
 });
 test('60 complete, uniquely identified original quiz questions have validated answers and explanations',()=>{
@@ -35,7 +35,7 @@ test('Runnable JavaScript starter performs real arithmetic in a controlled Node 
  assert.deepEqual(captured,['Total: 12']);
 });
 test('Academy JavaScript modules and Python/SQL worker scripts parse',()=>{
- for(const path of ['src/academy-content.js','src/academy-app.js','src/academy-python-worker.js','src/academy-sql-worker.js','src/float-motion.js']){
+ for(const path of ['src/academy-content.js','src/academy-app.js','src/academy-python-worker.js','src/academy-sql-worker.js','src/academy-typescript-worker.js','src/float-motion.js']){
   const r=spawnSync(process.execPath,['--check',new URL('../'+path,import.meta.url).pathname],{encoding:'utf8'});
   assert.equal(r.status,0,path+': '+r.stderr);
  }
@@ -62,7 +62,7 @@ test('Responsive and reduced-motion animation accommodations exist',()=>{
 test('GitHub Pages packages the academy and its real browser worker runtimes',()=>{
  const workflow=text('.github/workflows/pages.yml');
  for(const asset of ['academy.css','float-motion.css','src/academy-content.js','src/academy-app.js',
-  'src/academy-python-worker.js','src/academy-sql-worker.js','src/float-motion.js']){
+  'src/academy-python-worker.js','src/academy-sql-worker.js','src/academy-typescript-worker.js','src/float-motion.js']){
   assert.ok(workflow.includes(asset),'Missing published asset '+asset);
  }
 });

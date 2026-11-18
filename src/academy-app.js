@@ -211,7 +211,7 @@ function renderLanguages(filter=''){
  const list=$('academy-language-list');list.replaceChildren();
  const matches=LANGUAGES.filter(item=>item.name.toLowerCase().includes(filter.toLowerCase())||item.subject.toLowerCase().includes(filter.toLowerCase()));
  for(const item of matches){
-  const btn=el('button',{type:'button','aria-pressed':String(item.id===language),className:'academy-language'+(item.id===language?' selected':''),dataset:{}});
+  const btn=el('button',{type:'button','aria-pressed':String(item.id===language),className:'academy-language'+(item.id===language?' selected':'')});
   btn.dataset.academyLang=item.id;
   const icon=el('span',{className:'academy-lang-symbol'},item.name.slice(0,2).toUpperCase());
   const name=el('span',{className:'academy-lang-name'},item.name);

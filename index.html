@@ -9,7 +9,8 @@
   <meta property="og:description" content="Explore interactive simulations, crack learning cases, and discover your next breakthrough." />
   <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
   <link rel="stylesheet" href="./styles.css" />
-  <title>Brootherhood | Every Mind Can Explore</title>
+  <link rel="stylesheet" href="./styles-guide.css" />
+  <title>Brootherhood | Guided by Discovery</title>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
@@ -20,7 +21,7 @@
         <span>BROOTHERHOOD<span class="brand-period">.</span></span>
       </a>
       <nav class="primary-nav" aria-label="Main navigation">
-        <a href="#missions">Missions</a><a href="#lab">Interactive lab</a><a href="#impact">Our mission</a>
+        <a href="#journey">3D journey</a><a href="#missions">Missions</a><a href="#discovery-engine">Discovery Engine</a><a href="#lab">Interactive lab</a>
       </nav>
       <a href="#lab" class="button button-small button-outline nav-cta">Enter the lab <span aria-hidden="true">↗</span></a>
       <button class="menu-toggle" aria-label="Open navigation" aria-controls="mobile-nav" aria-expanded="false"><span></span><span></span><span></span></button>
@@ -34,7 +35,7 @@
           <div class="eyebrow"><span class="eyebrow-dot"></span> A NEW WAY TO LEARN, TOGETHER <span class="eyebrow-dash"></span> HORIZON 2026</div>
           <h1 id="hero-title">Curiosity is<br/>your <span class="text-gradient">superpower.</span></h1>
           <p class="lead">Not another lesson to memorize. A world to investigate. Explore hands-on simulations, solve meaningful challenges, and learn at your own pace.</p>
-          <div class="hero-actions"><a class="button button-primary" href="#lab">Start exploring <span aria-hidden="true">↗</span></a><a class="button button-quiet" href="#missions"><span class="play-icon" aria-hidden="true">✦</span> Discover missions</a></div>
+          <div class="hero-actions"><a class="button button-primary" href="#journey">Start exploring <span aria-hidden="true">↗</span></a><a class="button button-quiet" href="#missions"><span class="play-icon" aria-hidden="true">✦</span> Discover missions</a></div>
           <div class="hero-proof"><div class="avatar-stack" aria-hidden="true"><span>π</span><span>⚡</span><span>✳</span></div><p><strong>3 interactive worlds</strong><br/>One place for every kind of thinker</p></div>
         </div>
         <div class="hero-art" aria-label="Decorative illustration of connected learning discoveries" role="img">
@@ -45,6 +46,21 @@
         </div>
       </section>
 
+
+      <section class="guide-journey" id="journey" aria-labelledby="guide-journey-title">
+        <div class="guide-world" id="guide-world">
+          <div class="guide-world-heading"><span class="guide-kicker">01 / GUIDED BY DISCOVERY</span><h2 id="guide-journey-title">A universe of <em>possibility.</em></h2><p>Meet your explorer. Follow the journey or jump directly to a lab.</p></div>
+          <div class="guide-canvas" id="guide-canvas" aria-hidden="true">
+            <div class="guide-fallback" id="guide-fallback"><div class="fallback-orbit"><span>◒</span><span>⚡</span><span>✳</span></div><p>Three worlds. One journey of discovery.</p></div>
+          </div>
+          <div class="guide-world-toolbar"><p id="guide-caption" role="status" aria-live="polite">Welcome to BROOTHERHOOD. Every mind has the power to discover. Let's explore what you can learn.</p><button type="button" id="guide-render-toggle" class="guide-small-btn" aria-pressed="false">Pause 3D</button></div>
+        </div>
+        <div class="guide-chapters">
+          <article class="guide-chapter guide-chapter-active"><span class="guide-step">WORLD 01 — MATHEMATICS</span><div class="guide-emoji" aria-hidden="true">◒</div><h3>See the whole<br/>in every part.</h3><p>Our guide begins among floating fractions. Change the pieces and discover how percentages emerge.</p><a href="#lab" data-open="fractions" class="guide-enter">Enter Fraction Playground <span aria-hidden="true">↗</span></a></article>
+          <article class="guide-chapter"><span class="guide-step">WORLD 02 — PHYSICS</span><div class="guide-emoji" aria-hidden="true">⚡</div><h3>Make the invisible<br/>visible.</h3><p>Enter the electrical studio and investigate how voltage and resistance influence current.</p><a href="#lab" data-open="circuit" class="guide-enter">Enter Electricity Studio <span aria-hidden="true">↗</span></a></article>
+          <article class="guide-chapter"><span class="guide-step">WORLD 03 — SUSTAINABILITY</span><div class="guide-emoji" aria-hidden="true">✳</div><h3>Imagine a better<br/>tomorrow.</h3><p>Visit our floating planet to explore clearly labeled hypothetical environmental choices.</p><a href="#lab" data-open="eco" class="guide-enter">Enter Eco Choices <span aria-hidden="true">↗</span></a></article>
+        </div>
+      </section>
       <section class="metric-strip" aria-label="How the platform helps"><div><strong>01</strong><span>Learn visually</span></div><div><strong>02</strong><span>Experiment freely</span></div><div><strong>03</strong><span>Grow confidently</span></div><div class="strip-note">DESIGNED TO MAKE LEARNING FEEL POSSIBLE.</div></section>
 
       <section class="section missions-section" id="missions" aria-labelledby="missions-title">
@@ -63,6 +79,14 @@
       <div class="experiment-panel" id="panel-eco" role="tabpanel" aria-labelledby="tab-eco" hidden><div class="experiment-top"><div><span class="case-tag">CASE 03 · EARTH SCIENCE</span><h3>Small choices add up.</h3><p>Explore a hypothetical weekly travel emissions example.</p></div><div class="experiment-value"><strong id="eco-value" aria-live="polite">12.0 kg</strong><span>estimated CO₂ / week</span></div></div><div class="eco-simulation"><div class="eco-meter" role="meter" aria-label="Illustrative travel emissions" aria-valuemin="0" aria-valuemax="25" aria-valuenow="12" id="eco-meter"><div id="eco-meter-fill"></div></div><div class="eco-scale"><span>LOWER EMISSIONS</span><span>HIGHER EMISSIONS</span></div><div class="eco-scene" aria-hidden="true"><span>☁</span><span>◈</span><span>♧</span><span>♧</span><span>⌂</span></div></div><div class="input-grid"><label class="slider-field">Car trips per week <output id="car-output" for="car-trips">4</output><input type="range" min="0" max="7" value="4" id="car-trips"/></label><label class="slider-field">Bus trips per week <output id="bus-output" for="bus-trips">0</output><input type="range" min="0" max="7" value="0" id="bus-trips"/></label></div><div class="insight"><span aria-hidden="true">✦</span><p id="eco-insight">This learning scenario assumes 3 kg CO₂ per car trip and 1 kg per bus trip. Actual emissions vary by vehicle, passengers and distance.</p></div><div class="challenge"><div><span>YOUR MISSION</span><p>Adjust the trips until weekly emissions are at most 5 kg CO₂.</p></div><button type="button" class="button button-check" data-check="eco">Check answer <span aria-hidden="true">→</span></button></div><p class="feedback" id="feedback-eco" role="status" aria-live="polite"></p></div>
       <div class="console-bottom"><span>DISCOVER · TEST · UNDERSTAND</span><span>NO SIGN-UP REQUIRED</span></div></div></div></section>
 
+
+      <section class="discovery-section section" id="discovery-engine" aria-labelledby="discovery-title">
+        <div class="discovery-lead"><p class="kicker">THE BROOTHERHOOD DISCOVERY ENGINE</p><h2 id="discovery-title">Don't just learn it.<br/><em>Prove your discovery.</em></h2><p>Choose a world, take a real learning challenge, explain the result, and grow through feedback. Nine reviewed challenges. No account or personal information required.</p></div>
+        <div class="discovery-layout">
+          <div class="discovery-controls"><p class="discovery-small-label">CHOOSE YOUR WORLD</p><div class="discovery-world-buttons" role="group" aria-label="Choose a subject"><button type="button" data-discovery-world="fractions" aria-pressed="true" class="selected">◒ Fractions</button><button type="button" data-discovery-world="circuit" aria-pressed="false">⚡ Electricity</button><button type="button" data-discovery-world="eco" aria-pressed="false">✳ Eco choices</button></div><label class="discovery-difficulty-label" for="discovery-difficulty">Challenge difficulty</label><select id="discovery-difficulty"><option value="starter">01 · Starter</option><option value="explorer">02 · Explorer</option><option value="master">03 · Master</option></select><div class="discovery-passport"><span>YOUR DISCOVERY DASHBOARD</span><strong id="discovery-score">0 / 9 missions</strong><p>Your level: <b id="discovery-level">New Explorer</b></p><small id="discovery-history">Your completed missions will appear here.</small><p class="discovery-storage">Stored locally on this device. Your answers aren't uploaded.</p></div></div>
+          <div class="discovery-case"><div class="discovery-case-header"><span class="case-tag">MISSION BRIEFING</span><span class="discovery-signal">◉ LIVE EXPERIMENT</span></div><h3 id="discovery-case-title">Fraction Playground / STARTER</h3><p class="discovery-objective" id="discovery-objective">Understand fractions and proportions.</p><p id="discovery-prompt" class="discovery-prompt">A class shares 8 equal pizza slices. How many slices make half?</p><label class="discovery-difficulty-label" for="discovery-answer">Your numeric answer</label><input id="discovery-answer" type="number" min="0" max="1000000" step="any" inputmode="decimal" placeholder="Type a number" autocomplete="off"/><div class="discovery-actions"><button class="button button-primary" id="discovery-check" type="button">Check discovery <span aria-hidden="true">↗</span></button><button class="guide-small-btn" id="discovery-hint-button" type="button">Show hint</button><button class="guide-small-btn" id="discovery-go-lab" type="button">Open matching lab</button></div><p id="discovery-hint" hidden></p><p id="discovery-feedback" class="discovery-feedback" role="status" aria-live="polite">Reason through the scenario, then test your answer.</p><p id="discovery-reflection" hidden></p><div class="discovery-case-footer"><span>OBSERVE · REASON · TEST · EXPLAIN</span><button type="button" id="discovery-next" class="guide-small-btn">Next difficulty →</button></div></div>
+        </div>
+      </section>
       <section class="section method-section" id="impact"><div class="method-left"><p class="kicker">WHY WE BUILT THIS</p><h2>Different minds.<br/><em>Equal possibility.</em></h2></div><div class="method-right"><p>Not everyone learns best from a textbook. We built Brootherhood around a simple belief: when people can see, touch, question, and retry an idea, learning becomes more inclusive.</p><div class="principles"><div><span>01 /</span><strong>Access without barriers</strong><p>Free to explore. No accounts, downloads, or personal information required.</p></div><div><span>02 /</span><strong>Learning that responds</strong><p>Interactive visual models make abstract concepts easier to investigate.</p></div><div><span>03 /</span><strong>Progress without pressure</strong><p>Practice privately, receive supportive feedback, and celebrate curiosity.</p></div></div></div></section>
       <section class="closing-section"><div class="closing-grid" aria-hidden="true"></div><p class="kicker">YOUR NEXT DISCOVERY STARTS HERE</p><h2>Ready to crack<br/><em>the next idea?</em></h2><a class="button button-light" href="#lab">Open the interactive lab <span aria-hidden="true">↗</span></a><div class="closing-stamp">EDUCATION IS FOR EVERYONE · SDG 4</div></section>
     </main>

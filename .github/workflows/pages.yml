@@ -28,8 +28,8 @@ jobs:
       - name: Prepare static website
         run: |
           mkdir -p dist/src dist/assets
-          cp index.html styles.css sw.js dist/
-          cp src/app.js src/logic.js dist/src/
+          cp index.html styles.css styles-guide.css sw.js dist/
+          cp src/app.js src/logic.js src/discovery.js src/discovery-ui.js src/guide-scene.js dist/src/
           cp assets/favicon.svg dist/assets/
           touch dist/.nojekyll
       - name: Enable and configure GitHub Pages

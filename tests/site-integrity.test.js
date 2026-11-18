@@ -18,7 +18,7 @@ test('cinematic journey and discovery mission controls are present and accessibl
   }
   assert.match(html,/Skip the journey/);
   assert.match(html,/aria-live="polite"/);
-  assert.match(html,/href="\.\/styles-guide\.css"/);
+  assert.ok(html.includes('href="../styles-guide.css"'));
 });
 test('deployment includes all required guide and discovery resources',()=>{
   const pages=text('.github/workflows/pages.yml');

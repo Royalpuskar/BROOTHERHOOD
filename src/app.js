@@ -60,6 +60,7 @@ function selectLab(id, focus = false) {
   });
   $$('.experiment-panel').forEach(panel => panel.hidden = panel.id !== `panel-${id}`);
   renderers[id]();
+  document.dispatchEvent(new CustomEvent('brootherhood:labchange',{detail:{id}}));
 }
 $$('.lab-tab').forEach(tab => {
   tab.addEventListener('click', () => selectLab(tab.dataset.tab));
@@ -86,6 +87,7 @@ $$('[data-check]').forEach(button => button.addEventListener('click', () => {
     feedback.textContent = id === 'fractions' ? 'Not quite. Hint: the filled pieces must be half of the total.' : id === 'circuit' ? 'Keep experimenting. Hint: current is voltage divided by resistance.' : 'Almost there. Try reducing car trips or replacing them with bus trips.';
     feedback.className = 'feedback feedback-hint';
   }
+  document.dispatchEvent(new CustomEvent('brootherhood:mission',{detail:{id,passed}}));
 }));
 $$('[data-open]').forEach(card => card.addEventListener('click', () => selectLab(card.dataset.open)));
 const menu = $('.menu-toggle');
@@ -123,5 +125,14 @@ if (depthStage && window.matchMedia('(hover: hover) and (pointer: fine)').matche
   depthStage.addEventListener('pointerleave', () => {
     depthStage.style.setProperty('--depth-x', '0');
     depthStage.style.setProperty('--depth-y', '0');
+  });
+}
+
+// Learning challenges remain fully functional when optional 3D is unavailable.
+import './discovery-ui.js';
+if(document.querySelector('#guide-canvas')) {
+  import('./guide-scene.js').then(module=>module.launchJourney()).catch(()=>{
+    const caption=document.querySelector('#guide-caption');
+    if(caption)caption.textContent='The 3D world could not load, but every learning lab remains available.';
   });
 }

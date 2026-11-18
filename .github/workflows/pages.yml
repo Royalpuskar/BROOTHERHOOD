@@ -29,7 +29,9 @@ jobs:
         run: |
           mkdir -p dist/src dist/assets dist/legacy
           cp index.html digital.css styles.css styles-guide.css sw.js dist/
-          cp src/app.js src/logic.js src/discovery.js src/discovery-ui.js src/guide-scene.js dist/src/\n          cp src/informatics-core.js src/digital-app.js src/digital-scene.js src/code-worker.js dist/src/\n          cp legacy/index.html dist/legacy/
+          cp src/app.js src/logic.js src/discovery.js src/discovery-ui.js src/guide-scene.js dist/src/
+          cp src/informatics-core.js src/digital-app.js src/digital-scene.js src/code-worker.js dist/src/
+          cp legacy/index.html dist/legacy/
           cp assets/favicon.svg dist/assets/
           touch dist/.nojekyll
       - name: Enable and configure GitHub Pages

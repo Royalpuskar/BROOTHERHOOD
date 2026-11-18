@@ -10,7 +10,8 @@
 
 ### [EXPLORE THE LIVE DIGITAL UNIVERSE](https://royalpuskar.github.io/BROOTHERHOOD/)
 
-**Open the Programming Academy:** https://royalpuskar.github.io/BROOTHERHOOD/#programming-academy
+**Open Pro Code Studio:** https://royalpuskar.github.io/BROOTHERHOOD/studio/  
+**Programming Academy:** https://royalpuskar.github.io/BROOTHERHOOD/#programming-academy
 
 [Source code](https://github.com/Royalpuskar/BROOTHERHOOD) · [Quality checks](https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml) · [Original discovery labs](https://royalpuskar.github.io/BROOTHERHOOD/legacy/)
 
@@ -59,6 +60,23 @@ Cybersecurity lessons are defensive and confined to simulated data. The kNN clas
 
 The optional 3D renderer loads a version-pinned Three.js dependency from jsDelivr; licensing is acknowledged in [third-party notices](THIRD_PARTY_NOTICES.md). The original browser-based mathematics, electricity and sustainability learning labs remain preserved in the [Legacy Discovery Labs](legacy/) archive.
 
+
+
+## BROOTHERHOOD Pro Developer Studio
+
+### [OPEN THE REAL CODE STUDIO](https://royalpuskar.github.io/BROOTHERHOOD/studio/)
+
+**Developer-first coding, not a simulated coding game.** The new IDE is a separate, spacious three-pane workspace, prioritizing actual programming over decorative visuals.
+
+- **19 language tracks**, including C, C++, Java, Python, Rust, Go, C#, Kotlin, Swift, Ruby, JavaScript, TypeScript, PHP, Dart, Scala, R, Bash, Pascal and SQL.
+- **Full single-file programs** with input and output: `cin`, `scanf`, `Scanner`, and other language-specific input functions.
+- **Real compiler execution** through a connected Judge0-compatible external service (by default the [Judge0 CE community demo](https://ce.judge0.com/docs), if available). Compiler/version discovery and connection status are shown in the UI. GCC and Clang can be selected for C/C++ when offered by the service.
+- **Compiler diagnostics**, stdout, stderr, exit status, elapsed time and memory usage in a dedicated terminal. There is no invented output or successful compilation if the compiler fails.
+- **5 programming challenges** with input/output checks, including multiple test cases for the sum, parity, loop and reverse-word challenges.
+- **Project explorer** with source-file tabs, new/rename/delete, local autosave, import/export, starter files, syntax highlighting via CodeMirror, bracket matching, indentation shortcuts, and downloadable individual files.
+- **Responsive and accessible** for desktop and mobile; the code editor has a built-in textarea fallback when the syntax-highlighting CDN cannot load.
+
+**Compiler and privacy disclosure:** GitHub Pages is static and does not have GCC, the JVM, Rust, Go or other native compilers built into it. The Studio deliberately uses a documented Judge0 API service. Code and stdin are transmitted to the external compiler **only when Run or Test is pressed**; users should not submit secrets or proprietary code. Availability depends on that service's authorization, CORS, supported languages, rate limits and current health. A custom self-hosted Judge0 endpoint can be configured in the Studio without adding API secrets to the repository. It is single-file compilation, not a complete multi-file build system or a local offline IDE.
 
 ## The Programming Academy
 

@@ -10,6 +10,8 @@
 
 ### [EXPLORE THE LIVE DIGITAL UNIVERSE](https://royalpuskar.github.io/BROOTHERHOOD/)
 
+**Open the Programming Academy:** https://royalpuskar.github.io/BROOTHERHOOD/#programming-academy
+
 [Source code](https://github.com/Royalpuskar/BROOTHERHOOD) · [Quality checks](https://github.com/Royalpuskar/BROOTHERHOOD/actions/workflows/quality.yml) · [Original discovery labs](https://royalpuskar.github.io/BROOTHERHOOD/legacy/)
 
 </div>
@@ -56,6 +58,26 @@ Code Lab evaluates student-supplied beginner JavaScript in a **separate, short-l
 Cybersecurity lessons are defensive and confined to simulated data. The kNN classifier uses explicitly synthetic examples and should not be mistaken for a production ML service. The network teaching model sends no real packet traffic. Builders' Realm illustrates application architecture rather than provisioning a real database.
 
 The optional 3D renderer loads a version-pinned Three.js dependency from jsDelivr; licensing is acknowledged in [third-party notices](THIRD_PARTY_NOTICES.md). The original browser-based mathematics, electricity and sustainability learning labs remain preserved in the [Legacy Discovery Labs](legacy/) archive.
+
+
+## The Programming Academy
+
+Our new browser-based learning workbench goes beyond a static programming catalog.
+
+- **20 programming languages** with original editable sample programs and **60 assessed questions**, three per language, including explanations and locally saved completion.
+- **Five genuine execution/preview tracks:** JavaScript in a disposable Web Worker; TypeScript transpilation followed by JavaScript execution; Python through browser-based Pyodide; SQLite with a temporary local SQL database; and HTML/CSS preview inside a script-disabled sandboxed frame.
+- **15 guided coding missions** (three per runnable track) with objectives, hints, result checks and achievement tracking.
+- Beginner-friendly editor with tab indentation, keyboard-run shortcut, copy, reset and local file export.
+- Clear **Study Mode** for Java, C, C++, C#, Go, Rust, Ruby, PHP, Kotlin, Swift, R, Bash, Dart, Lua and Scala. These have examples and questions, not falsely advertised browser compilers.
+- Runtime libraries are fetched on demand from version-pinned public CDN resources; Python, SQLite and TypeScript can require larger initial downloads and Internet access.
+
+**Learning limitation:** Program checking validates introductory output or scenario criteria, not full unit-test coverage. Browser workers are separated from the main interface and stopped on timeouts, but are not hardened containers for hostile code. Do not paste secrets or run untrusted programs.
+
+## Floating Digital Journey
+
+Inspired by the kinds of scroll, button, and interaction patterns featured in [Webflow's animation gallery](https://webflow.com/made-in-webflow/animation), BROOTHERHOOD now uses its **own original implementation** of a cinematic five-world journey: scroll-pinned stages, orbiting 3D-style holograms, pointer-responsive parallax, layered glass panels and responsive depth effects. These are not cloned Webflow templates or reused third-party site designs.
+
+Animation is optional. Users can navigate each learning world directly, and motion is minimized when the device requests reduced motion. Larger screens receive a more spacious experience; mobile rendering remains adaptive rather than forcing native 4K WebGL resolution.
 
 ## Technology
 

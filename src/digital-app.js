@@ -236,3 +236,9 @@ if(!motionPref.matches&&'WebGLRenderingContext' in window){
 }else{
  document.querySelector('.scene-fallback')?.classList.add('fallback-visible');
 }
+
+
+// A versioned offline cache provides a quick revisit without an account.
+if('serviceWorker' in navigator && location.protocol==='https:'){
+ window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}),{once:true});
+}

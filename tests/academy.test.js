@@ -15,7 +15,7 @@ test('20 distinctly named programming language tracks and honest browser executi
 test('100 complete, uniquely identified original quiz questions have validated answers and explanations',()=>{
  const all=Object.values(QUESTIONS).flat();
  assert.equal(all.length,100);
- assert.equal(new Set(all.map(q=>q.id)).size,60);
+ assert.equal(new Set(all.map(q=>q.id)).size,100);
  for(const q of all){
   assert.equal(q.choices.length,3);assert.ok(q.question.length>=10&&q.explanation.length>=15);
   assert.deepEqual(grade(q,q.answer).correct,true);

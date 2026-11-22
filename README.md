@@ -67,7 +67,7 @@ An **original articulated 3D explorer** welcomes visitors to a futuristic enviro
 
 ## Privacy, security and educational limits
 
-No accounts, email collection, analytics, tracking scripts, ad networks or remote user databases are used. Mission achievements are stored locally in the visitor's own browser. The application does not send them to a server.
+The core educational worlds use no account or email collection; mission achievements are stored locally in the visitor's browser. This does not apply to the optional Horizon Connect backend, which supports account registration and database-backed event records when separately configured. The Developer Studio sends code and stdin to its configured compiler on Run or Test. Optional CDN dependencies require network access. Do not submit private data or secrets. The public event dashboard is a demonstration, not an authorized university service.
 
 Code Lab evaluates student-supplied beginner JavaScript in a **separate, short-lived Web Worker** with a time limit and blocked network/system API patterns. This is suitable for small educational exercises, **not** a security-hardened sandbox for adversarial code or a general-purpose cloud code execution service.
 
@@ -111,6 +111,16 @@ Our new browser-based learning workbench goes beyond a static programming catalo
 Inspired by the kinds of scroll, button, and interaction patterns featured in [Webflow's animation gallery](https://webflow.com/made-in-webflow/animation), BROOTHERHOOD now uses its **own original implementation** of a cinematic five-world journey: scroll-pinned stages, orbiting 3D-style holograms, pointer-responsive parallax, layered glass panels and responsive depth effects. These are not cloned Webflow templates or reused third-party site designs.
 
 Animation is optional. Users can navigate each learning world directly, and motion is minimized when the device requests reduced motion. Larger screens receive a more spacious experience; mobile rendering remains adaptive rather than forcing native 4K WebGL resolution.
+
+## How to use the competition demonstration
+
+1. Open the hosted homepage and skip or pause the animation if desired.
+2. Visit Cyber Defense Arena and classify a fictional security scenario; then use AI Core to change the kNN inputs and examine the class votes.
+3. In Programming Academy, choose an execution-supported track and try a sample or guided mission. Tracks marked Study Mode do not compile code.
+4. Review your local Discovery Passport. If an optional CDN or compiler is unavailable, use the local simulation worlds instead. No backend or login is required for the core learning experience.
+5. For local verification, use Node.js 22 and run `npm test`; serve the files with `python -m http.server 4173` from the repository root. The optional backend has separate instructions in `horizon/DEPLOYMENT.md`.
+
+AI assistance: ChatGPT assisted with original design, implementation and review. The registered team is responsible for verifying source, behavior, third-party licenses, privacy and security before submitting. Team roster and contribution attribution must reflect actual registered participants.
 
 ## Technology
 

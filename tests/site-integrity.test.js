@@ -13,7 +13,9 @@ test('every committed website module has valid JavaScript syntax',()=>{
     return entry.isDirectory()?walk(path):/\.(?:js|mjs)$/.test(entry.name)?[path]:[];
   });
   const modules=['sw.js',...['src','studio','horizon'].flatMap(walk)];
-  assert.ok(modules.length>=20,'expected all application module families');
+  for(const required of ['src/academy-app.js','src/digital-app.js','studio/studio.js','horizon/portal.js','sw.js']){
+    assert.ok(modules.includes(join(...required.split('/'))), 'missing application module '+required);
+  }
   for(const path of modules){
     const result=spawnSync(process.execPath,['--check',join(root,path)],{encoding:'utf8'});
     assert.equal(result.status,0,path+' failed syntax check: '+result.stderr);

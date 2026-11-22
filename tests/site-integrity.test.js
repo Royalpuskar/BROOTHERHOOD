@@ -1,12 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
+import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
 const text = path => readFileSync(new URL('../'+path,import.meta.url),'utf8');
 test('every committed website module has valid JavaScript syntax',()=>{
-  for(const path of ['src/app.js','src/logic.js','src/discovery.js','src/discovery-ui.js','src/guide-scene.js','sw.js']){
-    const result=spawnSync(process.execPath,['--check',new URL('../'+path,import.meta.url).pathname],{encoding:'utf8'});
+  const root=fileURLToPath(new URL('../',import.meta.url));
+  const walk=dir=>readdirSync(join(root,dir),{withFileTypes:true}).flatMap(entry=>{
+    const path=join(dir,entry.name);
+    return entry.isDirectory()?walk(path):/\.(?:js|mjs)$/.test(entry.name)?[path]:[];
+  });
+  const modules=['sw.js',...['src','studio','horizon'].flatMap(walk)];
+  assert.ok(modules.length>=20,'expected all application module families');
+  for(const path of modules){
+    const result=spawnSync(process.execPath,['--check',join(root,path)],{encoding:'utf8'});
     assert.equal(result.status,0,path+' failed syntax check: '+result.stderr);
   }
 });

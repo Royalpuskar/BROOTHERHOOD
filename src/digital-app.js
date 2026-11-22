@@ -70,7 +70,13 @@ for(const [id,section] of Object.entries({code:'code-lab',cyber:'cyber-arena',ai
 
 // Code Lab uses a fresh dedicated worker for every execution; never evals student code in the page context.
 let codeTask='variables',worker=null,runTimer=null;
+function cancelCodeRun(){
+ clearTimeout(runTimer);runTimer=null;
+ if(worker){const stale=worker;worker=null;stale.terminate();}
+ $('run-code').disabled=false;
+}
 function setCodeTask(key){
+ cancelCodeRun();
  codeTask=Object.hasOwn(CODE_TASKS,key)?key:'variables';
  const item=CODE_TASKS[codeTask];$('code-task').value=codeTask;
  $('code-editor').value=item.starter;$('code-instruction').textContent=item.description;
@@ -80,11 +86,16 @@ function setCodeTask(key){
 }
 $('code-task').addEventListener('change',e=>setCodeTask(e.target.value));
 $('reset-code').addEventListener('click',()=>setCodeTask(codeTask));
+$('code-editor').addEventListener('input',()=>{
+ cancelCodeRun();
+ $('code-output').textContent='Run your edited code to see the result.';
+ $('code-feedback').textContent='';
+});
 $('run-code').addEventListener('click',()=>{
  const source=$('code-editor').value;
  if(source.length>3500){$('code-feedback').textContent='Use fewer than 3,500 characters for this exercise.';return;}
- if(worker){worker.terminate();worker=null;}
- clearTimeout(runTimer);
+ cancelCodeRun();
+ const expected=CODE_TASKS[codeTask].expected;
  const id=String(Date.now())+Math.random().toString(36).slice(2);
  const button=$('run-code');button.disabled=true;
  $('code-output').textContent='Executing in an isolated worker...';$('code-feedback').textContent='';
@@ -98,7 +109,7 @@ $('run-code').addEventListener('click',()=>{
   finish();
   const result=e.data;const output=result.output||'(No console output)';
   $('code-output').textContent=result.ok?output:('Execution error: '+result.error+(result.output?'\n'+output:''));
-  const success=result.ok && safeCodeResult(output,CODE_TASKS[codeTask].expected);
+  const success=result.ok && safeCodeResult(output,expected);
   $('code-feedback').textContent=success?'Mission complete! Your JavaScript printed the expected output.':result.ok?'The program ran, but the last printed value does not match the mission.': 'Edit the program and run it again.';
   $('code-feedback').className='mission-feedback '+(success?'positive':'caution');
   if(success)complete('code');else say('Good experiment. Read the console output, adjust your code, and run again.','code');

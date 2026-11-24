@@ -10,6 +10,7 @@
 
 ### [EXPLORE THE LIVE DIGITAL UNIVERSE](https://royalpuskar.github.io/BROOTHERHOOD/)
 
+**Enter the full 3D Universe:** https://royalpuskar.github.io/BROOTHERHOOD/experience/  
 **Open Horizon Connect:** https://royalpuskar.github.io/BROOTHERHOOD/horizon/  
 **Open Pro Code Studio:** https://royalpuskar.github.io/BROOTHERHOOD/studio/  
 **Programming Academy:** https://royalpuskar.github.io/BROOTHERHOOD/#programming-academy
@@ -19,6 +20,22 @@
 </div>
 
 ---
+
+## Immersive 3D Universe — the new flagship experience
+
+### [ENTER THE LIVE 3D UNIVERSE](https://royalpuskar.github.io/BROOTHERHOOD/experience/)
+
+BROOTHERHOOD now contains an **original interactive 3D world**, not just a pre-rendered 3D illustration. The main homepage shares the same real-time WebGL engine with a full-screen exploratory journey.
+
+- Five **clickable floating gateway islands** connect directly to the live Code Studio, Cyber Defense, AI learning core, Horizon Connect event dashboard and Builders' Realm.
+- A luminous **orbital engine**, rotating gyroscopes, translucent gateways, crystal structures, futuristic city skyline and network constellation are built in procedural Three.js with real geometry and depth.
+- The articulated explorer character is **stylized and procedurally modeled**, not a photorealistic imported rigged character.
+- **Animated flight paths** move the virtual camera toward selected destinations. The full-screen experience includes a guided tour, keyboard shortcuts 1–5, arrow-key controls, mouse parallax and touch swipes.
+- **4K-class display scaling**, instanced skyline geometry, viewport-based animation pausing, adaptive render resolution and mobile-specific geometry budgets. "4K-class" describes the responsive display layout, not a promise to force native 4K WebGL rendering on every device.
+- Explicit **motion pause**, reduced-motion support, screen-reader announcements and fully accessible DOM portal buttons. All destinations remain usable without WebGL or external 3D libraries.
+- Original graphics and component layout: no copied Webflow template, purchased scenes, official university logos or AI watermark.
+
+The full-screen experience is at [**/experience/**](https://royalpuskar.github.io/BROOTHERHOOD/experience/). Rendering uses Three.js 0.180.0 from a version-pinned public CDN; an Internet connection may be needed for the first 3D load. The underlying programming and event features remain at their existing URLs.
 
 ## Horizon Connect — integrated smart event platform
 

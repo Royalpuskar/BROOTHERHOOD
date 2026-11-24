@@ -11,7 +11,7 @@ export const PORTALS=Object.freeze([
  {id:'cyber',title:'CYBER SHIELD',subtitle:'Practice digital defense and threat awareness',href:'../#cyber-arena',color:0xffcd7b,category:'Technology',icon:'⛨'},
  {id:'ai',title:'AI LABORATORY',subtitle:'Explore working machine-learning experiments',href:'../#ai-core',color:0xb6a1ff,category:'Technology',icon:'✺'},
  {id:'biology',title:'BIOLOGY · HEART',subtitle:'Rotate a 3D heart and follow blood flow',href:'../pocket-3d-lab/',color:0xff8ea2,category:'Science',icon:'♥'},
- {id:'physics',title:'PHYSICS STUDIO',subtitle:'Explore circuits and electricity',href:'../legacy/#electricity',color:0x63e3fa,category:'Science',icon:'⚡'},
+ {id:'physics',title:'PHYSICS STUDIO',subtitle:'Explore circuits and electricity',href:'../legacy/#circuit',color:0x63e3fa,category:'Science',icon:'⚡'},
  {id:'maths',title:'MATHEMATICS ISLAND',subtitle:'Discover fractions through visual puzzles',href:'../legacy/#fractions',color:0xffb96a,category:'Science',icon:'π'},
  {id:'eco',title:'ECO PLANET',subtitle:'Experiment with environmental choices',href:'../legacy/#eco',color:0x91f5a6,category:'Science',icon:'✿'},
  {id:'horizon',title:'HORIZON CONNECT',subtitle:'Explore the interactive event platform',href:'../horizon/',color:0xcaff81,category:'Community',icon:'◈'},

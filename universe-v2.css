@@ -87,3 +87,18 @@ body:has(.universe-ready) .hero-scene-stamp{color:#caff9c}
 @media(prefers-reduced-motion:reduce){
  .hero-world-panel{transform:none!important}
 }
+
+
+/* Float Beyond the Classroom · cohesive signature mark and more grounded atmosphere */
+.identity-icon{padding:0!important;border:0!important;background:transparent!important;box-shadow:0 0 24px #62dfd24a!important;overflow:hidden;border-radius:14px!important}
+.identity-icon img{display:block;width:50px;height:50px;object-fit:contain}
+.identity small{letter-spacing:.15em;font-size:9px;font-weight:850;color:#b8efdc}
+.hero-center h1{background:linear-gradient(110deg,#efffff 30%,#b3dce8 62%,#d6f5ed);background-clip:text;-webkit-background-clip:text}
+.hero-center h1 span:first-child{color:#f0ffff}
+.hero-center h1 .hero-neon{color:#c9ff9c}
+.hero-welcome{font-size:clamp(19px,2.2vw,38px);letter-spacing:-.035em}
+.hero-orbit-label{font-size:10px;letter-spacing:.23em;color:#bcefe6;text-transform:uppercase}
+.hero-visual{filter:saturate(1.04) contrast(1.06)}
+.scene-fallback{opacity:.6}
+.masthead{border-bottom-color:#81f2d648}
+@media(max-width:600px){.identity-icon img{width:43px;height:43px}.identity small{font-size:7px}.hero-orbit-label{font-size:8px;letter-spacing:.12em}}

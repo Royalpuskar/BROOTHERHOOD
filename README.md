@@ -23,6 +23,19 @@
 
 ---
 
+## Float Beyond the Classroom · World Fidelity v3
+
+BROOTHERHOOD now has a more distinctive visual system centered on an original **B-in-orbit monogram** and a higher-fidelity floating island environment. The entire world continues to be rendered from original procedural Three.js geometry with no stock model, watermarked generator image or third-party template.
+
+- **Detailed flying landscapes:** irregular multi-layer stone strata generated as real BufferGeometry, physically shaded rock and metal, procedural bump texture, mossy Eco Planet, luminous ring platforms, scattered levitating debris, and volumetric-style translucent atmosphere.
+- **Material and lighting:** ACES filmic tone mapping, metalness, roughness, vertex coloration, depth fog, warm dawn/cool night lighting presets, emissive neon, landing-deck lighting and glow sprites.
+- **Real camera interaction:** select any of nine destinations, drag with mouse or a finger to orbit, scroll or pinch to zoom, reset the view, or take a guided camera tour.
+- **Real controls:** night/dawn lighting and high-detail/performance rendering are connected to the live Three.js scene, not cosmetic buttons. Reduced-motion users can still navigate and adjust the camera without forced animation.
+- **Responsive and optional:** dynamically capped device pixel ratios, reduced geometry on phones, performance mode that hides extra 3D debris/clouds, and fully usable ordinary text links when WebGL is unavailable.
+- **Consistent identity:** the shared branded orbit mark appears on the homepage, 3D expedition, developer studio and Horizon Connect dashboard.
+
+This is **stylized, physically based procedural 3D**, not photogrammetry or a claim of photorealistic scanned assets. The performance and rendering depend on hardware and the version-pinned Three.js CDN. The programming compiler and Horizon backend requirements remain unchanged.
+
 ## The Unified Floating Learning Universe
 
 ### [EXPLORE ALL NINE FLOATING WORLDS](https://royalpuskar.github.io/BROOTHERHOOD/experience/)

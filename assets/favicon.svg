@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="16" fill="#0c2432"/><path d="M20 13h16q13 0 13 12 0 7-7 10 10 3 10 12 0 12-16 12H20z" fill="none" stroke="#d5f866" stroke-width="6" transform="translate(-5 -5) scale(1 .99)"/><path d="M16 31h28" stroke="#d5f866" stroke-width="4"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" aria-hidden="true">
+<defs>
+ <linearGradient id="sky" x1="12" y1="12" x2="83" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#173f59"/><stop offset="1" stop-color="#061526"/></linearGradient>
+ <linearGradient id="mint" x1="27" y1="18" x2="71" y2="77" gradientUnits="userSpaceOnUse"><stop stop-color="#dcffa9"/><stop offset=".52" stop-color="#7ff7db"/><stop offset="1" stop-color="#49c2fa"/></linearGradient>
+ <linearGradient id="orbit" x1="7" y1="44" x2="87" y2="56" gradientUnits="userSpaceOnUse"><stop stop-color="#72effa"/><stop offset="1" stop-color="#caff8f"/></linearGradient>
+</defs>
+<rect width="96" height="96" rx="24" fill="url(#sky)"/>
+<rect x="1" y="1" width="94" height="94" rx="23" stroke="#76e8e8" stroke-opacity=".54" stroke-width="2"/>
+<circle cx="48" cy="48" r="30" stroke="#97dff1" stroke-opacity=".25" stroke-width="1.5"/>
+<ellipse cx="48" cy="48" rx="41" ry="17" transform="rotate(-28 48 48)" stroke="url(#orbit)" stroke-width="3.6" stroke-linecap="round"/>
+<path d="M36 24V72M36 25H50C65 25 67 40 55 47C71 53 67 72 49 72H36M37 47H52" stroke="url(#mint)" stroke-width="8.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="77" cy="31" r="5.8" fill="#d5ff90"/><circle cx="77" cy="31" r="9.4" stroke="#d5ff90" stroke-opacity=".28"/>
+<path d="M22 24L24.5 18L27 24L33 26.5L27 29L24.5 35L22 29L16 26.5L22 24Z" fill="#a1ecff"/>
+</svg>

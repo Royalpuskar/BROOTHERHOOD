@@ -10,7 +10,9 @@
 
 ### [EXPLORE THE LIVE DIGITAL UNIVERSE](https://royalpuskar.github.io/BROOTHERHOOD/)
 
-**Enter the full 3D Universe:** https://royalpuskar.github.io/BROOTHERHOOD/experience/  
+**Explore nine floating 3D worlds:** https://royalpuskar.github.io/BROOTHERHOOD/experience/  
+**Interactive science labs:** https://royalpuskar.github.io/BROOTHERHOOD/legacy/  
+**3D Biology:** https://royalpuskar.github.io/BROOTHERHOOD/pocket-3d-lab/  
 **Open Horizon Connect:** https://royalpuskar.github.io/BROOTHERHOOD/horizon/  
 **Open Pro Code Studio:** https://royalpuskar.github.io/BROOTHERHOOD/studio/  
 **Programming Academy:** https://royalpuskar.github.io/BROOTHERHOOD/#programming-academy
@@ -20,6 +22,28 @@
 </div>
 
 ---
+
+## The Unified Floating Learning Universe
+
+### [EXPLORE ALL NINE FLOATING WORLDS](https://royalpuskar.github.io/BROOTHERHOOD/experience/)
+
+The home page and full-screen WebGL expedition now connect nine working educational destinations. The floating learning atlas combines **four science worlds**, **four computing/technology worlds**, and **one connected event platform**.
+
+| World | What really works |
+| --- | --- |
+| Biology · Pocket 3D Lab | Rotatable 3D heart, 13 anatomy labels, blood-flow routes and five-question quiz |
+| Physics · Electricity Studio | Interactive voltage/resistance circuit and feedback |
+| Mathematics · Fraction Playground | Adjustable visual fractions and mission checking |
+| Environmental Science · Eco Choices | Adjustable transport choices with calculated effects |
+| Cybersecurity · Cyber Shield | Defensive threat recognition and scenario missions |
+| Programming · Code Nexus | Real compiler-connected programming IDE (external service dependency) |
+| Artificial Intelligence · AI Laboratory | Interactive browser-side classification exercise |
+| Horizon Connect | Event dashboard with live functionality when the separately hosted backend is connected |
+| Builders Realm | Software architecture model and interactive learning tasks |
+
+Each 3D world has a distinctive original procedural sculpture: a stylized anatomical heart, a circuit sculpture, mathematical crystal, tree island with a waterfall, cybersecurity shield, neural network, code terminal, city skyline, or architecture stack. Select them from an accessible directory, use optional fly-through camera controls, and open the corresponding working lesson. On the main page the same destinations appear as animated, keyboard-accessible floating learning cards, with real category filters.
+
+**No new platform services are invented.** The Python/MySQL-backed Horizon dashboard still requires separate deployment. Live compilation depends on the configured Judge0-compatible API. Science modules and quizzes have real interactive local behavior. WebGL, 4K-class layouts and hover effects progressively enhance the experience; all destinations remain available without rendering 3D.
 
 ## Pocket 3D Lab — Interactive Biology
 
@@ -35,7 +59,7 @@ A **separate, original high-school biology website** with a rotatable and zoomab
 
 BROOTHERHOOD now contains an **original interactive 3D world**, not just a pre-rendered 3D illustration. The main homepage shares the same real-time WebGL engine with a full-screen exploratory journey.
 
-- Five **clickable floating gateway islands** connect directly to the live Code Studio, Cyber Defense, AI learning core, Horizon Connect event dashboard and Builders' Realm.
+- Nine **clickable floating gateway islands** connect directly to Biology, Physics, Mathematics, Environmental Science, Cybersecurity, AI, Code Studio, Horizon Connect and Builders' Realm.
 - A luminous **orbital engine**, rotating gyroscopes, translucent gateways, crystal structures, futuristic city skyline and network constellation are built in procedural Three.js with real geometry and depth.
 - The articulated explorer character is **stylized and procedurally modeled**, not a photorealistic imported rigged character.
 - **Animated flight paths** move the virtual camera toward selected destinations. The full-screen experience includes a guided tour, keyboard shortcuts 1–5, arrow-key controls, mouse parallax and touch swipes.

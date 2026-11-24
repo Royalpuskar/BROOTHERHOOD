@@ -106,6 +106,23 @@ $$('#mobile-nav a').forEach(link => link.addEventListener('click', () => {
   $('#mobile-nav').hidden = true; menu.setAttribute('aria-expanded','false'); menu.setAttribute('aria-label','Open navigation');
 }));
 renderFractions(); renderCircuit(); renderEco(); updatePassport();
+
+/** Deep links from the floating 3D universe select the correct real science lab. */
+const ROUTED_LABS = new Set(['fractions','circuit','eco']);
+function openLinkedLab(){
+ const requested=window.location.hash.slice(1);
+ if(!ROUTED_LABS.has(requested))return;
+ selectLab(requested);
+ const section=document.querySelector('#lab');
+ if(section){
+  requestAnimationFrame(()=>section.scrollIntoView({
+   behavior:'instant',block:'start'
+  }));
+ }
+}
+window.addEventListener('hashchange',openLinkedLab);
+openLinkedLab();
+
 if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
   window.addEventListener('load', () => navigator.serviceWorker.register(new URL('../sw.js', import.meta.url)).catch(() => {}));
 }

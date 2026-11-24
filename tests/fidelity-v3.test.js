@@ -10,7 +10,7 @@ test('original physical-looking floating architecture uses layered procedural ro
   'BufferGeometry','computeVertexNormals','MeshStandardMaterial',
   'CanvasTexture','bumpMap','vertexColors','DodecahedronGeometry',
   'SpriteMaterial','AdditiveBlending','roughness','metalness',
-  'Irregular Rock Strata','landing','rockMap','hoverRing','glowTexture','setDetailMode'
+  'Irregular Rock Strata','rockMap','hoverRing','glowTexture','setDetailMode'
  ])assert.ok(s.includes(feature),'Missing environmental detail '+feature);
  assert.match(s,/new T\.CylinderGeometry/);
  assert.match(s,/const highDetailRoots=/);

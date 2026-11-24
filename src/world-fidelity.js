@@ -56,7 +56,7 @@ export function enhanceFloatingWorld({T,scene,portals,lowPower=false}){
  const platedMetal=new T.MeshStandardMaterial({color:0xb2d6de,metalness:.67,roughness:.27});
  const soil=new T.MeshStandardMaterial({color:0x4c6954,metalness:.04,roughness:.94});
  const moss=new T.MeshStandardMaterial({color:0x5eaf7e,metalness:.03,roughness:.87});
- const rings=[],beacons=[],rubble=[];
+ const rings=[],beacons=[],rubble=[],highDetailRoots=[];
  const softClouds=[];
  const make=(parent,geometry,material,x=0,y=0,z=0)=>{
   const obj=new T.Mesh(geometry,material);obj.position.set(x,y,z);
@@ -123,7 +123,7 @@ export function enhanceFloatingWorld({T,scene,portals,lowPower=false}){
   lens.position.set(0,-3.30,0);lens.scale.set(6.6,3.15,1);
   local.add(lens);softClouds.push(lens);
   // Mechanical details, tactile stone chips and accent lighting.
-  const decorative=new T.Group();local.add(decorative);
+  const decorative=new T.Group();local.add(decorative);highDetailRoots.push(decorative);
   for(let k=0;k<(lowPower?8:16);k++){
    const a=k/(lowPower?8:16)*TAU;
    const pad=make(local,new T.BoxGeometry(.32,.065,.32),k%4===0?platedMetal:brushedMetal,
@@ -137,7 +137,7 @@ export function enhanceFloatingWorld({T,scene,portals,lowPower=false}){
   for(let k=0;k<(lowPower?4:9);k++){
    const a=k*2.39996+i*.87;
    const dist=2.5+hash(k*22+i*9)*1.2;
-   const shard=make(decorative,new T.DodecahedronGeometry(.11+hash(k*i+81)*.22,0),k%3===0?circuitMaterial:rockMaterial,
+   const shard=make(decorative,new T.DodecahedronGeometry(.11+hash(k*i+81)*.22,0),k%3===0?circuitMaterial:darkMetal,
     Math.cos(a)*dist,-1.1-hash(i*15+k)*2.8,Math.sin(a)*dist);
    shard.rotation.set(a*.37,a*.41,a*.28);
    shard.userData.portal=p.id;
@@ -190,6 +190,7 @@ export function enhanceFloatingWorld({T,scene,portals,lowPower=false}){
   softClouds.push(cloud);
  }
  detailGroup.visible=!lowPower;
+ highDetailRoots.forEach(g=>g.visible=!lowPower);
  function update(t){
   rings.forEach(({mesh,phase})=>{
    const pulse=1+Math.sin(t*1.33+phase)*.047;
@@ -207,6 +208,7 @@ export function enhanceFloatingWorld({T,scene,portals,lowPower=false}){
  const setDetailMode=mode=>{
   const high=mode==='quality';
   detailGroup.visible=high;
+  highDetailRoots.forEach(g=>g.visible=high);
   for(let i=0;i<softClouds.length;i++){
    if(i<portals.length)continue;
    softClouds[i].visible=high;

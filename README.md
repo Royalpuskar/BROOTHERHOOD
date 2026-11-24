@@ -23,6 +23,33 @@
 
 ---
 
+## Computer Science Study Lab — Your Customizable Syllabus
+
+### [**OPEN THE INTERACTIVE STUDY LAB**](https://royalpuskar.github.io/BROOTHERHOOD/syllabus/)
+
+A new **real, editable curriculum and interactive computer science laboratory**, linked from the homepage, 3D Universe and Code Studio. This is a suggested roadmap designed for easy learning; it is **not represented as an official university syllabus**.
+
+Seven courses, 24 lessons and 48 self-check questions with explanatory feedback:
+
+| Course | What students learn |
+| --- | --- |
+| Digital Systems | Binary numbers, logic gates, Boolean algebra, truth tables |
+| Linear Algebra | Vectors, matrix operations, determinants, 2D transformations |
+| Discrete Mathematics | Sets, propositions, counting, graph theory and BFS |
+| Data Structures | Arrays, stacks, queues, trees and hash maps |
+| Algorithms | Big-O, sorting, searching |
+| Computer Architecture | CPU instruction cycle, RAM/cache/storage, two's complement |
+| Computer Networks | Packets, TCP/IP/DNS/HTTPS and defensive security |
+
+The first three subjects have **functional JavaScript math workbenches**, not static illustrations:
+
+- **Digital:** all eight supported 0/1 logic operations, complete two-input truth tables, interactive bit switches and validated decimal/binary conversion.
+- **Linear:** 2×2 matrix addition/multiplication, determinant, inversion (including singular-matrix handling), matrix-vector transformations and an original SVG vector plot.
+- **Discrete:** set union/intersection/difference/symmetric difference, an editable undirected graph with BFS visualization and visit-order/distance results, and validated nCr combinations.
+- **Syllabus organizer:** add your own topics, check them off, automatically track mastery after perfect lesson quizzes, and export/import study progress as JSON. All progress stays in browser local storage until a learner chooses to export it.
+
+No LLM API, server or student account is needed for the math engines and standard learning content. The physics, 3D biology, cybersecurity, coding and event sites remain intact.
+
 ## Float Beyond the Classroom · World Fidelity v3
 
 BROOTHERHOOD now has a more distinctive visual system centered on an original **B-in-orbit monogram** and a higher-fidelity floating island environment. The entire world continues to be rendered from original procedural Three.js geometry with no stock model, watermarked generator image or third-party template.

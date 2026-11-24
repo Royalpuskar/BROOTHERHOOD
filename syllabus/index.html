@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071427">
+<meta name="description" content="BROOTHERHOOD Study Lab: hands-on Digital Systems, Linear Algebra, Discrete Mathematics and core Computer Science. Real simulators, explained quizzes and personal progress.">
+<meta property="og:title" content="BROOTHERHOOD Study Lab — Learn by Doing">
+<title>Study Lab — BROOTHERHOOD</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./study.css">
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to learning content</a>
+<div class="study-shell">
+<header class="study-nav">
+ <a class="brand" href="../"><img src="../assets/brand-mark.svg" width="42" height="42" alt=""><span><strong>BROOTHERHOOD</strong><small>STUDY LAB · LEARN BY DOING</small></span></a>
+ <nav aria-label="Study Lab navigation"><a href="#courses">Courses</a><a href="#workspace">Workbenches</a><a href="#study-plan">My syllabus</a><a href="../experience/">3D Universe ↗</a></nav>
+ <div class="study-nav-tools"><span class="live-dot"></span><span>LOCAL-FIRST LEARNING</span></div>
+</header>
+<main id="main">
+<section class="hero">
+ <div class="hero-copy">
+  <span class="overline"><span aria-hidden="true">✳</span> THE LEARNING INTELLIGENCE STUDIO</span>
+  <h1>Complex ideas.<br><em>Made simple.</em></h1>
+  <p>Master the building blocks of computer science through bite-sized explanations, working math and logic simulators, and practice that remembers what you've learned.</p>
+  <div class="hero-actions"><a href="#courses" class="btn btn-primary">Start a lesson <span aria-hidden="true">↗</span></a><a href="#workspace" class="btn btn-quiet">Open the workbenches ↓</a></div>
+  <p class="hero-honesty">A customizable suggested roadmap—not an official university syllabus. Edit your personal topic checklist below.</p>
+ </div>
+ <div class="hero-graphic" aria-hidden="true">
+  <div class="orb orb-a"><span>01</span><b>0 & 1</b><small>DIGITAL LOGIC</small></div>
+  <div class="orb orb-b"><span>02</span><b>⌗</b><small>LINEAR ALGEBRA</small></div>
+  <div class="orb orb-c"><span>03</span><b>∩</b><small>DISCRETE MATH</small></div>
+  <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div><span class="hero-spark spark-one">✦</span><span class="hero-spark spark-two">✧</span>
+  <span class="floating-tag">BUILD UNDERSTANDING · NOT JUST NOTES</span>
+ </div>
+</section>
+<section class="metrics" aria-label="Course overview">
+ <div><strong id="total-course-count">07</strong><span>CS subjects</span></div>
+ <div><strong id="total-lesson-count">24</strong><span>Mini lessons</span></div>
+ <div><strong id="total-question-count">48</strong><span>Practice questions</span></div>
+ <div><strong id="metric-complete">0</strong><span>Lessons mastered</span></div>
+</section>
+<section class="courses-section" id="courses" aria-labelledby="courses-title">
+ <div class="section-head"><div><span class="overline">YOUR LEARNING ROADMAP</span><h2 id="courses-title">Choose what to <em>discover.</em></h2><p>Start with the foundations, then build confidence one small concept at a time.</p></div><div class="course-overview"><span>OVERALL COURSE PROGRESS</span><strong id="overall-count">0 / 24</strong><div class="progress-track"><i id="overall-bar"></i></div></div></div>
+ <div id="course-cards" class="course-grid" aria-label="Choose a computer science subject"></div>
+</section>
+<section class="lesson-section" id="lesson" aria-labelledby="lesson-title">
+ <div class="section-head"><div><span class="overline" id="lesson-course-label">CURRENT LESSON</span><h2 id="lesson-title">A lesson you can <em>use.</em></h2><p>Select a course or use the next-lesson button to follow the roadmap.</p></div></div>
+ <div class="lesson-layout">
+  <aside class="lesson-sidebar" aria-label="Course chapters"><div class="lesson-sidebar-head"><span>YOUR CHAPTERS</span><h3 id="lesson-course-title">Digital Systems</h3></div><div id="lesson-menu"></div></aside>
+  <article class="lesson-paper">
+   <div class="lesson-meta"><span id="lesson-step">CHAPTER 01 / 04</span><span id="lesson-state">NOT YET MASTERED</span></div>
+   <h3 id="lesson-heading">Binary & Number Systems</h3><div class="objective"><span>YOU WILL LEARN</span><p id="lesson-goal"></p></div>
+   <div class="lesson-text"><span class="content-label">THE IDEA, EXPLAINED SIMPLY</span><p id="lesson-explanation"></p><span class="content-label">WORKED EXAMPLE</span><p id="lesson-example"></p></div>
+   <div class="memory-tip"><span aria-hidden="true">✺</span><div><strong>REMEMBER THIS</strong><p id="lesson-remember"></p></div></div>
+   <div class="lesson-footer-actions"><button type="button" id="lesson-open-tool" class="btn btn-quiet">Try the subject tool →</button><button type="button" id="lesson-next" class="btn btn-primary">Next concept →</button></div>
+  </article>
+  <aside class="practice-panel" aria-labelledby="practice-title">
+   <div class="practice-head"><span class="overline">CHECK YOUR UNDERSTANDING</span><h3 id="practice-title">Try it yourself.</h3><p>Two questions per concept, with explanations for every answer.</p></div>
+   <form id="practice-form"><div id="practice-questions"></div><button type="submit" id="practice-check" class="btn btn-primary" block>Check my answers →</button></form>
+   <div id="practice-feedback" role="status" aria-live="polite" hidden></div>
+   <button type="button" id="practice-retry" class="btn btn-quiet" hidden>Practice again ↻</button>
+  </aside>
+ </div>
+</section>
+<section class="workspace-section" id="workspace" aria-labelledby="workspace-title">
+ <div class="section-head"><div><span class="overline">THE INTERACTIVE LABORATORY</span><h2 id="workspace-title">Don't memorize it.<br><em>Experiment.</em></h2><p>These calculations run on your device. Change the inputs and see actual results.</p></div><div class="workspace-status">● INTERACTIVE COMPUTATION · NO ACCOUNT REQUIRED</div></div>
+ <div class="tool-tabs" role="group" aria-label="Select an interactive learning tool">
+  <button type="button" data-tool="digital" aria-pressed="true">⊞ Digital logic</button>
+  <button type="button" data-tool="linear" aria-pressed="false">⌗ Matrix lab</button>
+  <button type="button" data-tool="discrete" aria-pressed="false">∩ Discrete math</button>
+ </div>
+ <section class="tool-panel" id="tool-digital" aria-labelledby="digital-tool-title">
+  <div class="tool-intro"><span class="eyebrow">DIGITAL SYSTEMS</span><h3 id="digital-tool-title">Logic Gate Workbench</h3><p>Toggle A and B and switch the logic gate. The output and the full truth table update instantly.</p></div>
+  <div class="logic-layout"><div class="logic-board">
+   <div class="control-set"><label for="gate-select">Logic operation</label><select id="gate-select"><option>AND</option><option>OR</option><option>XOR</option><option>NAND</option><option>NOR</option><option>XNOR</option><option>NOT A</option><option>IMPLIES</option></select></div>
+   <div class="bit-inputs"><div class="bit-line"><label for="bit-a">INPUT A</label><button id="bit-a" class="bit-button" type="button" aria-pressed="false">0</button></div><div class="bit-line"><label for="bit-b">INPUT B</label><button id="bit-b" class="bit-button" type="button" aria-pressed="false">0</button></div></div>
+   <div class="gate-display"><span id="gate-symbol">AND</span><span aria-hidden="true">→</span><strong id="gate-output">0</strong></div><p class="tool-help" id="gate-help">AND is 1 only when both bits are 1.</p>
+  </div><div class="result-board"><h4>Truth table</h4><table aria-label="Computed logic gate truth table"><thead><tr><th>A</th><th>B</th><th id="truth-head">AND</th></tr></thead><tbody id="truth-body"></tbody></table><p class="tool-help">Highlighted row: current A and B values.</p></div></div>
+  <div class="number-lab"><h4>Binary number converter</h4><div class="number-grid"><div><label for="decimal-input">Decimal (0–65535)</label><input id="decimal-input" type="number" min="0" max="65535" step="1" value="13" inputmode="numeric"></div><div class="conversion-arrow">⇄</div><div><label for="binary-input">Binary (up to 16 bits)</label><input id="binary-input" type="text" value="1101" inputmode="numeric" maxlength="16" spellcheck="false"></div></div><p id="binary-status" role="status" aria-live="polite">13 in decimal = 1101 in binary.</p></div>
+ </section>
+ <section class="tool-panel" id="tool-linear" aria-labelledby="matrix-tool-title" hidden>
+  <div class="tool-intro"><span class="eyebrow">LINEAR ALGEBRA</span><h3 id="matrix-tool-title">2×2 Matrix Calculator</h3><p>Enter two matrices, choose an operation, and see a result you can verify. Try transforming a vector to visualize what the matrix does.</p></div>
+  <div class="matrix-grid">
+   <fieldset class="matrix-entry"><legend>Matrix A</legend><div class="matrix-cells" id="matrix-a"><input aria-label="A row 1 column 1" type="number" value="2" step="any"><input aria-label="A row 1 column 2" type="number" value="1" step="any"><input aria-label="A row 2 column 1" type="number" value="1" step="any"><input aria-label="A row 2 column 2" type="number" value="2" step="any"></div></fieldset>
+   <fieldset class="matrix-entry"><legend>Matrix B</legend><div class="matrix-cells" id="matrix-b"><input aria-label="B row 1 column 1" type="number" value="1" step="any"><input aria-label="B row 1 column 2" type="number" value="0" step="any"><input aria-label="B row 2 column 1" type="number" value="0" step="any"><input aria-label="B row 2 column 2" type="number" value="1" step="any"></div></fieldset>
+   <div class="matrix-actions"><label for="matrix-op">Calculation</label><select id="matrix-op"><option value="add">A + B</option><option value="multiply">A × B</option><option value="det">det(A)</option><option value="inverse">A inverse</option><option value="vector">A × vector (x,y)</option></select><div class="vector-inputs" id="vector-inputs" hidden><label for="vector-x">x</label><input id="vector-x" type="number" value="1" step="any"><label for="vector-y">y</label><input id="vector-y" type="number" value="2" step="any"></div><button type="button" class="btn btn-primary" id="matrix-calculate">Calculate →</button></div>
+  </div><div class="tool-result" id="matrix-result" role="status" aria-live="polite">Enter values and select Calculate to see a result.</div>
+  <svg class="vector-view" id="vector-view" viewBox="0 0 360 250" role="img" aria-label="Coordinate grid showing an original vector and a transformed vector" hidden><g id="vector-grid"></g><g id="vector-arrows"></g></svg>
+ </section>
+ <section class="tool-panel" id="tool-discrete" aria-labelledby="discrete-tool-title" hidden>
+  <div class="tool-intro"><span class="eyebrow">DISCRETE MATHEMATICS</span><h3 id="discrete-tool-title">Sets, Graphs & Counting</h3><p>Compare sets, trace an unweighted graph with BFS, and calculate combinations using real discrete math.</p></div>
+  <div class="discrete-tools"><article class="discrete-card"><h4>Set operations</h4><label for="set-a">Set A (comma-separated values)</label><input id="set-a" type="text" value="1,2,3,5"><label for="set-b">Set B</label><input id="set-b" type="text" value="2,3,4"><button id="set-calculate" class="btn btn-quiet" type="button">Compare sets →</button><div id="set-result" class="mini-result" role="status" aria-live="polite"></div></article>
+   <article class="discrete-card"><h4>Graph BFS</h4><label for="graph-edges">Undirected edges (A-B, B-C)</label><textarea id="graph-edges" rows="3" spellcheck="false">A-B, A-C, B-D, C-E, D-F, E-F</textarea><label for="graph-start">Start node</label><input id="graph-start" value="A" maxlength="14"><button id="graph-run" class="btn btn-quiet" type="button">Explore BFS →</button><div id="graph-result" class="mini-result" role="status" aria-live="polite"></div><svg id="graph-view" viewBox="0 0 380 250" role="img" aria-label="Graph node and connection visualization"></svg></article>
+   <article class="discrete-card"><h4>Combinations nCr</h4><div class="number-grid"><div><label for="choose-n">n (0–40)</label><input id="choose-n" type="number" min="0" max="40" step="1" value="5"></div><div><label for="choose-r">r (0–n)</label><input id="choose-r" type="number" min="0" max="40" step="1" value="2"></div></div><button id="choose-calculate" class="btn btn-quiet" type="button">Find combinations →</button><div id="choose-result" class="mini-result" role="status" aria-live="polite"></div></article>
+  </div>
+ </section>
+</section>
+<section class="planner-section" id="study-plan" aria-labelledby="plan-title">
+ <div class="section-head"><div><span class="overline">PERSONAL LEARNING PLAN</span><h2 id="plan-title">Make it <em>your syllabus.</em></h2><p>Add topics from your own course outline, check them off as you study, and export progress for backup. Everything stays in your browser unless you choose to export it.</p></div></div>
+ <div class="planner-grid"><div class="planner-card"><div class="planner-head"><h3>My extra syllabus topics</h3><span id="custom-count">0 topics</span></div><form id="custom-form"><label for="custom-topic">Add a topic from your university syllabus</label><div class="custom-fields"><input id="custom-topic" maxlength="100" required placeholder="e.g. Karnaugh maps, eigenvalues, induction…"><button class="btn btn-primary" type="submit">Add topic +</button></div></form><div id="custom-list" class="custom-list"></div><p class="planner-note">Up to 60 personal topics. Do not include private account information.</p></div>
+ <div class="planner-card planner-summary"><h3>Learning progress</h3><strong id="planner-progress">0%</strong><div class="progress-track"><i id="planner-bar"></i></div><p id="planner-details">Complete practice questions to master lessons.</p><div class="planner-actions"><button id="export-progress" type="button" class="btn btn-quiet">↓ Export my progress</button><label class="btn btn-quiet import-label">↑ Import progress <input id="import-progress" type="file" accept=".json,application/json"></label><button id="clear-progress" class="reset-link" type="button">Reset all local progress</button></div><p class="planner-note">This site does not upload your study history. Clearing browser data also clears locally saved progress unless you export it.</p></div></div>
+</section>
+</main>
+<footer><a href="../" class="footer-brand"><img src="../assets/brand-mark.svg" alt="" width="31" height="31"> BROOTHERHOOD</a><p>Learn by experimenting. Built for curiosity, not just exams.</p><div><a href="../experience/">3D Universe</a><a href="../studio/">Code Studio</a><a href="../pocket-3d-lab/">Biology Lab</a></div><small>Suggested CS curriculum · Real browser-side math tools · Local progress</small></footer>
+</div>
+</body>
+</html>

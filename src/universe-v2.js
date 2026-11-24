@@ -374,6 +374,22 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
  let quality=mobileView?'performance':'quality',lighting='night';
  const targetPos=new T.Vector3(0,6,interactive?26:27),targetLook=new T.Vector3(0,1.4,-6);
  const raycaster=new T.Raycaster(),touch=new T.Vector2();
+ // Reduced-motion users can still orbit and zoom without animation.
+ function renderPausedOrbit(){
+  if(!paused)return;
+  orbit.yaw=orbit.desiredYaw;orbit.pitch=orbit.desiredPitch;orbit.zoom=orbit.desiredZoom;
+  const delta=targetPos.clone().sub(targetLook);
+  const length=Math.max(.01,delta.length())*orbit.zoom;
+  const yaw=Math.atan2(delta.x,delta.z)+orbit.yaw;
+  const pitch=clamp(Math.asin(clamp(delta.y/Math.max(.01,delta.length()),-1,1))+orbit.pitch,-.85,1.05);
+  camera.position.set(
+   targetLook.x+Math.sin(yaw)*Math.cos(pitch)*length,
+   targetLook.y+Math.sin(pitch)*length,
+   targetLook.z+Math.cos(yaw)*Math.cos(pitch)*length
+  );
+  cameraTarget.copy(targetLook);camera.lookAt(cameraTarget);
+  renderer.render(scene,camera);
+ }
  const onPointerMove=e=>{
   const rect=host.getBoundingClientRect();
   pointer.desiredX=clamp(((e.clientX-rect.left)/Math.max(1,rect.width)-.5)*2,-1,1);
@@ -395,6 +411,7 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
    }
   }
   if(Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>9)drag.moved=true;
+  if(paused&&activePointers.has(e.pointerId))renderPausedOrbit();
  };
  const onPointerDown=e=>{
   if(!interactive)return;
@@ -446,7 +463,7 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
   if(!interactive)return;
   e.preventDefault();
   orbit.desiredZoom=clamp(orbit.desiredZoom*Math.exp(e.deltaY*.0011),.58,1.65);
-  if(paused)drawFrame();
+  if(paused)renderPausedOrbit();
  };
  const onMotion=e=>{paused=Boolean(e.detail?.paused);cancelAnimationFrame(raf);if(!paused&&running&&!disposed){last=0;raf=requestAnimationFrame(tick);}else{drawFrame();}};
  const onVisibility=()=>{if(document.hidden){cancelAnimationFrame(raf);}else if(running&&!paused&&!disposed){last=0;raf=requestAnimationFrame(tick);}};

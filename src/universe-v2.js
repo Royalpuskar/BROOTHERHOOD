@@ -44,7 +44,9 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
  canvas.style.cssText='width:100%;height:100%;display:block;touch-action:pan-y';
  if(interactive){canvas.style.pointerEvents='auto';canvas.style.touchAction='pan-y';}
  else canvas.style.pointerEvents='none';
- host.replaceChildren(canvas);
+ // Preserve the accessible fallback until the renderer has fully initialized.
+ host.querySelector(".universe-webgl")?.remove();
+ host.prepend(canvas);
  const scene=new T.Scene();
  scene.fog=new T.FogExp2(0x071127,0.012);
  const camera=new T.PerspectiveCamera(interactive?46:41,1,.1,125);
@@ -235,6 +237,7 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
  }),0,-5,2.2);rail.rotation.x=Math.PI/2;
  let selected=0,disposed=false,paused=reduced.matches,running=false,raf=0,last=0,elapsed=0,frames=0,slowFrames=0;
  const pointer={x:0,y:0,desiredX:0,desiredY:0};
+ const inputSurface=interactive?host:(host.closest("#home")||host);
  const drag={x:0,y:0,moved:false};
  const targetPos=new T.Vector3(0,6,interactive?26:27),targetLook=new T.Vector3(0,1.4,-6);
  const raycaster=new T.Raycaster(),touch=new T.Vector2();
@@ -331,7 +334,7 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
   if(disposed)return;disposed=true;cancelAnimationFrame(raf);
   visibility.disconnect();resizeObserver?.disconnect();
   if(!resizeObserver)window.removeEventListener('resize',setSize);
-  host.removeEventListener('pointermove',onPointerMove);
+  inputSurface.removeEventListener('pointermove',onPointerMove);
   host.removeEventListener('pointerdown',onPointerDown);
   host.removeEventListener('pointerup',onPointerUp);
   window.removeEventListener('brootherhood:guide',onGuide);
@@ -346,7 +349,7 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
   mats.forEach(m=>{if(m.map)m.map.dispose();m.dispose();});
   renderer.dispose();canvas.remove();
  };
- host.addEventListener('pointermove',onPointerMove,{passive:true});
+ inputSurface.addEventListener('pointermove',onPointerMove,{passive:true});
  if(interactive){host.addEventListener('pointerdown',onPointerDown,{passive:true});host.addEventListener('pointerup',onPointerUp,{passive:true});}
  window.addEventListener('brootherhood:guide',onGuide);
  window.addEventListener('brootherhood:motion',onMotion);

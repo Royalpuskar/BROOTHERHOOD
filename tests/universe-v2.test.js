@@ -83,3 +83,13 @@ test('GitHub Pages publishes full 3D expedition and shared scene assets',()=>{
  const sw=read('sw.js');
  assert.match(sw,/experience\/experience\.js/);
 });
+
+test('WebGL mounting keeps fallback accessible during initialization and enables main-hero parallax',()=>{
+ const code=read('src/universe-v2.js');
+ assert.match(code,/host\.prepend\(canvas\)/);
+ assert.doesNotMatch(code,/host\.replaceChildren\(canvas\)/);
+ assert.match(code,/const inputSurface=interactive\?host:/);
+ assert.match(code,/inputSurface\.addEventListener\('pointermove'/);
+ const experience=read('experience/index.html');
+ assert.match(experience,/id="space-fallback"/);
+});

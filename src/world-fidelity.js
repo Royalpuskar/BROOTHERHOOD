@@ -56,7 +56,8 @@ export function enhanceFloatingWorld({T,scene,portals,lowPower=false}){
  const platedMetal=new T.MeshStandardMaterial({color:0xb2d6de,metalness:.67,roughness:.27});
  const soil=new T.MeshStandardMaterial({color:0x4c6954,metalness:.04,roughness:.94});
  const moss=new T.MeshStandardMaterial({color:0x5eaf7e,metalness:.03,roughness:.87});
- const rings=[],beacons=[],rubble=[],highDetailRoots=[];
+ const rings=[],beacons=[],rubble=[];
+ const highDetailRoots=[];
  const softClouds=[];
  const make=(parent,geometry,material,x=0,y=0,z=0)=>{
   const obj=new T.Mesh(geometry,material);obj.position.set(x,y,z);

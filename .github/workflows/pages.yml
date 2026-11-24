@@ -28,9 +28,9 @@ jobs:
       - name: Prepare static website
         run: |
           mkdir -p dist/src dist/assets dist/legacy dist/studio dist/horizon dist/experience dist/pocket-3d-lab
-          cp index.html digital.css academy.css float-motion.css universe-v2.css styles.css styles-guide.css sw.js dist/
+          cp index.html digital.css academy.css float-motion.css universe-v2.css atlas.css styles.css styles-guide.css sw.js dist/
           cp src/app.js src/logic.js src/discovery.js src/discovery-ui.js src/guide-scene.js dist/src/
-          cp src/informatics-core.js src/digital-app.js src/digital-scene.js src/universe-v2.js src/code-worker.js dist/src/
+          cp src/informatics-core.js src/digital-app.js src/digital-scene.js src/universe-v2.js src/atlas.js src/code-worker.js dist/src/
           cp src/academy-content.js src/academy-app.js src/float-motion.js src/academy-python-worker.js src/academy-sql-worker.js src/academy-typescript-worker.js dist/src/
           cp legacy/index.html dist/legacy/
           cp studio/index.html studio/studio.css studio/studio.js studio/core.js dist/studio/

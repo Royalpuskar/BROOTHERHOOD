@@ -187,6 +187,15 @@ async function boot(){
   controller.setLighting(lightMode);
   controller.selectPortal(PORTALS[selected].id);
   for(const control of [resetControl,lightControl,qualityControl])control.disabled=false;
+  // Only auto-start a REAL guided WebGL fly-through after the scene is ready.
+  // Respect reduced motion and never pretend a prerecorded demo exists.
+  if(new URLSearchParams(window.location.search).get('tour')==='1'){
+   if(paused){
+    $('xp-announcement').textContent='The 3D world is ready. Motion is paused according to your preferences; choose a world or resume motion to start the tour.';
+   }else{
+    $('xp-explore').click();
+   }
+  }
  }catch(error){
   $('xp-render-status').textContent='3D unavailable · All nine worlds remain accessible';
   for(const control of [resetControl,lightControl,qualityControl])control.disabled=true;

@@ -4,66 +4,136 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#040b24">
-<meta name="description" content="BROOTHERHOOD — explore nine floating 3D worlds for biology, physics, maths, environment, cybersecurity, AI, programming and Horizon Connect.">
+<meta name="description" content="Discover the next dimension of learning with BROOTHERHOOD: nine interactive floating 3D worlds, science labs, digital systems, discrete mathematics, cybersecurity and a real coding studio.">
 <meta property="og:title" content="BROOTHERHOOD — Float Beyond the Classroom">
 <meta property="og:description" content="Think. Build. Secure. Innovate. An immersive, accessible learning universe created for Horizon 2026.">
-<title>BROOTHERHOOD — Enter the Digital Universe</title>
+<title>BROOTHERHOOD — Discover the Next Dimension | Horizon 2026</title>
 <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="./digital.css">
 <link rel="stylesheet" href="./academy.css">
 <link rel="stylesheet" href="./float-motion.css">
 <link rel="stylesheet" href="./universe-v2.css">
 <link rel="stylesheet" href="./atlas.css">
+<link rel="stylesheet" href="./launch.css">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="masthead" id="top">
-  <a href="#home" class="identity" aria-label="BROOTHERHOOD home">
-    <span class="identity-icon" aria-hidden="true"><img src="./assets/brand-mark.svg" alt="" width="50" height="50"></span>
-    <span><strong>BROOTHERHOOD</strong><small>FLOAT BEYOND THE CLASSROOM</small></span>
-  </a>
-  <button class="menu-button" id="menu-button" type="button" aria-controls="main-nav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
-  <nav id="main-nav" aria-label="Primary navigation">
-    <a href="#home" class="nav-active">Home</a><a href="./experience/">3D Universe</a><a href="#learning-universe">Explore 9 Worlds</a><a href="./horizon/">Horizon Connect</a><a href="./syllabus/">CS Study Lab</a><a href="./studio/">Code Studio</a><a href="#programming-academy">Academy</a><a href="#worlds">Learn</a><a href="#flight">Explore</a><a href="#missions">Missions</a><a href="#progress">Progress</a><a href="#about">About</a>
-  </nav>
-  <span class="horizon-badge">🏆 HORIZON 2026</span>
+<header class="masthead launch-masthead" id="top">
+ <a href="#home" class="identity" aria-label="BROOTHERHOOD homepage">
+  <span class="identity-icon" aria-hidden="true"><img src="./assets/brand-mark.svg" width="50" height="50" alt=""></span>
+  <span><strong>BROOTHERHOOD</strong><small>FLOAT BEYOND THE CLASSROOM</small></span>
+ </a>
+ <button class="menu-button" id="menu-button" type="button" aria-controls="main-nav" aria-expanded="false">Menu <span aria-hidden="true">☰</span></button>
+ <nav id="main-nav" aria-label="Primary navigation">
+  <a href="#learning-universe">Worlds</a>
+  <a href="./syllabus/">Study Lab</a>
+  <a href="./studio/">Code Studio</a>
+  <a href="#cyber-arena">Cyber Arena</a>
+  <a href="./horizon/">Innovation Expo</a>
+  <a href="#progress">Progress</a>
+ </nav>
+ <div class="launch-nav-actions">
+  <button type="button" id="launch-search-open" class="launch-search-btn" aria-label="Search learning worlds" aria-haspopup="dialog" aria-controls="launch-search-dialog">⌕</button>
+  <span class="horizon-badge">HORIZON 2026</span>
+  <a href="./experience/" class="launch-nav-cta">Start Exploring <span aria-hidden="true">↗</span></a>
+ </div>
 </header>
+<dialog id="launch-search-dialog" class="launch-search-dialog" aria-labelledby="launch-search-title">
+ <form method="dialog" class="launch-search-header">
+  <label for="launch-search-input" id="launch-search-title">Find your next discovery</label>
+  <button id="launch-search-close" type="submit" aria-label="Close search">✕</button>
+ </form>
+ <input id="launch-search-input" type="search" placeholder="Search biology, coding, maths, cybersecurity..." aria-describedby="launch-search-help" autocomplete="off">
+ <p id="launch-search-help">Select a result to open a real learning experience.</p>
+ <div id="launch-search-results" aria-live="polite" class="launch-search-results"></div>
+</dialog>
 <main id="main">
-<section id="home" class="digital-hero" aria-labelledby="hero-title">
-  <div class="hero-holo-float" aria-hidden="true"><i class="holo-cube cube-a">⌘</i><i class="holo-cube cube-b">AI</i><i class="holo-cube cube-c">⛨</i><i class="holo-cube cube-d">0101</i><i class="holo-particle p-a"></i><i class="holo-particle p-b"></i><i class="holo-particle p-c"></i><i class="holo-particle p-d"></i></div><div class="space-layers" aria-hidden="true"><div class="stars layer-one"></div><div class="stars layer-two"></div><div class="halo"></div><div class="hero-grid"></div><div class="planet"></div></div>
-  <div class="hero-visual" id="hero-visual" aria-hidden="true"><div class="hero-scene-stamp">◉ ORIGINAL THREE.JS WORLDS · PHYSICAL MATERIALS · CINEMATIC DEPTH</div><div id="universe-canvas" class="universe-canvas"></div><div class="scene-fallback"><span class="fallback-symbol">◈</span><span>THE DIGITAL UNIVERSE</span></div></div>
-  <div class="hero-guide-card glass"><span class="message-glow">✦</span><strong>Hi there! 👋</strong><p>I'm your digital learning guide.<br>Ready for an adventure?</p></div>
-  <div class="hero-left">
-    <span class="eyebrow">SCIENCE + CYBERSECURITY + PROGRAMMING · NINE WORLDS</span>
-    <div class="guide-intro-plate"><span class="guide-intro-spark">✦</span><span>MEET YOUR EXPLORER<br><small>Animated 3D guide</small></span></div>
+<section id="home" class="digital-hero launch-hero" aria-labelledby="hero-title">
+ <div class="space-layers" aria-hidden="true"><div class="stars layer-one"></div><div class="stars layer-two"></div><div class="halo"></div><div class="hero-grid"></div></div>
+ <div class="launch-horizon-line" aria-hidden="true"></div>
+ <div class="hero-visual" id="hero-visual" aria-hidden="true">
+  <div class="scene-fallback"><img src="./assets/launch-diorama.svg" alt="" width="1600" height="900"></div>
+  <div id="universe-canvas" class="universe-canvas"></div>
+ </div>
+ <div class="launch-portal-halo" aria-hidden="true"></div>
+ <div class="launch-hero-grid">
+  <div class="hero-center launch-copy">
+   <div class="launch-eyebrow"><span aria-hidden="true">///</span> THE FUTURE OF LEARNING <i aria-hidden="true"></i></div>
+   <h1 id="hero-title">DISCOVER THE<br><span class="hero-neon">NEXT DIMENSION</span></h1>
+   <p class="launch-hero-lead">An immersive 3D learning universe combining real coding tools, science labs, cybersecurity challenges and a personal study roadmap. <strong>Learn by exploring.</strong></p>
+   <div class="hero-actions launch-actions">
+    <a href="./experience/" class="cta-primary cta-3d"><span aria-hidden="true">⬡</span> Enter the 3D Universe <span aria-hidden="true">→</span></a>
+    <a href="./experience/?tour=1" class="cta-secondary launch-tour-link"><span aria-hidden="true">▷</span> Take the 3D Tour</a>
+   </div>
+   <div class="launch-metrics" aria-label="Available curriculum and worlds">
+    <div><strong>24</strong><span>Mini lessons</span></div>
+    <div><strong>48</strong><span>Practice questions</span></div>
+    <div><strong>9</strong><span>Floating worlds</span></div>
+   </div>
   </div>
-  <div class="hero-center">
-    <div class="hero-orbit-label">BROOTHERHOOD / FLOAT BEYOND THE CLASSROOM / HORIZON 2026</div>
-    <p class="hero-welcome">Welcome to a world above ordinary.</p>
-    <h1 id="hero-title"><span>BROOTHER</span><span class="hero-neon">HOOD</span></h1>
-    <p class="hero-motto">DISCOVER. EXPERIMENT. CREATE. EXPLORE.</p>
-    <p class="hero-copy">Enter a detailed floating universe where science meets imagination. Orbit nine sky islands, explore a 3D heart, and launch real coding, AI, physics and cybersecurity challenges.</p>
-    <div class="hero-actions"><a href="./experience/" class="cta-primary cta-3d">✦ Enter the 3D Universe <span aria-hidden="true">↗</span></a><a href="./studio/" class="cta-secondary">▶ Code Studio</a><a href="./syllabus/" class="cta-secondary">⌗ CS Study Lab</a><a href="./horizon/" class="cta-secondary">◈ Horizon Connect</a></div>
+  <div class="launch-scene-info">
+   <div class="launch-world-status"><span class="launch-status-dot" aria-hidden="true"></span><span>ORIGINAL REAL-TIME 3D WORLD</span></div>
+   <div class="launch-scene-caption"><span>EXPLORE · DISCOVER · CREATE</span><strong>ONE UNIVERSE.<br>NINE DESTINATIONS.</strong></div>
+   <a href="./experience/" class="launch-scene-link">Explore the interactive 3D world <span aria-hidden="true">↗</span></a>
   </div>
-  <div class="hero-world-panel glass" aria-label="Featured learning worlds">
-    <h2><span aria-hidden="true">◈</span> Your Learning Worlds</h2>
-    <a class="world-chip chip-bio" href="./pocket-3d-lab/"><span aria-hidden="true">♥</span><span><strong>Biology · 3D Heart</strong><small>Explore the human heart</small></span><b aria-hidden="true">›</b></a>
-    <a class="world-chip chip-physics" href="./legacy/#circuit"><span aria-hidden="true">⚡</span><span><strong>Physics · Electricity</strong><small>Experiment with circuits</small></span><b aria-hidden="true">›</b></a>
-    <a class="world-chip chip-maths" href="./legacy/#fractions"><span aria-hidden="true">π</span><span><strong>Mathematics</strong><small>Explore visual fractions</small></span><b aria-hidden="true">›</b></a>
-    <a class="world-chip chip-cyber" href="#cyber-arena"><span aria-hidden="true">⛨</span><span><strong>Cyber Defense</strong><small>Protect the digital world</small></span><b aria-hidden="true">›</b></a>
-    <a class="world-chip chip-code" href="./studio/"><span aria-hidden="true">⌘</span><span><strong>Code Studio</strong><small>Compile real programs</small></span><b aria-hidden="true">›</b></a>
-    <a class="world-chip chip-eco" href="./legacy/#eco"><span aria-hidden="true">✿</span><span><strong>Eco Planet</strong><small>Test greener choices</small></span><b aria-hidden="true">›</b></a>
-    <a class="hero-all-worlds" href="#learning-universe">Explore all 9 worlds <span aria-hidden="true">↗</span></a>
-  </div>
-  <div class="hero-bottom">
-    <div class="hero-purpose glass"><span aria-hidden="true">🌱</span><span><strong>Learning with Purpose</strong><small>Explore · Experiment · Excel</small></span></div>
-    <div class="hero-shortcuts glass"><a href="./pocket-3d-lab/"><span>♥</span>Biology lab</a><a href="./legacy/#circuit"><span>⚡</span>Physics lab</a><a href="#cyber-arena"><span>⛨</span>Cybersecurity</a><a href="./studio/"><span>⌘</span>Real code</a></div>
-    <div class="hero-purpose glass right-purpose"><span aria-hidden="true">✳</span><span><strong>Join the Journey</strong><small>Because every learner matters</small></span></div>
-  </div>
+ </div>
+ <div class="launch-feature-row" aria-label="Featured working experiences">
+  <a href="./horizon/" class="launch-feature launch-feature-ai">
+   <span class="launch-feature-icon" aria-hidden="true">✺</span>
+   <span class="launch-feature-text"><strong>Horizon Connect</strong><small>Explore the interactive event demo.</small></span><span class="launch-feature-arrow" aria-hidden="true">↗</span>
+  </a>
+  <a href="#cyber-arena" class="launch-feature launch-feature-cyber">
+   <span class="launch-feature-icon" aria-hidden="true">⛨</span>
+   <span class="launch-feature-text"><strong>Cybersecurity Arena</strong><small>Practice real-world safety decisions.</small></span><span class="launch-feature-arrow" aria-hidden="true">↗</span>
+  </a>
+  <a href="./pocket-3d-lab/" class="launch-feature launch-feature-bio">
+   <span class="launch-feature-icon" aria-hidden="true">♥</span>
+   <span class="launch-feature-text"><strong>Pocket 3D Lab</strong><small>Explore a rotatable 3D human heart.</small></span><span class="launch-feature-arrow" aria-hidden="true">↗</span>
+  </a>
+  <a href="./studio/" class="launch-feature launch-feature-code">
+   <span class="launch-feature-icon" aria-hidden="true">⌘</span>
+   <span class="launch-feature-text"><strong>Code Studio</strong><small>Write and run real programs.</small></span><span class="launch-feature-arrow" aria-hidden="true">↗</span>
+  </a>
+ </div>
+ <a class="launch-scroll-guide" href="#platform-story">THE EXPERIENCE CONTINUES <span aria-hidden="true">↓</span></a>
 </section>
-
-
-
+<section class="launch-story" id="platform-story" aria-labelledby="launch-story-title">
+ <a href="./syllabus/" class="launch-story-visual" aria-label="Explore the Computer Science Study Lab">
+  <div class="launch-story-window" aria-hidden="true">
+   <div class="launch-window-top"><span></span><span></span><span></span><i>study-lab / digital-systems.js</i></div>
+   <div class="launch-window-columns"><div class="launch-code-lines">
+    <b><i>01</i> <em>const</em> universe = <span>"BROOTHERHOOD"</span>;</b>
+    <b><i>02</i> <em>function</em> discover(topic) {</b>
+    <b><i>03</i> &nbsp; <span>learn</span>(topic);</b>
+    <b><i>04</i> &nbsp; <span>experiment</span>(topic);</b>
+    <b><i>05</i> &nbsp; <span>build</span>(theFuture);</b>
+    <b><i>06</i> }</b>
+   </div><div class="launch-code-orb"><span>3D</span></div></div>
+  </div><div class="launch-story-visual-foot"><span>⌗ COMPUTER SCIENCE STUDY LAB</span><b>EXPLORE THE LAB ↗</b></div>
+ </a>
+ <div class="launch-story-copy">
+  <div class="launch-story-overline"><span>///</span> BUILT FOR EXPLORERS</div>
+  <h2 id="launch-story-title">A SMARTER,<br>MORE HUMAN WAY<br>TO <em>LEARN.</em></h2>
+  <p>Turn difficult ideas into things you can see, test and understand. Learn Digital Systems, Linear Algebra, Discrete Mathematics and more, or jump straight into a working 3D world.</p>
+  <a href="./syllabus/" class="launch-story-cta">Explore learning paths <span aria-hidden="true">↗</span></a>
+ </div>
+ <div class="launch-story-preview">
+  <div class="launch-preview-visual">
+   <div class="launch-preview-overlay"></div>
+   <span class="launch-preview-number" id="launch-preview-number">01 / 03</span>
+   <a id="launch-preview-link" href="./experience/?tour=1" class="launch-preview-play" aria-label="Open 3D floating universe tour">▶</a>
+  </div>
+  <div class="launch-preview-foot">
+   <div><small>INSIDE BROOTHERHOOD</small><h3 id="launch-preview-title">The Floating Universe</h3><p id="launch-preview-desc">Explore nine connected 3D learning destinations.</p></div>
+   <div class="launch-preview-controls"><button id="launch-preview-prev" type="button" aria-label="Previous featured experience">‹</button><button id="launch-preview-next" type="button" aria-label="Next featured experience">›</button></div>
+  </div>
+  <div class="launch-preview-dots" id="launch-preview-dots" role="group" aria-label="Select featured experience">
+   <button type="button" data-preview="0" aria-label="Featured experience 1" aria-pressed="true"></button>
+   <button type="button" data-preview="1" aria-label="Featured experience 2" aria-pressed="false"></button>
+   <button type="button" data-preview="2" aria-label="Featured experience 3" aria-pressed="false"></button>
+  </div>
+ </div>
+</section>
 <section class="atlas-section" id="learning-universe" aria-labelledby="learning-universe-title">
  <div class="atlas-ambient" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
  <header class="atlas-header">
@@ -377,6 +447,7 @@ console.log(answer);</textarea><div class="workspace-buttons"><button id="run-co
 <section class="section purpose-section" id="about"><div><p class="kicker">WHY BROOTHERHOOD EXISTS</p><h2>Digital skills.<br><em>Equal opportunity.</em></h2></div><div><p>Learning how technology works should not depend on expensive devices, complicated accounts, or a perfect starting point. This interactive digital universe makes computing concepts tangible, allowing learners to test ideas, learn from feedback, and build confidence.</p><p><strong>Designed around SDG 4 — Quality Education.</strong> Every core mission is accessible through ordinary text and controls even if 3D graphics are disabled.</p><p>© 2026 Puskar · Brootherhood. All rights reserved. Third-party libraries retain their own licenses.</p><a class="archive-link" href="./legacy/">Explore our original Discovery Labs archive →</a></div></section>
 </main>
 <footer class="footer"><a href="#top"><strong>BROOTHERHOOD</strong><small>THINK. BUILD. SECURE. INNOVATE.</small></a><nav aria-label="Footer navigation"><a href="./experience/">3D Universe</a><a href="./pocket-3d-lab/">Biology Lab</a><a href="./horizon/">Horizon Connect</a><a href="./studio/">Code Studio</a><a href="#learning-universe">All Worlds</a><a href="#missions">Missions</a><a href="#progress">Progress</a><a href="./legacy/">Original Labs</a><a href="https://github.com/Royalpuskar/BROOTHERHOOD">Source</a></nav><span>HORIZON 2026 · SDG 4</span></footer>
+<script type="module" src="./src/launch.js"></script>
 <script type="module" src="./src/atlas.js"></script>
 <script type="module" src="./src/digital-app.js"></script>
 <script type="module" src="./src/academy-app.js"></script>

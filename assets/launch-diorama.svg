@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Original illustrated floating learning islands and futuristic science campus">
+<defs>
+ <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0c345c" stop-opacity=".18"/><stop offset="1" stop-color="#0b2e52" stop-opacity="0"/></linearGradient>
+ <linearGradient id="stone" x1=".2" y1="0" x2=".76" y2="1"><stop stop-color="#90b7c0"/><stop offset=".23" stop-color="#37516a"/><stop offset=".67" stop-color="#132b4b"/><stop offset="1" stop-color="#02132e"/></linearGradient>
+ <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#aeceae"/><stop offset=".3" stop-color="#4b846f"/><stop offset="1" stop-color="#142b4a"/></linearGradient>
+ <linearGradient id="tower" x1="0" y1="0" x2="1" y2=".9"><stop stop-color="#c1f7ff"/><stop offset=".25" stop-color="#5696c1"/><stop offset=".7" stop-color="#174577"/><stop offset="1" stop-color="#07254b"/></linearGradient>
+ <linearGradient id="water" x1="0" y1="0" x2=".4" y2="1"><stop stop-color="#e0ffff" stop-opacity=".95"/><stop offset=".3" stop-color="#6ae7ff" stop-opacity=".8"/><stop offset="1" stop-color="#36b6ff" stop-opacity="0"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#67edff" stop-opacity=".7"/><stop offset=".4" stop-color="#2aaaf7" stop-opacity=".2"/><stop offset="1" stop-color="#1e73b6" stop-opacity="0"/></radialGradient>
+ <filter id="bright"><feGaussianBlur stdDeviation="9"/></filter>
+ <filter id="soft"><feGaussianBlur stdDeviation="19"/></filter>
+ <filter id="tiny"><feGaussianBlur stdDeviation="2.5"/></filter>
+</defs>
+<g opacity=".87">
+ <circle cx="972" cy="393" r="382" fill="none" stroke="#4dcff5" stroke-opacity=".26" stroke-width="32" filter="url(#bright)"/>
+ <circle cx="972" cy="393" r="371" fill="none" stroke="#8bebff" stroke-opacity=".72" stroke-width="5"/>
+ <circle cx="972" cy="393" r="335" fill="none" stroke="#9addff" stroke-opacity=".35" stroke-width="1.5" stroke-dasharray="4 10"/>
+ <circle cx="972" cy="393" r="275" fill="none" stroke="#9ddfff" stroke-opacity=".19" stroke-width="1"/>
+ <circle cx="950" cy="460" r="550" fill="url(#glow)" opacity=".45"/>
+</g>
+<g fill="#c8faff"><circle cx="651" cy="91" r="2"/><circle cx="1385" cy="128" r="2"/><circle cx="1359" cy="351" r="1.6"/><circle cx="560" cy="578" r="1.3"/><circle cx="1174" cy="79" r="1.2"/></g>
+<g opacity=".67">
+ <path d="M372 719Q463 678 558 712T763 713T984 715T1258 728T1556 704V850H372Z" fill="#77d8f2" opacity=".08" filter="url(#soft)"/>
+ <ellipse cx="1037" cy="771" rx="438" ry="73" fill="#aaf7ff" opacity=".15" filter="url(#soft)"/>
+</g>
+<!-- rear satellite islands -->
+<g transform="translate(475 225) scale(.59)">
+ <path d="M-158 67Q-6 111 158 67L110 123L18 233L-20 244L-126 116Z" fill="url(#stone)" stroke="#3e799e" stroke-width="4"/>
+ <ellipse cx="0" cy="67" rx="157" ry="39" fill="url(#soil)" stroke="#b8faff" stroke-opacity=".8" stroke-width="5"/>
+ <path d="M-69 62V-17Q-46-65-11-76Q31-72 59-28V62" fill="url(#tower)" stroke="#75d9fb" stroke-width="4"/>
+ <path d="M-94 43H91M-79 13H74" stroke="#9cfaff" stroke-width="3"/>
+ <ellipse cy="-36" rx="88" ry="30" fill="none" stroke="#5cf8ff" stroke-width="7"/>
+ <circle cx="0" cy="-62" r="18" fill="#dffcff"/>
+</g>
+<g transform="translate(1422 340) scale(.77)">
+ <path d="M-153 67Q0 104 153 67L102 146L8 245L-45 225L-114 130Z" fill="url(#stone)" stroke="#3f91ad" stroke-width="4"/>
+ <ellipse cy="67" rx="154" ry="41" fill="url(#soil)" stroke="#bbf8ff" stroke-width="5"/>
+ <rect x="-77" y="-37" width="154" height="100" rx="9" fill="#0c355b" stroke="#65dcff" stroke-width="7"/>
+ <rect x="-60" y="-21" width="120" height="65" rx="4" fill="#102b4f" stroke="#4ba4e3"/>
+ <path d="M-38 5l-14 9 14 9M38 5l14 9-14 9M11 2L-9 30" fill="none" stroke="#a7ff8e" stroke-width="6" stroke-linecap="round"/>
+ <ellipse cy="55" rx="173" ry="50" fill="none" stroke="#4ecfff" stroke-opacity=".83" stroke-width="4"/>
+</g>
+<!-- Main island rock with many strata -->
+<g transform="translate(985 465)">
+ <ellipse cx="0" cy="212" rx="424" ry="90" fill="#14a9ed" opacity=".20" filter="url(#soft)"/>
+ <path d="M-410-65Q-238 13 0 17Q250 17 418-65L356 36L262 123L173 168L112 252L28 341L-34 356L-126 277L-192 220L-295 125Z" fill="url(#stone)" stroke="#69b9dc" stroke-opacity=".6" stroke-width="6"/>
+ <path d="M-382-26L-240 78L-190 184L-58 270L25 347M-145 10L-90 93L-8 172L54 307M167 13L102 110L86 210L25 336M343-32L250 87L173 168" stroke="#6ab5e0" stroke-opacity=".37" stroke-width="9" fill="none"/>
+ <path d="M-402-61Q0-133 413-65L405-8Q0 62-403-4Z" fill="#153c5d" stroke="#75e7ff" stroke-opacity=".78" stroke-width="6"/>
+ <ellipse cx="0" cy="-66" rx="407" ry="101" fill="url(#soil)" stroke="#7aecdc" stroke-width="7"/>
+ <ellipse cx="0" cy="-62" rx="381" ry="86" fill="none" stroke="#a9edfa" stroke-width="5" stroke-opacity=".86"/>
+ <ellipse cx="0" cy="-53" rx="342" ry="65" fill="none" stroke="#c1fd9e" stroke-width="3" stroke-opacity=".72"/>
+ <path d="M-294 3Q-256 88-272 200Q-287 269-267 315" fill="none" stroke="url(#water)" stroke-width="25" stroke-linecap="round" opacity=".8" filter="url(#tiny)"/>
+ <path d="M-272-7Q-238 82-257 198Q-270 276-252 325" fill="none" stroke="url(#water)" stroke-width="6" stroke-linecap="round"/>
+ <path d="M276-22Q283 61 275 145Q262 230 291 299" fill="none" stroke="url(#water)" stroke-width="22" stroke-linecap="round" opacity=".75" filter="url(#tiny)"/>
+ <path d="M274-20Q292 55 281 142Q272 221 296 292" fill="none" stroke="url(#water)" stroke-width="5"/>
+ <!-- outer campus rings -->
+ <ellipse cx="0" cy="-89" rx="417" ry="125" fill="none" stroke="#42c7fb" stroke-width="6" stroke-opacity=".88" transform="rotate(-10)"/>
+ <ellipse cx="0" cy="-88" rx="475" ry="103" fill="none" stroke="#b0ff8d" stroke-width="2" stroke-opacity=".57" transform="rotate(13)"/>
+ <!-- tiered campus base -->
+ <ellipse cx="-116" cy="-135" rx="175" ry="49" fill="#29465b" stroke="#80cdeb" stroke-width="8"/>
+ <path d="M-284-140v-52Q-165-257-36-192v52" fill="url(#tower)" stroke="#a5e3fb" stroke-width="5"/>
+ <ellipse cx="-160" cy="-195" rx="126" ry="32" fill="#517e9d" stroke="#ccf2ff" stroke-width="5"/>
+ <ellipse cx="-160" cy="-194" rx="83" ry="24" fill="#104878"/>
+ <path d="M-248-164v30M-203-166v34M-157-169v35M-109-168v34M-65-162v30" stroke="#d5e9e8" stroke-width="11"/>
+ <path d="M-253-184Q-158-219-59-184" stroke="#9efaff" stroke-width="5" fill="none"/>
+ <!-- right science dome -->
+ <ellipse cx="196" cy="-146" rx="151" ry="50" fill="#123c61" stroke="#8cd4ff" stroke-width="6"/>
+ <path d="M70-150A126 126 0 0 1 322-150Z" fill="#30698a" fill-opacity=".6" stroke="#b1efff" stroke-width="5"/>
+ <path d="M128-151L150-245L194-272L247-235L263-151M194-272V-151M91-202H299" fill="none" stroke="#7cdfff" stroke-width="4"/>
+ <path d="M191-252C168-220 219-209 188-178S221-148 207-139" stroke="#bfff9c" stroke-width="8" fill="none" opacity=".88"/>
+ <path d="M203-250C234-227 172-202 216-174S172-149 196-137" stroke="#72ecff" stroke-width="8" fill="none" opacity=".88"/>
+ <!-- central tall tower -->
+ <path d="M-58-185L-55-380L-23-406L9-383L16-187" fill="url(#tower)" stroke="#a5efff" stroke-width="7"/>
+ <path d="M-18-174V-497L10-522L36-490V-166" fill="url(#tower)" stroke="#a1edff" stroke-width="6"/>
+ <path d="M32-170V-430L67-459L90-423V-170" fill="url(#tower)" stroke="#a1edff" stroke-width="7"/>
+ <path d="M-27-370V-210M8-461V-227M57-403V-215" stroke="#67d4ff" stroke-width="9" opacity=".9"/>
+ <path d="M-78-177L-88-325L-71-337L-56-318M111-182L115-316L94-344L87-322" fill="none" stroke="#aeefff" stroke-width="10"/>
+ <ellipse cx="10" cy="-355" rx="181" ry="36" fill="none" stroke="#6cf0ff" stroke-width="9"/>
+ <ellipse cx="10" cy="-352" rx="206" ry="40" fill="none" stroke="#9cfdff" stroke-width="3" stroke-opacity=".6"/>
+ <!-- levitating data sphere -->
+ <circle cx="-20" cy="-82" r="62" fill="#49e4ff" opacity=".24" filter="url(#soft)"/>
+ <circle cx="-20" cy="-92" r="57" fill="#287da3" fill-opacity=".35" stroke="#a6f8ff" stroke-width="5"/>
+ <ellipse cx="-20" cy="-92" rx="26" ry="56" fill="none" stroke="#bbfaff" stroke-width="3"/>
+ <ellipse cx="-20" cy="-92" rx="56" ry="18" fill="none" stroke="#caff9e" stroke-width="3"/>
+ <path d="M-77-91H38M-20-148V-34" stroke="#e2ffff" stroke-width="3" stroke-opacity=".6"/>
+ <circle cx="-20" cy="-92" r="12" fill="#d9fcff" filter="url(#tiny)"/>
+ <!-- tiny trees -->
+ <g stroke="#bcfba9" fill="#357969"><path d="M-352-85v-39M-325-95v-31M334-104v-49M357-88v-31M-95-108v-28" stroke="#acba90" stroke-width="6"/>
+ <circle cx="-351" cy="-134" r="23"/><circle cx="-326" cy="-135" r="16"/>
+ <circle cx="333" cy="-163" r="22"/><circle cx="356" cy="-129" r="17"/><circle cx="-95" cy="-141" r="15"/></g>
+ <!-- glowing learning banners -->
+ <g fill="#0b365b" stroke="#55ccff" stroke-width="3">
+ <path d="M-224-19v90l20-13 20 13v-90Z"/><path d="M-154-12v95l20-13 20 13v-95Z"/>
+ <path d="M113-13v95l20-13 20 13v-95Z"/><path d="M191-25v90l20-13 20 13v-90Z"/>
+ </g>
+ <g fill="#c6ff8b" font-family="monospace" font-size="31" font-weight="bold" text-anchor="middle">
+ <text x="-203" y="38">⌘</text><text x="-133" y="39">π</text><text x="133" y="40">♥</text><text x="211" y="31">⛨</text>
+ </g>
+</g>
+<!-- near holographic landing platform -->
+<ellipse cx="1016" cy="813" rx="479" ry="56" fill="#39daff" opacity=".17" filter="url(#soft)"/>
+<ellipse cx="1017" cy="805" rx="492" ry="64" fill="none" stroke="#59d8ff" stroke-width="7" stroke-opacity=".72"/>
+<ellipse cx="1017" cy="805" rx="405" ry="40" fill="none" stroke="#c8fd93" stroke-width="2" stroke-opacity=".55"/>
+<path d="M622 804H1402" stroke="#d6faff" stroke-width="2" stroke-opacity=".7"/>
+</svg>

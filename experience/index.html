@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#050b20">
+<meta name="description" content="Enter the original 3D BROOTHERHOOD Digital Universe. Fly between five floating portals and launch the real learning and coding worlds.">
+<meta property="og:title" content="BROOTHERHOOD · Immersive 3D Universe">
+<meta property="og:description" content="Five worlds. One connected digital future. Explore interactive 3D gateways built for Horizon 2026.">
+<title>Enter the 3D Universe — BROOTHERHOOD</title>
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="./experience.css">
+</head>
+<body>
+<a class="skip-link" href="#experience-main">Skip 3D controls to content</a>
+<div class="experience-shell">
+ <div class="experience-space" id="experience-space" aria-hidden="true">
+  <div class="space-fallback" id="space-fallback">
+   <span class="fallback-ring"></span><span class="fallback-orbit">◈</span>
+   <small>3D graphics are optional. All five destinations remain accessible.</small>
+  </div>
+ </div>
+ <div class="space-vignette" aria-hidden="true"></div>
+ <div class="space-grain" aria-hidden="true"></div>
+ <header class="xp-header">
+  <a href="../" class="xp-logo" aria-label="BROOTHERHOOD main website">
+   <span class="xp-logo-mark">✳</span><span><strong>BROOTHERHOOD</strong><small>THE IMMERSIVE UNIVERSE</small></span>
+  </a>
+  <div class="xp-header-center"><span class="live-light"></span> INTERACTIVE 3D EXPLORATION <span class="xp-divider">/</span> HORIZON 2026</div>
+  <div class="xp-header-actions"><a href="../studio/">Code Studio</a><a href="../horizon/">Horizon Connect</a><button id="xp-motion" type="button" aria-pressed="false" title="Pause or resume 3D animation">Pause motion</button></div>
+ </header>
+ <main id="experience-main" class="xp-main">
+  <section class="xp-intro" aria-labelledby="xp-title">
+   <span class="xp-overline"><span class="xp-overline-mark">✷</span> A NEW DIMENSION OF LEARNING</span>
+   <p class="xp-issue">THE EXPEDITION / <span id="xp-counter">01 OF 05</span></p>
+   <h1 id="xp-title">The future<br>is <em>floating.</em></h1>
+   <p class="xp-lede">Explore five original 3D learning gateways. Navigate a living digital city, choose a destination, then build something real.</p>
+   <div class="xp-actions"><a href="../studio/" class="xp-solid">Start building code <span aria-hidden="true">↗</span></a><button type="button" id="xp-explore" class="xp-ghost">Take the 3D tour <span aria-hidden="true">→</span></button></div>
+   <div class="xp-vertical" aria-hidden="true"><span>DESIGNED FOR EXPLORERS</span><i></i></div>
+  </section>
+  <aside class="xp-explorer" aria-labelledby="xp-worlds">
+   <div class="xp-explorer-head"><div><span>THE COSMOS DIRECTORY</span><h2 id="xp-worlds">Choose your world</h2></div><span class="xp-coordinate" id="xp-coordinate">COORD / 01.00</span></div>
+   <div id="xp-portal-list" class="xp-portal-list" role="group" aria-label="Choose one of five 3D portal destinations">
+    <button type="button" class="xp-portal is-active" data-portal="code" aria-pressed="true"><span class="xp-portal-index">01</span><span><strong>CODE NEXUS</strong><small>Real programming tools</small></span><i>↗</i></button>
+    <button type="button" class="xp-portal" data-portal="cyber" aria-pressed="false"><span class="xp-portal-index">02</span><span><strong>CYBER SHIELD</strong><small>Defensive security skills</small></span><i>↗</i></button>
+    <button type="button" class="xp-portal" data-portal="ai" aria-pressed="false"><span class="xp-portal-index">03</span><span><strong>AI LABORATORY</strong><small>Hands-on machine learning</small></span><i>↗</i></button>
+    <button type="button" class="xp-portal" data-portal="horizon" aria-pressed="false"><span class="xp-portal-index">04</span><span><strong>HORIZON CONNECT</strong><small>The smart event platform</small></span><i>↗</i></button>
+    <button type="button" class="xp-portal" data-portal="build" aria-pressed="false"><span class="xp-portal-index">05</span><span><strong>BUILDERS REALM</strong><small>Architect real applications</small></span><i>↗</i></button>
+   </div>
+   <div class="xp-explorer-footer"><span>SPACE EXPLORER GUIDE</span><p>Use the arrow keys, 1–5, buttons, or drag your pointer to look around. Portal selection is accessible without WebGL.</p></div>
+  </aside>
+  <section class="xp-current" aria-label="Selected destination information">
+   <div class="xp-current-left"><span id="xp-current-index">WORLD 01 / 05</span><h2 id="xp-current-title">CODE NEXUS</h2><p id="xp-current-detail">A real programming workspace with compilers, standard input, and code challenges.</p></div>
+   <div class="xp-current-actions"><button type="button" id="xp-prev" aria-label="Previous destination">←</button><button type="button" id="xp-next" aria-label="Next destination">→</button><a href="../studio/" id="xp-enter">ENTER WORLD <span aria-hidden="true">↗</span></a></div>
+  </section>
+ </main>
+ <footer class="xp-footer"><div class="xp-journey"><span>UNIVERSE EXPEDITION</span><div class="xp-timeline" aria-hidden="true"><i id="xp-track"></i></div><span id="xp-track-count">01 / 05</span></div><div class="xp-footer-links"><span id="xp-render-status" role="status">Loading 3D universe…</span><a href="../" title="Return to BROOTHERHOOD home">Exit universe ↗</a></div></footer>
+ <p class="screen-reader" id="xp-announcement" aria-live="polite"></p>
+</div>
+<script type="module" src="./experience.js"></script>
+</body>
+</html>

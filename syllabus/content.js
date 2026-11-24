@@ -46,7 +46,7 @@ export const COURSES=[
     'u=(2,3), v=(1,-1): u+v=(3,2), and |u|=√13≈3.61.',
     'A vector has both magnitude and direction.',[
       Q('What is (2,3)+(1,4)?',['(3,7)','(2,7)','(1,-1)','(8,12)'],0,'Add components: (2+1,3+4)=(3,7).'),
-      Q('What is the magnitude of vector (3,4)?',['7','25','5','1'],2,'√(3²+4²)=√25=5.')
+      Q('What is the magnitude of vector (3,4)?',['7','25','5','1'],2,'Compute the length: √(3²+4²)=√25=5.')
     ]),
   L('matrices','Matrix Operations','Add and multiply 2×2 matrices.',
     'A matrix arranges numbers in rows and columns. For addition, add matching entries. For multiplication, multiply each row by each column and sum the products.',
@@ -57,9 +57,9 @@ export const COURSES=[
     ]),
   L('determinant','Determinants','Know whether a 2×2 matrix is invertible.',
     'The determinant of a 2×2 matrix [[a,b],[c,d]] is ad−bc. If it equals zero, the matrix has no inverse. The absolute determinant also gives an area-scaling factor.',
-    'det([[2,1],[3,4]]) = 2×4 − 1×3 = 5.',
+    'For matrix [[2,1],[3,4]], det(A) = 2×4 − 1×3 = 8−3 = 5.',
     'Determinant zero means a transformation collapses space in at least one direction.',[
-      Q('Find det([[1,2],[3,4]]).',['-2','2','10','0'],0,'1×4 − 2×3 = −2.'),
+      Q('Find det([[1,2],[3,4]]).',['-2','2','10','0'],0,'The determinant is 1×4 − 2×3 = −2.'),
       Q('When does a square matrix have no inverse?',['When det=1','When det=0','When det>0','When it has decimals'],1,'A square matrix is invertible exactly when its determinant is nonzero.')
     ]),
   L('transform','Inverse & 2D Transformations','Undo a 2×2 transform when possible.',
@@ -91,7 +91,7 @@ export const COURSES=[
     'The multiplication principle counts independent choices by multiplying counts. Permutations care about order, but combinations count selections where order does not matter.',
     'Choose 2 students from 4: C(4,2)=4!/(2!2!)=6. There are 4×3=12 ordered pairs.',
     'Ask: does swapping the chosen items create a different outcome?',[
-      Q('How many 2-person groups can be chosen from 4 students?',['4','6','8','12'],1,'C(4,2)=4×3/2=6.'),
+      Q('How many 2-person groups can be chosen from 4 students?',['4','6','8','12'],1,'Use C(4,2)=4×3/2=6 distinct groups.'),
       Q('How many passwords can be made from 2 digits 0–9 with repetition?',['10','20','90','100'],3,'Ten choices for each digit gives 10×10=100.')
     ]),
   L('graphs','Graph Theory & BFS','Explore nodes, edges and shortest unweighted paths.',

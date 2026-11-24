@@ -39,3 +39,51 @@ body:has(.universe-ready) .hero-scene-stamp{color:#caff9c}
 @media(max-width:900px){.digital-hero{min-height:1130px;grid-template-columns:1fr;padding:130px 24px 170px}.hero-center{margin-top:170px;max-width:750px;padding:0}.hero-center h1{font-size:clamp(57px,9vw,92px)}.hero-guide-card{top:17%;left:7%;opacity:.9}.hero-world-panel{max-width:750px;margin:40px 0 0;transform:none;animation:none}.hero-holo-float{opacity:.25}.hero-scene-stamp{bottom:19%;font-size:8px;letter-spacing:.12em}.hero-visual::after{background:linear-gradient(90deg,#040d23a1,#0611264f,#041126a8)}}
 @media(max-width:600px){.digital-hero{min-height:1170px;padding:103px 16px 155px}.hero-center{margin-top:200px}.hero-center h1{font-size:clamp(39px,10.5vw,61px)}.hero-welcome{font-size:25px}.hero-copy{font-size:13px}.hero-actions{gap:7px}.hero-actions>.cta-secondary{font-size:11px;padding:11px 12px;flex:1}.cta-3d{width:100%;font-size:15px}.hero-guide-card{top:13%;left:5%;width:205px;opacity:.82}.hero-world-panel{margin-top:35px}.hero-world-panel .world-chip{min-height:58px}.hero-scene-stamp{bottom:14.8%;font-size:7px;letter-spacing:.08em}.hero-shortcuts{background:#05172dd4}.hero-holo-float{opacity:.21}}
 @media(prefers-reduced-motion:reduce){.hero-guide-card,.hero-world-panel{animation:none!important;transform:none!important}.hero-center{translate:0 0!important}.hero-scene-stamp{opacity:.6}}
+
+
+/* Nine science and technology worlds — redesigned holographic home panel */
+.hero-world-panel{max-width:345px;gap:7px;padding:20px;transform:perspective(1100px) rotateY(-5deg);background:linear-gradient(145deg,#122e51d9,#09152ce4);box-shadow:0 29px 95px #000a,0 0 38px #3ac4fa3a}
+.hero-world-panel h2{font-size:17px;letter-spacing:-.035em;color:#effcff;margin-bottom:12px}
+.hero-world-panel .world-chip{padding:10px 11px;min-height:51px;gap:10px;border:1px solid #3f7194b8;background:linear-gradient(95deg,#183a57ca,#081a37ef)}
+.hero-world-panel .world-chip>span:first-child{font-size:21px}
+.hero-world-panel .world-chip strong{font-size:12px}
+.hero-world-panel .world-chip small{font-size:10px;color:#adcbdc}
+.hero-world-panel .chip-bio{--chip-color:#ff9eae}
+.hero-world-panel .chip-physics{--chip-color:#65e7ff}
+.hero-world-panel .chip-maths{--chip-color:#ffd28a}
+.hero-world-panel .chip-eco{--chip-color:#98ffb0}
+.hero-all-worlds{margin-top:9px;display:flex;align-items:center;justify-content:space-between;padding:12px 15px;border-radius:10px;background:linear-gradient(115deg,#c5ff89,#7debd7);color:#0a2731;font-size:12px;font-weight:950;box-shadow:0 0 21px #a1ff9e55;text-shadow:none}
+.hero-all-worlds:hover{filter:brightness(1.06)}
+.hero-center h1{font-size:clamp(56px,6vw,128px)}
+.hero-center{max-width:890px}
+.hero-copy{max-width:580px}
+.hero-scene-stamp{color:#cefaaa}
+@media(min-width:2100px){
+ .hero-world-panel{max-width:550px;padding:29px}
+ .hero-world-panel .world-chip{min-height:67px;padding:13px 20px}
+ .hero-world-panel .world-chip strong{font-size:18px}
+ .hero-world-panel .world-chip small{font-size:14px}
+ .hero-all-worlds{font-size:16px;padding:17px 22px}
+}
+@media(max-width:1250px){
+ .hero-world-panel{max-width:310px;padding:16px}
+ .hero-world-panel .world-chip{min-height:48px;padding:8px}
+ .hero-world-panel .world-chip small{font-size:9px}
+}
+@media(max-width:900px){
+ .hero-world-panel{max-width:760px;padding:20px;transform:none}
+ .hero-world-panel .world-chip{min-height:55px}
+ .hero-center{max-width:800px}
+}
+@media(max-width:600px){
+ .digital-hero{min-height:1290px}
+ .hero-world-panel{padding:14px;margin-top:26px}
+ .hero-world-panel .world-chip{min-height:46px;padding:8px}
+ .hero-world-panel .world-chip strong{font-size:11px}
+ .hero-world-panel .world-chip small{font-size:9px}
+ .hero-all-worlds{min-height:42px}
+ .hero-scene-stamp{bottom:12%;font-size:7px}
+}
+@media(prefers-reduced-motion:reduce){
+ .hero-world-panel{transform:none!important}
+}

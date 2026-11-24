@@ -30,14 +30,14 @@ jobs:
           mkdir -p dist/src dist/assets dist/legacy dist/studio dist/horizon dist/experience dist/pocket-3d-lab
           cp index.html digital.css academy.css float-motion.css universe-v2.css atlas.css styles.css styles-guide.css sw.js dist/
           cp src/app.js src/logic.js src/discovery.js src/discovery-ui.js src/guide-scene.js dist/src/
-          cp src/informatics-core.js src/digital-app.js src/digital-scene.js src/universe-v2.js src/atlas.js src/code-worker.js dist/src/
+          cp src/informatics-core.js src/digital-app.js src/digital-scene.js src/universe-v2.js src/world-fidelity.js src/atlas.js src/code-worker.js dist/src/
           cp src/academy-content.js src/academy-app.js src/float-motion.js src/academy-python-worker.js src/academy-sql-worker.js src/academy-typescript-worker.js dist/src/
           cp legacy/index.html dist/legacy/
           cp studio/index.html studio/studio.css studio/studio.js studio/core.js dist/studio/
           cp horizon/index.html horizon/portal.css horizon/portal.js dist/horizon/
           cp experience/index.html experience/experience.css experience/experience.js dist/experience/
           cp pocket-3d-lab/index.html pocket-3d-lab/styles.css pocket-3d-lab/app.js pocket-3d-lab/content.js pocket-3d-lab/heart-3d.js pocket-3d-lab/favicon.svg dist/pocket-3d-lab/
-          cp assets/favicon.svg dist/assets/
+          cp assets/favicon.svg assets/brand-mark.svg dist/assets/
           touch dist/.nojekyll
       - name: Enable and configure GitHub Pages
         uses: actions/configure-pages@v5

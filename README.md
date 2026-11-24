@@ -23,6 +23,18 @@
 
 ---
 
+## Horizon 2026 — Submission-ready cinematic homepage
+
+**Entry URL:** https://royalpuskar.github.io/BROOTHERHOOD/
+
+**Interactive 3D walkthrough:** https://royalpuskar.github.io/BROOTHERHOOD/experience/?tour=1
+
+The homepage has a premium original automotive-editorial visual language inspired by the high-end branded advertisement style the creator requested, **without using BMW trademarks, assets, or representing any automaker**. It uses cinematic real-time 3D rather than a screenshot: the procedural WebGL archipelago is mounted directly behind the hero. A newly authored SVG campus illustration gives an instant, non-WebGL fallback. The visual design includes an original BROOTHERHOOD logo, fluorescent lime entry CTA, glowing glass navigation, clear product statistics, four real feature cards, a story section and a fully working three-feature showcase.
+
+The real buttons open real experiences. "Take the 3D Tour" starts the actual automated, stop-able Three.js guided fly-through **only once 3D is ready**, and respects reduced-motion settings. The top search opens a working, keyboard-friendly menu with actual lesson destinations. The showcase's next/previous/dot controls change the featured item and its link.
+
+**Demonstration flow for judges:** enter the homepage → guided 3D tour → Code Studio → Pocket 3D Lab → CS Study Lab → Cyber Arena → Horizon Connect. The 3D world and lesson simulations are real client-side interactions. The Code Studio uses a real external Judge0-compatible compilation API on Run. The Horizon Connect event platform is a clearly identified static demo until an external Python/MySQL backend is deployed. No fake authentication, results, livestream, or prerecorded demonstration video is implied by the new homepage.
+
 ## Computer Science Study Lab — Your Customizable Syllabus
 
 ### [**OPEN THE INTERACTIVE STUDY LAB**](https://royalpuskar.github.io/BROOTHERHOOD/syllabus/)

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta name="theme-color" content="#f6f8f5">
+ <meta name="description" content="Pocket 3D Lab: an interactive human heart lesson for high-school biology. Rotate a 3D model, explore chambers, valves and vessels, trace blood flow, and check your knowledge.">
+ <meta property="og:title" content="Pocket 3D Lab — Discover the Human Heart">
+ <meta property="og:description" content="A pocket-sized, hands-on biology lab with a 3D heart, interactive anatomy and quick quiz.">
+ <title>Pocket 3D Lab — The Human Heart</title>
+ <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+ <link rel="stylesheet" href="./styles.css">
+ <script type="module" src="./app.js"></script>
+</head>
+<body>
+<a class="skip" href="#main-content">Skip to learning content</a>
+<header class="site-header">
+ <a class="brand" href="#home" aria-label="Pocket 3D Lab home">
+  <span class="brand-logo" aria-hidden="true"><svg viewBox="0 0 42 42" fill="none"><path d="M21 33C12 27 6 20.8 6 14.5C6 7.2 14.5 5.4 21 12.5C27.5 5.4 36 7.2 36 14.5C36 20.8 30 27 21 33Z" fill="currentColor"/><path d="M12 21H17L20 16L23.5 25L26 21H31" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  <span><strong>Pocket <span>3D</span> Lab</strong><small>BIOLOGY, BROUGHT TO LIFE</small></span>
+ </a>
+ <nav class="nav" aria-label="Main navigation">
+  <a href="#home" data-route="home" aria-current="page">Home</a>
+  <a href="#lesson" data-route="lesson">Heart lesson</a>
+  <a href="#teachers" data-route="teachers">For teachers</a>
+ </nav>
+ <div class="header-right"><span class="classroom-pill"><span class="classroom-dot"></span> THE SCIENCE LAB</span><a class="header-cta" href="#lesson">Start exploring <span aria-hidden="true">↗</span></a></div>
+</header>
+<main id="main-content">
+ <section class="page home-page" id="home" aria-labelledby="home-title">
+  <div class="home-hero">
+   <div class="home-copy">
+    <span class="eyebrow"><span class="eyebrow-line"></span> BIOLOGY THAT FEELS ALIVE <span class="eyebrow-star" aria-hidden="true">✳</span></span>
+    <h1 id="home-title">Big discoveries.<br><span>Small screen.</span></h1>
+    <p class="home-lede">Meet the human heart from the inside out. Spin a 3D model, follow blood on its journey, and discover how your body keeps moving.</p>
+    <div class="hero-buttons">
+     <a class="btn btn-primary" href="#lesson">Explore the human heart <span aria-hidden="true">→</span></a>
+     <a class="btn btn-quiet" href="#teachers">Made for curious classrooms <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="hero-trust"><span class="trust-icons" aria-hidden="true"><i>✦</i><i>♥</i><i>✳</i></span><span>One lesson. Four chambers. A whole new perspective.</span></div>
+   </div>
+   <div class="hero-art" aria-hidden="true">
+    <span class="art-orbit art-orbit-one"></span><span class="art-orbit art-orbit-two"></span>
+    <span class="art-float dot-left"></span><span class="art-float dot-right"></span>
+    <div class="hero-heart-shell">
+     <svg viewBox="0 0 480 500" role="img"><defs><linearGradient id="heart-grad" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffad9f"/><stop offset=".52" stop-color="#e96170"/><stop offset="1" stop-color="#a84d67"/></linearGradient><linearGradient id="heart-glow" x1=".2" y1=".1" x2=".9" y2=".9"><stop stop-color="#ffe6ce"/><stop offset="1" stop-color="#ff8c89"/></linearGradient></defs><path d="M245 440C181 400 121 329 100 253C75 167 94 89 155 72C197 60 223 80 241 107C274 63 316 51 358 76C422 113 411 209 382 279C352 356 301 408 245 440Z" fill="url(#heart-grad)" stroke="#d34e65" stroke-width="8"/><path d="M246 433C225 344 231 259 257 189C273 149 309 132 345 138C376 143 392 175 387 207C380 287 310 389 246 433Z" fill="#d64769" opacity=".56"/><path d="M125 171C125 123 151 103 187 106C216 109 233 135 224 173C215 215 165 247 135 227C116 213 125 186 125 171Z" fill="#9bcce0" opacity=".95"/><path d="M148 243C182 210 216 218 229 260C239 298 244 375 243 420C199 391 156 332 140 293C132 273 137 253 148 243Z" fill="#73afcb"/><path d="M283 151C297 128 329 116 357 136C379 152 379 187 362 209C344 232 306 225 287 200C276 187 274 168 283 151Z" fill="url(#heart-glow)"/><path d="M310 233C359 222 380 250 367 299C356 339 295 410 251 433C248 375 258 304 274 270C282 252 293 239 310 233Z" fill="#ff9b95"/><path d="M174 110V32" stroke="#79b6d5" stroke-width="36" stroke-linecap="round"/><path d="M205 113C205 65 216 24 245 24" stroke="#74b9d5" stroke-width="31" stroke-linecap="round" fill="none"/><path d="M279 146C277 89 280 56 310 47C353 36 380 65 366 103" stroke="#e87578" stroke-width="42" stroke-linecap="round" fill="none"/><path d="M361 164L437 135" stroke="#e98b8c" stroke-width="28" stroke-linecap="round"/><path d="M110 142L64 170" stroke="#80bdd2" stroke-width="19" stroke-linecap="round"/><path d="M236 130C224 225 230 344 244 436" fill="none" stroke="#fff4ea" stroke-width="6" opacity=".55"/><path d="M145 176L213 176M268 191L339 191" stroke="#ffffff" stroke-opacity=".5" stroke-width="5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="art-label art-label-a"><span class="label-dot label-dot-blue"></span><div><b>Oxygen-poor</b><small>To the lungs</small></div></div>
+    <div class="art-label art-label-b"><span class="label-dot label-dot-red"></span><div><b>Oxygen-rich</b><small>To the body</small></div></div>
+    <div class="art-note"><span>✺</span><span>LEARNING IN<br><strong>THREE DIMENSIONS</strong></span></div>
+   </div>
+  </div>
+  <div class="home-proof" aria-label="Lesson highlights">
+   <div><span class="proof-icon">◈</span><div><b>Explore in 3D</b><small>Turn, zoom and discover</small></div></div>
+   <div><span class="proof-icon">↝</span><div><b>Follow the flow</b><small>See circulation in motion</small></div></div>
+   <div><span class="proof-icon">✓</span><div><b>Test your knowledge</b><small>Five questions, clear feedback</small></div></div>
+   <div><span class="proof-icon">♡</span><div><b>Learn your way</b><small>Text first, motion optional</small></div></div>
+  </div>
+  <section class="preview-band" aria-labelledby="preview-title">
+   <div><span class="eyebrow">LESSON 01 · THE CARDIOVASCULAR SYSTEM</span><h2 id="preview-title">A closer look at the <em>organ that never clocks out.</em></h2><p>Inside this lesson, a diagram comes to life. Select a chamber, trace a route or just read along. You're in control of how you explore.</p><a href="#lesson" class="text-link">Begin the lesson <span aria-hidden="true">↗</span></a></div>
+   <div class="preview-metrics" aria-label="Lesson content"><div><strong>04</strong><span>chambers</span></div><div><strong>04</strong><span>valves</span></div><div><strong>05</strong><span>major vessels</span></div><div><strong>05</strong><span>quiz questions</span></div></div>
+  </section>
+ </section>
+
+ <section class="page lesson-page" id="lesson" aria-labelledby="lesson-title" hidden>
+  <div class="lesson-intro"><div><a href="#home" class="back-link">← Back to lessons</a><div class="lesson-kicker"><span class="lesson-number">LESSON 01</span><span class="lesson-divider">/</span><span>BIOLOGY · HUMAN BODY</span></div><h1 id="lesson-title">The heart of <em>the matter.</em></h1><p>Meet your body's hardworking pump. Rotate the model, tap an anatomy label, and follow the path of blood.</p></div><div class="lesson-progress-card"><span>YOUR DISCOVERY PROGRESS</span><strong id="discovery-count">0 <small>/ 13 explored</small></strong><div class="progress-track"><span id="discovery-bar"></span></div><small>Explore each labeled structure to fill the bar.</small></div></div>
+  <div class="lesson-workspace">
+   <section class="model-panel" aria-labelledby="model-title">
+    <div class="model-heading"><div><span class="eyebrow">LOOK INSIDE</span><h2 id="model-title">A living diagram</h2></div><span class="model-kind">INTERACTIVE 3D · SCHEMATIC</span></div>
+    <div class="model-stage">
+     <div class="stage-top"><span class="view-pill"><span class="view-pill-dot"></span> FRONT VIEW</span><div class="model-controls"><button id="model-reset" type="button" aria-label="Reset heart rotation and zoom" title="Reset view">⟲ <span>Reset</span></button><button id="model-zoom-in" type="button" aria-label="Zoom in on the heart" title="Zoom in">+</button><button id="model-zoom-out" type="button" aria-label="Zoom out from the heart" title="Zoom out">−</button></div></div>
+     <div id="heart-view" class="heart-view" role="group" aria-label="Interactive three-dimensional, simplified front-view human heart. Drag to turn, scroll or pinch to zoom. All parts are available in the labeled list.">
+      <div id="heart-fallback" class="model-fallback"><svg viewBox="0 0 210 265" fill="none" role="img" aria-label="Simplified heart illustration with a blue right side and red left side"><path d="M107 242C61 208 26 151 29 103C32 56 67 41 105 75C144 37 186 55 185 104C183 160 151 213 107 242Z" fill="#f39a9a" stroke="#c95d6e" stroke-width="7"/><path d="M107 239C77 219 44 167 40 114C36 76 65 61 102 83L107 239Z" fill="#7abbd4"/><path d="M70 67V18" stroke="#69a8cb" stroke-width="22" stroke-linecap="round"/><path d="M134 72V18" stroke="#e87782" stroke-width="23" stroke-linecap="round"/><path d="M100 85L110 238" stroke="white" opacity=".6" stroke-width="4"/></svg><p>Readable anatomy descriptions are available alongside the model.</p></div>
+      <div id="heart-hotspots" class="heart-hotspots" aria-label="Anatomy hotspots"></div>
+     </div>
+     <div class="stage-footer"><div class="blood-key"><span><i class="blood-dot blood-dot-blue"></i> Oxygen-poor</span><span><i class="blood-dot blood-dot-red"></i> Oxygen-rich</span></div><div class="stage-action-buttons"><button id="flow-toggle" type="button" aria-pressed="true">◉ Blood flow on</button><button id="motion-toggle" type="button" aria-pressed="false">⏸ Pause motion</button></div></div>
+    </div>
+    <p class="model-note" id="model-status" role="status">Loading the 3D model. The lesson remains usable without it.</p>
+    <p class="model-tip"><span aria-hidden="true">↕</span> Drag to rotate · Scroll or pinch to zoom · Choose a label to learn more</p>
+    <p class="model-disclaimer"><strong>Diagram note:</strong> A simplified teaching model, not a medically exact heart. In a front view, the person's right side appears on your left. Blue represents oxygen-poor blood for learning; real blood is red.</p>
+   </section>
+   <aside class="anatomy-panel" aria-labelledby="anatomy-title">
+    <div class="anatomy-heading"><span class="eyebrow">EXPLORE THE ANATOMY</span><h2 id="anatomy-title">Every part has a purpose.</h2><p>Choose a group, then tap a structure to reveal its job.</p></div>
+    <div id="group-controls" class="group-controls" role="group" aria-label="Filter anatomy structures"><button type="button" data-group="chambers" aria-pressed="true">Chambers</button><button type="button" data-group="valves" aria-pressed="false">Valves</button><button type="button" data-group="vessels" aria-pressed="false">Vessels</button></div>
+    <div id="part-list" class="part-list" aria-label="Select an anatomy structure"></div>
+    <article class="part-detail" aria-live="polite" aria-atomic="true"><div class="part-detail-top"><span id="part-category">CHAMBER · 01</span><span id="part-visited" class="visited-badge">TO DISCOVER</span></div><h3 id="part-title">Right atrium</h3><p id="part-short" class="part-short">The upper-right receiving chamber.</p><p id="part-description">The right atrium receives blood returning from the body.</p><div class="part-connection"><span>KEEP FOLLOWING THE FLOW</span><p id="part-connection">Next: blood passes through the tricuspid valve into the right ventricle.</p></div><button id="next-part" class="next-part" type="button">Explore next part <span aria-hidden="true">→</span></button></article>
+   </aside>
+  </div>
+  <section id="flow" class="flow-section" aria-labelledby="flow-title"><div class="section-heading"><div><span class="eyebrow">FOLLOW THE JOURNEY</span><h2 id="flow-title">Two routes. <em>One amazing loop.</em></h2><p>Blood travels to the lungs to pick up oxygen, then returns to be pumped around the body. Select a labeled step to explore it in the model.</p></div><span class="section-deco" aria-hidden="true">↝</span></div><div id="flow-paths" class="flow-paths"></div><p class="flow-footnote">In the heart, the right and left sides pump at the same time. These two routes show the path through the chambers, not the exact timing of every beat.</p></section>
+  <section id="quiz" class="quiz-section" aria-labelledby="quiz-title"><div class="quiz-decor" aria-hidden="true">✳</div><div class="quiz-intro"><span class="eyebrow">READY TO PUT IT TO THE TEST?</span><h2 id="quiz-title">Your knowledge, <em>in motion.</em></h2><p>Five quick questions. No grades to fear—just helpful feedback every step of the way.</p></div><div class="quiz-card"><div class="quiz-meta"><span class="quiz-meta-label" id="quiz-count">QUESTION 01 / 05</span><span id="quiz-status">0 of 5 answered</span></div><div class="quiz-progress"><span id="quiz-progress-bar"></span></div><div id="quiz-active"><h3 id="quiz-question"></h3><div id="quiz-options" class="quiz-options" role="group" aria-label="Answer choices"></div><p class="quiz-feedback" id="quiz-feedback" role="status" aria-live="polite" hidden></p><button id="quiz-next" class="btn btn-primary quiz-next" type="button" hidden>Next question →</button></div><div id="quiz-results" class="quiz-results" hidden><span class="result-icon" aria-hidden="true">✷</span><h3 id="quiz-results-title"></h3><p id="quiz-results-copy"></p><button id="quiz-restart" class="btn btn-primary" type="button">Try the quiz again ↻</button></div></div></section>
+  <div class="lesson-next"><div><span>YOU'VE MADE IT THROUGH THE HEART</span><p>Curiosity is the beginning of every discovery.</p></div><a href="#teachers">See how teachers can use this lesson ↗</a></div>
+ </section>
+
+ <section class="page teachers-page" id="teachers" aria-labelledby="teachers-title" hidden>
+  <div class="teachers-hero"><span class="eyebrow">BUILT FOR REAL CLASSROOMS</span><h1 id="teachers-title">Help ideas <em>click.</em></h1><p>Pocket 3D Lab helps make an invisible process easier to picture, discuss and remember—without replacing clear explanations or scientific evidence.</p><a href="#lesson" class="btn btn-primary">Open the heart lesson →</a></div>
+  <section class="teachers-approach" aria-labelledby="why-title"><div class="section-heading"><div><span class="eyebrow">WHY THIS HELPS</span><h2 id="why-title">See it. Explore it. <em>Explain it.</em></h2></div></div><div class="teacher-grid"><article><span class="teacher-icon">◈</span><h3>Make anatomy visible</h3><p>A rotatable, clearly labeled schematic helps students relate the four heart chambers to the major vessels and valves.</p></article><article><span class="teacher-icon">↝</span><h3>Follow cause and effect</h3><p>Color-coded circulation steps connect the parts to their functions, reinforcing the route of oxygen-poor and oxygen-rich blood.</p></article><article><span class="teacher-icon">✓</span><h3>Check understanding</h3><p>Five questions give immediate explanations. Students can retry without an account or a public score.</p></article></div></section>
+  <section class="teaching-notes"><div><span class="eyebrow">SUGGESTED CLASSROOM USE</span><h2>One lesson. Many ways to learn.</h2><p>Start by asking students to predict where oxygen-poor blood goes. Use the 3D model or the text list to compare the right and left sides. Then trace the two routes and use the quiz as a quick knowledge check.</p><p><strong>Accessible by design:</strong> reduced-motion mode, descriptive text, keyboard-accessible anatomy buttons, and the same lesson content when 3D rendering is unavailable.</p><p><strong>Accuracy note:</strong> the model is intentionally schematic and should accompany a standard anatomy diagram when more precise spatial relationships are required.</p></div><div class="learning-goals"><h3>Learning goals</h3><ul><li>Identify the four chambers and explain their roles.</li><li>Recognize the tricuspid, pulmonary, mitral and aortic valves.</li><li>Trace blood between the body, heart and lungs.</li><li>Explain why arteries and veins are named for flow direction.</li></ul><div class="reference-links"><span>Further reading:</span><a href="https://www.nhlbi.nih.gov/health/heart/blood-flow" target="_blank" rel="noopener noreferrer">NIH / NHLBI ↗</a><a href="https://www.heart.org/en/health-topics/heart-valve-problems-and-disease/about-heart-valves" target="_blank" rel="noopener noreferrer">American Heart Association ↗</a></div></div></section>
+ </section>
+</main>
+<footer class="site-footer"><a href="#home" class="footer-brand"><span aria-hidden="true">♥</span> Pocket 3D Lab</a><span>A little curiosity goes a long way.</span><div><a href="#lesson">Heart lesson</a><a href="#teachers">For teachers</a></div><small>Original learning visuals · Simplified anatomy · No medical advice</small></footer>
+</body>
+</html>

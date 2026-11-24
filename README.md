@@ -21,6 +21,14 @@
 
 ---
 
+## Pocket 3D Lab — Interactive Biology
+
+### [EXPLORE THE HEART LESSON](https://royalpuskar.github.io/BROOTHERHOOD/pocket-3d-lab/)
+
+A **separate, original high-school biology website** with a rotatable and zoomable procedural 3D heart, thirteen interactive anatomy labels, animated circulation, a five-question quiz with feedback, and a teachers' guide. Designed for phones and laptops with a text-first fallback, clear science references and reduced-motion controls.
+
+[Explore the standalone project](pocket-3d-lab/README.md).
+
 ## Immersive 3D Universe — the new flagship experience
 
 ### [ENTER THE LIVE 3D UNIVERSE](https://royalpuskar.github.io/BROOTHERHOOD/experience/)

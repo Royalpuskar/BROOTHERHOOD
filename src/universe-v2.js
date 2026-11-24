@@ -4,6 +4,7 @@
  * Two variants: homepage cinematic background and accessible interactive expedition.
  * Rendering is capped/adaptive for mobile and high-density 4K-class displays.
  */
+import {enhanceFloatingWorld} from './world-fidelity.js';
 const THREE_URL='https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js';
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 export const PORTALS=Object.freeze([
@@ -50,7 +51,7 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
  canvas.setAttribute('aria-hidden','true');
  canvas.className='universe-webgl';
  canvas.style.cssText='width:100%;height:100%;display:block;touch-action:pan-y';
- if(interactive){canvas.style.pointerEvents='auto';canvas.style.touchAction='pan-y';}
+ if(interactive){canvas.style.pointerEvents='auto';canvas.style.touchAction='none';}
  else canvas.style.pointerEvents='none';
  // Preserve the accessible fallback until the renderer has fully initialized.
  host.querySelector(".universe-webgl")?.remove();
@@ -63,7 +64,7 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
  cameraPos.set(0,6,interactive?27:28);
  camera.position.copy(cameraPos);
  const cameraTarget=new T.Vector3(0,1.3,-6);
- scene.add(new T.HemisphereLight(0x80c9ff,0x040d2c,2.5));
+ const hemisphere=new T.HemisphereLight(0x80c9ff,0x040d2c,2.5);scene.add(hemisphere);
  const sun=new T.DirectionalLight(0xc9e9ff,3.1);sun.position.set(-7,15,13);scene.add(sun);
  const rim=new T.DirectionalLight(0x9a77ff,2.1);rim.position.set(10,7,-12);scene.add(rim);
  const glow=new T.PointLight(0x23cbf3,85,34);glow.position.set(0,7,-4);scene.add(glow);
@@ -288,6 +289,7 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
   return group;
  }
  PORTALS.forEach(buildIsland);
+ const fidelity=enhanceFloatingWorld({T,scene,portals,lowPower:mobileView});
  // Bridges are luminous ribbons with small running energy lights.
  const bridgePaths=[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,0],[7,8],[8,6],[2,8],[3,8]];
  const bridges=[];
@@ -366,17 +368,49 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
  const pointer={x:0,y:0,desiredX:0,desiredY:0};
  const inputSurface=interactive?host:(host.closest("#home")||host);
  const drag={x:0,y:0,moved:false};
+ const orbit={yaw:0,pitch:0,zoom:1,desiredYaw:0,desiredPitch:0,desiredZoom:1};
+ const activePointers=new Map();
+ let pinchDistance=0;
+ let quality=mobileView?'performance':'quality',lighting='night';
  const targetPos=new T.Vector3(0,6,interactive?26:27),targetLook=new T.Vector3(0,1.4,-6);
  const raycaster=new T.Raycaster(),touch=new T.Vector2();
  const onPointerMove=e=>{
   const rect=host.getBoundingClientRect();
   pointer.desiredX=clamp(((e.clientX-rect.left)/Math.max(1,rect.width)-.5)*2,-1,1);
   pointer.desiredY=clamp(((e.clientY-rect.top)/Math.max(1,rect.height)-.5)*2,-1,1);
-  if(interactive&&Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>9)drag.moved=true;
+  if(!interactive)return;
+  if(activePointers.has(e.pointerId)){
+   const previous=activePointers.get(e.pointerId);
+   activePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+   const dx=e.clientX-previous.x,dy=e.clientY-previous.y;
+   if(activePointers.size>=2){
+    const [a,b]=[...activePointers.values()];
+    const distance=Math.hypot(a.x-b.x,a.y-b.y);
+    if(pinchDistance>0&&distance>0)orbit.desiredZoom=clamp(orbit.desiredZoom*pinchDistance/distance,.58,1.65);
+    pinchDistance=distance;
+    drag.moved=true;
+   }else{
+    orbit.desiredYaw=clamp(orbit.desiredYaw-dx*.008,-1.65,1.65);
+    orbit.desiredPitch=clamp(orbit.desiredPitch+dy*.006,-.65,.65);
+   }
+  }
+  if(Math.hypot(e.clientX-drag.x,e.clientY-drag.y)>9)drag.moved=true;
  };
- const onPointerDown=e=>{drag.x=e.clientX;drag.y=e.clientY;drag.moved=false;};
+ const onPointerDown=e=>{
+  if(!interactive)return;
+  drag.x=e.clientX;drag.y=e.clientY;drag.moved=false;
+  activePointers.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(activePointers.size===2){
+   const [a,b]=[...activePointers.values()];
+   pinchDistance=Math.hypot(a.x-b.x,a.y-b.y);
+  }
+  e.target?.setPointerCapture?.(e.pointerId);
+ };
  const onPointerUp=e=>{
-  if(!interactive||drag.moved)return;
+  if(!interactive)return;
+  activePointers.delete(e.pointerId);
+  if(activePointers.size<2)pinchDistance=0;
+  if(drag.moved)return;
   const rect=host.getBoundingClientRect();
   touch.set(((e.clientX-rect.left)/Math.max(1,rect.width))*2-1,-((e.clientY-rect.top)/Math.max(1,rect.height))*2+1);
   raycaster.setFromCamera(touch,camera);
@@ -393,6 +427,9 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
   selected=index;
   const stop=CAMERA_STOPS[index];
   targetPos.set(...stop.position);targetLook.set(...stop.target);
+  orbit.desiredYaw=orbit.yaw=0;
+  orbit.desiredPitch=orbit.pitch=0;
+  orbit.desiredZoom=orbit.zoom=1;
   if(paused){
    camera.position.copy(targetPos);cameraTarget.copy(targetLook);
    camera.lookAt(cameraTarget);renderer.render(scene,camera);
@@ -404,6 +441,12 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
   const type=e.detail?.world||'';
   const match={code:'code',cyber:'cyber',ai:'ai',network:'horizon',build:'build',science:'biology',maths:'maths',physics:'physics',environment:'eco'}[type];
   if(match&&interactive)selectPortal(match);
+ };
+ const onWheel=e=>{
+  if(!interactive)return;
+  e.preventDefault();
+  orbit.desiredZoom=clamp(orbit.desiredZoom*Math.exp(e.deltaY*.0011),.58,1.65);
+  if(paused)drawFrame();
  };
  const onMotion=e=>{paused=Boolean(e.detail?.paused);cancelAnimationFrame(raf);if(!paused&&running&&!disposed){last=0;raf=requestAnimationFrame(tick);}else{drawFrame();}};
  const onVisibility=()=>{if(document.hidden){cancelAnimationFrame(raf);}else if(running&&!paused&&!disposed){last=0;raf=requestAnimationFrame(tick);}};
@@ -441,6 +484,7 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
    portals[i].emblem.rotation.z=Math.sin(elapsed*.8+i)*.18;
    portals[i].halo.rotation.z+=dt*(i%2?-.18:.18);
   });
+  fidelity.update(elapsed);
   coreInner.rotation.x+=dt*.11;coreInner.rotation.y+=dt*.21;
   engine.rotation.y+=dt*.038;
   orbitRings.forEach((g,i)=>{g.rotation.z+=dt*(i%2?-.21:.27);g.rotation.y+=dt*.05;});
@@ -450,9 +494,19 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
   rightArm.rotation.z=-1.2-Math.sin(elapsed*2.8)*.3;
   leftArm.rotation.z=Math.sin(elapsed*.9)*.12;
   headGroup.rotation.y=Math.sin(elapsed*.65)*.17;
-  const cx=targetPos.x+pointer.x*(mobileView?.28:.83)+Math.sin(elapsed*.14)*.27;
-  const cy=targetPos.y-pointer.y*(mobileView?.12:.32)+Math.sin(elapsed*.25)*.11;
-  const cz=targetPos.z;
+  orbit.yaw+=(orbit.desiredYaw-orbit.yaw)*clamp(dt*4.1,0,1);
+  orbit.pitch+=(orbit.desiredPitch-orbit.pitch)*clamp(dt*4.1,0,1);
+  orbit.zoom+=(orbit.desiredZoom-orbit.zoom)*clamp(dt*4.1,0,1);
+  const delta=targetPos.clone().sub(targetLook),baseRadius=delta.length();
+  const baseYaw=Math.atan2(delta.x,delta.z);
+  const basePitch=Math.asin(clamp(delta.y/Math.max(baseRadius,.01),-1,1));
+  const viewYaw=baseYaw+orbit.yaw;
+  const viewPitch=clamp(basePitch+orbit.pitch,-.85,1.05);
+  const viewRadius=baseRadius*orbit.zoom;
+  const cx=targetLook.x+Math.sin(viewYaw)*Math.cos(viewPitch)*viewRadius
+   +pointer.x*(mobileView?.10:.32)+Math.sin(elapsed*.14)*.10;
+  const cy=targetLook.y+Math.sin(viewPitch)*viewRadius-pointer.y*(mobileView?.05:.13);
+  const cz=targetLook.z+Math.cos(viewYaw)*Math.cos(viewPitch)*viewRadius;
   camera.position.x+=(cx-camera.position.x)*clamp(dt*1.9,0,1);
   camera.position.y+=(cy-camera.position.y)*clamp(dt*1.9,0,1);
   camera.position.z+=(cz-camera.position.z)*clamp(dt*1.9,0,1);
@@ -466,6 +520,8 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
   visibility.disconnect();resizeObserver?.disconnect();
   if(!resizeObserver)window.removeEventListener('resize',setSize);
   inputSurface.removeEventListener('pointermove',onPointerMove);
+  host.removeEventListener('wheel',onWheel);
+  host.removeEventListener('pointercancel',onPointerUp);
   host.removeEventListener('pointerdown',onPointerDown);
   host.removeEventListener('pointerup',onPointerUp);
   window.removeEventListener('brootherhood:guide',onGuide);
@@ -481,7 +537,12 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
   renderer.dispose();canvas.remove();
  };
  inputSurface.addEventListener('pointermove',onPointerMove,{passive:true});
- if(interactive){host.addEventListener('pointerdown',onPointerDown,{passive:true});host.addEventListener('pointerup',onPointerUp,{passive:true});}
+ if(interactive){
+  host.addEventListener('pointerdown',onPointerDown,{passive:true});
+  host.addEventListener('pointerup',onPointerUp,{passive:true});
+  host.addEventListener('pointercancel',onPointerUp,{passive:true});
+  host.addEventListener('wheel',onWheel,{passive:false});
+ }
  window.addEventListener('brootherhood:guide',onGuide);
  window.addEventListener('brootherhood:motion',onMotion);
  document.addEventListener('visibilitychange',onVisibility);
@@ -490,5 +551,38 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
  camera.position.copy(targetPos);cameraTarget.copy(targetLook);camera.lookAt(cameraTarget);
  setSize();
  if(typeof onReady==='function')onReady({portals:PORTALS});
- return{selectPortal,setPaused(value){paused=Boolean(value);cancelAnimationFrame(raf);if(!paused&&running){last=0;raf=requestAnimationFrame(tick);}else drawFrame();},dispose:cleanup};
+ function resetView(){
+  orbit.yaw=orbit.desiredYaw=0;orbit.pitch=orbit.desiredPitch=0;
+  orbit.zoom=orbit.desiredZoom=1;
+  pointer.x=pointer.desiredX=0;pointer.y=pointer.desiredY=0;
+  camera.position.copy(targetPos);cameraTarget.copy(targetLook);
+  camera.lookAt(cameraTarget);drawFrame();
+ }
+ function setQuality(mode){
+  quality=mode==='quality'?'quality':'performance';
+  fidelity.setDetailMode(quality);
+  adaptiveDpr=quality==='quality'?baseDpr:Math.min(1,baseDpr);
+  renderer.setPixelRatio(adaptiveDpr);
+  setSize();return quality;
+ }
+ function setLighting(mode){
+  lighting=mode==='dawn'?'dawn':'night';
+  const dawn=lighting==='dawn';
+  sun.color.setHex(dawn?0xffe0ae:0xc9e9ff);
+  sun.intensity=dawn?4.5:3.1;
+  hemisphere.intensity=dawn?3.4:2.5;
+  rim.intensity=dawn?1.4:2.1;
+  glow.intensity=dawn?62:85;
+  goldLight.intensity=dawn?75:42;
+  scene.fog.color.setHex(dawn?0x274963:0x071127);
+  renderer.toneMappingExposure=dawn?1.65:1.55;
+  drawFrame();return lighting;
+ }
+ fidelity.setDetailMode(quality);
+ return{selectPortal,resetView,setQuality,setLighting,
+  setPaused(value){
+   paused=Boolean(value);cancelAnimationFrame(raf);
+   if(!paused&&running){last=0;raf=requestAnimationFrame(tick);}
+   else drawFrame();
+  },dispose:cleanup};
 }

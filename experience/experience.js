@@ -45,7 +45,9 @@ const details={
  eco:'Experiment with transport choices and see how daily habits affect a simple environmental impact model.',
  build:'Arrange frontend, API and database components to understand software architecture and how applications connect.'
 };
-let selected=0,controller=null,paused=reduced.matches,tourTimer=0,touring=false,lastWheel=0;
+let selected=0,controller=null,paused=reduced.matches,tourTimer=0,touring=false;
+let lightMode='night';
+let qualityMode=matchMedia('(max-width: 800px)').matches?'performance':'quality';
 function clearTour(){touring=false;clearTimeout(tourTimer);$('xp-explore').textContent='Take the 3D tour →';}
 function select(index,{announce=true,stopTour=true}={}){
  if(stopTour)clearTour();
@@ -80,6 +82,35 @@ $('xp-portal-list').addEventListener('keydown',event=>{
  event.preventDefault();
  stepSelection(event.key==='ArrowDown'?1:-1);
  buttons[selected]?.focus({preventScroll:true});
+});
+const resetControl=$('xp-reset-view'),lightControl=$('xp-lighting'),qualityControl=$('xp-quality');
+for(const control of [resetControl,lightControl,qualityControl])control.disabled=true;
+function reflectQuality(){
+ qualityControl.textContent=qualityMode==='quality'?'◈ High detail':'◌ Performance mode';
+ qualityControl.setAttribute('aria-pressed',String(qualityMode==='quality'));
+}
+function reflectLighting(){
+ lightControl.textContent=lightMode==='night'?'☀ Dawn lighting':'☾ Night lighting';
+ lightControl.setAttribute('aria-pressed',String(lightMode==='dawn'));
+ document.querySelector('.experience-shell')?.classList.toggle('dawn-mode',lightMode==='dawn');
+}
+reflectQuality();reflectLighting();
+resetControl.addEventListener('click',()=>{
+ if(!controller)return;
+ controller.resetView();
+ $('xp-announcement').textContent='The camera has been returned to its starting position for '+PORTALS[selected].title+'.';
+});
+lightControl.addEventListener('click',()=>{
+ if(!controller)return;
+ lightMode=lightMode==='night'?'dawn':'night';
+ controller.setLighting(lightMode);reflectLighting();
+ $('xp-announcement').textContent=(lightMode==='dawn'?'Warm dawn':'Cool night')+' lighting activated.';
+});
+qualityControl.addEventListener('click',()=>{
+ if(!controller)return;
+ qualityMode=qualityMode==='quality'?'performance':'quality';
+ controller.setQuality(qualityMode);reflectQuality();
+ $('xp-announcement').textContent=(qualityMode==='quality'?'Detailed':'Performance')+' 3D rendering mode active.';
 });
 $('xp-next').addEventListener('click',()=>stepSelection(1));
 $('xp-prev').addEventListener('click',()=>stepSelection(-1));
@@ -116,23 +147,18 @@ canvasHost.addEventListener('brootherhood:portal',event=>{
  const index=PORTALS.findIndex(p=>p.id===event.detail?.id);
  if(index>=0&&selected!==index)select(index);
 });
-// Smooth touch swipes and paced wheel-navigation are optional, never override page scroll on mobile.
-let touchStart=null;
-canvasHost.addEventListener('touchstart',e=>{
- if(e.touches.length===1)touchStart={x:e.touches[0].clientX,y:e.touches[0].clientY};
+// Horizontal swipes within the world directory change selection.
+// The WebGL canvas keeps independent drag-to-orbit and pinch-to-zoom gestures.
+let listTouchStart=null;
+$('xp-portal-list').addEventListener('touchstart',event=>{
+ if(event.touches.length===1)listTouchStart={x:event.touches[0].clientX,y:event.touches[0].clientY};
 },{passive:true});
-canvasHost.addEventListener('touchend',e=>{
- if(!touchStart||!e.changedTouches.length)return;
- const dx=e.changedTouches[0].clientX-touchStart.x,dy=e.changedTouches[0].clientY-touchStart.y;
- if(Math.abs(dx)>70&&Math.abs(dx)>Math.abs(dy)*1.6)stepSelection(dx<0?1:-1);
- touchStart=null;
-},{passive:true});
-canvasHost.addEventListener('wheel',e=>{
- if(innerWidth<900||Math.abs(e.deltaY)<10)return;
- const time=performance.now();
- if(time-lastWheel<780)return;
- lastWheel=time;
- stepSelection(e.deltaY>0?1:-1);
+$('xp-portal-list').addEventListener('touchend',event=>{
+ if(!listTouchStart||!event.changedTouches.length)return;
+ const dx=event.changedTouches[0].clientX-listTouchStart.x;
+ const dy=event.changedTouches[0].clientY-listTouchStart.y;
+ if(Math.abs(dx)>95&&Math.abs(dx)>Math.abs(dy)*1.8)stepSelection(dx<0?1:-1);
+ listTouchStart=null;
 },{passive:true});
 const isReduced=()=>reduced.matches;
 const onMediaChange=()=>{
@@ -149,7 +175,7 @@ async function boot(){
    onReady:()=>{
     canvasHost.classList.add('is-ready');
     $('space-fallback').hidden=true;
-    $('xp-render-status').textContent='Nine floating 3D worlds active · Select a portal';
+    $('xp-render-status').textContent='Real-time 3D active · PBR floating architecture';
    },
    onPortal:id=>{
     const i=PORTALS.findIndex(p=>p.id===id);
@@ -157,9 +183,13 @@ async function boot(){
    }
   });
   controller.setPaused(paused);
+  controller.setQuality(qualityMode);
+  controller.setLighting(lightMode);
   controller.selectPortal(PORTALS[selected].id);
+  for(const control of [resetControl,lightControl,qualityControl])control.disabled=false;
  }catch(error){
   $('xp-render-status').textContent='3D unavailable · All nine worlds remain accessible';
+  for(const control of [resetControl,lightControl,qualityControl])control.disabled=true;
   $('space-fallback').hidden=false;
   $('xp-announcement').textContent='WebGL could not load. You can still choose and enter any world using the accessible buttons.';
  }

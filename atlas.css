@@ -1,0 +1,58 @@
+/* BROOTHERHOOD FLOATING LEARNING ATLAS: original animated science islands */
+.atlas-section{
+ position:relative;isolation:isolate;overflow:hidden;padding:clamp(75px,8vw,165px) clamp(22px,5.5vw,116px) clamp(85px,8vw,145px);
+ background:radial-gradient(ellipse at 67% 20%,#215a7d74,transparent 49%),radial-gradient(ellipse at 6% 88%,#4324567a,transparent 47%),linear-gradient(150deg,#051128,#071836 46%,#080d29);border-block:1px solid #62dcf95c;
+}
+.atlas-section:before{content:"";position:absolute;inset:0;background-image:linear-gradient(#4edcff08 1px,transparent 1px),linear-gradient(90deg,#4edcff08 1px,transparent 1px);background-size:86px 86px;pointer-events:none;mask-image:radial-gradient(ellipse at 55% 40%,#000,transparent 85%)}
+.atlas-ambient{position:absolute;inset:0;pointer-events:none;z-index:-1}
+.atlas-ambient i{position:absolute;width:6px;height:6px;border-radius:50%;background:#b9fdf7;box-shadow:0 0 18px #35e4ff}
+.atlas-ambient i:nth-child(1){left:6%;top:13%}.atlas-ambient i:nth-child(2){left:26%;top:51%}.atlas-ambient i:nth-child(3){right:18%;top:8%}.atlas-ambient i:nth-child(4){right:9%;bottom:31%}.atlas-ambient i:nth-child(5){left:9%;bottom:8%}.atlas-ambient i:nth-child(6){right:45%;bottom:3%}
+.atlas-header{position:relative;display:flex;align-items:end;justify-content:space-between;gap:50px;margin:0 auto 44px;max-width:1720px}
+.atlas-overline{font-size:clamp(10px,.8vw,14px);letter-spacing:.22em;font-weight:950;color:#c0f8c8;display:inline-flex;align-items:center;gap:8px}
+.atlas-overline>span{font-size:28px;color:#c8ff89}
+.atlas-header h2{font-size:clamp(55px,6.9vw,125px);line-height:.99;letter-spacing:-.078em;font-weight:970;margin:22px 0 0;color:#eefdff;text-shadow:0 9px 36px #0007}
+.atlas-header h2 em{font-family:Georgia,"Times New Roman",serif;font-weight:400;color:#caff8a;letter-spacing:-.075em;text-shadow:0 0 35px #8aff7a6d}
+.atlas-header-copy{max-width:410px;flex:none}
+.atlas-header-copy p{font-size:clamp(14px,1.05vw,17px);line-height:1.9;color:#bdd8e8;margin:0 0 25px}
+.atlas-main-cta{display:inline-flex;align-items:center;gap:15px;justify-content:center;padding:15px 22px;border:1px solid #b5ff8d;border-radius:11px;background:linear-gradient(120deg,#c2ff81,#7fead4);color:#07252e;font-size:13px;font-weight:950;box-shadow:0 0 27px #8bf76a53;transition:transform .2s,box-shadow .2s}
+.atlas-main-cta:hover{transform:translateY(-3px);box-shadow:0 12px 45px #8bf76a8a}
+.atlas-controls{position:relative;display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1720px;margin:0 auto 29px;flex-wrap:wrap}
+.atlas-filterbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.atlas-filterbar button{padding:12px 17px;border-radius:32px;background:#0a2741d9;border:1px solid #629ebe7b;color:#c8e6f5;font-size:12px;font-weight:820;transition:background .2s,color .2s}
+.atlas-filterbar button:hover{border-color:#caff94;background:#164463}
+.atlas-filterbar button[aria-pressed="true"]{background:#c5ff88;color:#09242b;border-color:#d6ffae;box-shadow:0 0 19px #a6ff7c52}
+.atlas-filterbar button span{font-size:10px;opacity:.8;margin-left:7px}
+.atlas-live{white-space:nowrap;font-size:10px;color:#bad7d9;letter-spacing:.11em;font-weight:950}
+.atlas-live i{width:8px;height:8px;display:inline-block;background:#c2ff8e;border-radius:50%;margin-right:7px;box-shadow:0 0 15px #a5ff88}
+.atlas-grid{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2vw,34px);max-width:1720px;margin:0 auto;perspective:1700px;align-items:stretch}
+.atlas-card{position:relative;display:flex;flex-direction:column;min-width:0;overflow:hidden;min-height:clamp(390px,31vw,485px);border-radius:clamp(19px,1.65vw,30px);border:1px solid color-mix(in srgb,var(--atlas-accent),transparent 47%);background:linear-gradient(148deg,#132f54ed,#081b38 73%,#09162d);box-shadow:0 23px 56px #0008,0 0 24px color-mix(in srgb,var(--atlas-accent),transparent 91%);transform:translateY(var(--atlas-offset,0px)) rotateX(calc(var(--atlas-tilt-y,0)*1deg)) rotateY(calc(var(--atlas-tilt-x,0)*1deg));transform-style:preserve-3d;transition:transform .3s ease,box-shadow .3s ease,border-color .3s}
+.atlas-card:before{position:absolute;inset:0;content:"";background:radial-gradient(circle at 50% 31%,color-mix(in srgb,var(--atlas-accent),transparent 67%),transparent 51%);pointer-events:none}
+.atlas-card:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(140deg,#ffffff14,transparent 30% 80%,#c6faff0d);border-radius:inherit}
+.atlas-card:hover,.atlas-card:focus-visible{transform:translateY(calc(var(--atlas-offset,0px) - 12px)) rotateX(calc(var(--atlas-tilt-y,0)*1deg)) rotateY(calc(var(--atlas-tilt-x,0)*1deg));box-shadow:0 44px 85px #0009,0 0 42px color-mix(in srgb,var(--atlas-accent),transparent 75%);border-color:var(--atlas-accent)}
+.atlas-card[hidden]{display:none!important}
+.atlas-card-art{height:clamp(195px,18vw,270px);position:relative;display:flex;justify-content:center;align-items:center;perspective:850px;isolation:isolate}
+.atlas-card-art:before{position:absolute;content:"";width:44%;height:24%;bottom:8%;background:radial-gradient(ellipse,color-mix(in srgb,var(--atlas-accent),transparent 62%),transparent 75%);filter:blur(18px);transform:rotateX(72deg)}
+.atlas-halo{position:absolute;border:1px solid color-mix(in srgb,var(--atlas-accent),transparent 25%);border-radius:50%;width:clamp(150px,15vw,245px);height:clamp(150px,15vw,245px);transform:rotateX(68deg) rotateZ(20deg);box-shadow:0 0 28px color-mix(in srgb,var(--atlas-accent),transparent 78%)}
+.atlas-halo-b{width:clamp(185px,18vw,296px);height:clamp(185px,18vw,296px);border-style:dashed;border-color:color-mix(in srgb,var(--atlas-accent),transparent 55%);transform:rotateY(65deg) rotateZ(21deg);opacity:.75}
+.atlas-planetoid{position:relative;display:grid;place-items:center;width:clamp(110px,10vw,170px);height:clamp(110px,10vw,170px);border-radius:46%;background:radial-gradient(circle at 28% 20%,#d9fbff9e,color-mix(in srgb,var(--atlas-accent),#fff 25%) 12%,color-mix(in srgb,var(--atlas-accent),#153a59 30%) 43%,#07223f 80%);box-shadow:inset -18px -19px 28px #051026a8,inset 10px 14px 24px #ffffff39,0 25px 39px #010716bf,0 0 43px color-mix(in srgb,var(--atlas-accent),transparent 38%);transform-style:preserve-3d;animation:atlas-float 6.7s ease-in-out infinite;z-index:2}
+.atlas-glyph{font-size:clamp(53px,5vw,91px);line-height:1;color:#fff;text-shadow:0 0 26px var(--atlas-accent),0 5px 17px #03152f;font-weight:950;transform:translateZ(20px)}
+.atlas-contour{position:absolute;inset:13%;border:1px solid #ffffff64;border-radius:36%;transform:rotate(35deg)}
+.atlas-iceberg{position:absolute;z-index:1;bottom:clamp(6px,1.5vw,25px);width:clamp(124px,11vw,185px);height:clamp(50px,5vw,83px);background:linear-gradient(145deg,color-mix(in srgb,var(--atlas-accent),#10243f 33%),#071a38 68%);clip-path:polygon(0 0,100% 0,74% 80%,51% 100%,25% 76%);border:1px solid #73c4e07d;box-shadow:0 27px 20px #0008;animation:atlas-float 6.7s ease-in-out infinite}
+.atlas-orbit-text{position:absolute;bottom:12px;left:20px;color:color-mix(in srgb,var(--atlas-accent),#fff 27%);font:800 9px ui-monospace,Consolas,monospace;letter-spacing:.16em;text-shadow:0 0 15px #0b172b}
+.atlas-floater{position:absolute;width:11px;height:11px;border-radius:50%;background:var(--atlas-accent);box-shadow:0 0 19px var(--atlas-accent);animation:atlas-satellite 5.7s ease-in-out infinite}
+.atlas-floater-a{left:18%;top:19%}.atlas-floater-b{right:17%;bottom:29%;width:8px;height:8px;animation-delay:-2.7s}
+.atlas-card-body{position:relative;display:flex;flex-direction:column;flex:1;padding:clamp(21px,2.2vw,35px);border-top:1px solid color-mix(in srgb,var(--atlas-accent),transparent 77%);background:linear-gradient(180deg,#0c2643c7,#081b34f7);z-index:3}
+.atlas-card-tag{color:var(--atlas-accent);font:950 10px ui-monospace,Consolas,monospace;letter-spacing:.1em}
+.atlas-card h3{font-size:clamp(21px,1.7vw,31px);line-height:1.13;font-weight:900;letter-spacing:-.048em;margin:12px 0 9px;color:#f0fbff}
+.atlas-card p{font-size:clamp(12px,.9vw,15px);line-height:1.65;color:#aecada;margin:0 0 25px}
+.atlas-go{display:flex;gap:12px;align-items:center;justify-content:space-between;margin-top:auto;color:#e2fff2;font-size:12px;font-weight:900}
+.atlas-go>span{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:color-mix(in srgb,var(--atlas-accent),transparent 79%);color:var(--atlas-accent);border:1px solid color-mix(in srgb,var(--atlas-accent),transparent 40%)}
+.atlas-bottom{max-width:1720px;margin:32px auto 0;padding:18px 0 0;display:flex;justify-content:space-between;align-items:center;gap:18px;color:#bddadf;font-size:12px}
+.atlas-bottom>a{font-weight:900;color:#caff99}
+.atlas-bottom>a:hover{color:#fff}
+@keyframes atlas-float{50%{transform:translateY(-15px) rotate(4deg)}}
+@keyframes atlas-satellite{50%{transform:translate(8px,-17px)}}
+@media(min-width:2200px){.atlas-section{padding-inline:10vw}.atlas-card{min-height:580px}.atlas-card-art{height:320px}.atlas-planetoid{width:180px;height:180px}.atlas-halo{width:270px;height:270px}.atlas-halo-b{width:335px;height:335px}.atlas-card h3{font-size:34px}.atlas-card p{font-size:17px}}
+@media(max-width:1150px){.atlas-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.atlas-header{gap:30px}.atlas-header h2{font-size:clamp(54px,7vw,91px)}.atlas-card{min-height:430px}.atlas-card-art{height:235px}.atlas-header-copy{max-width:340px}}
+@media(max-width:720px){.atlas-section{padding:68px 18px 80px}.atlas-header{display:block;margin-bottom:28px}.atlas-header h2{font-size:clamp(51px,11vw,76px);margin-bottom:17px}.atlas-header-copy{max-width:100%}.atlas-header-copy p{font-size:14px}.atlas-main-cta{width:100%;margin-bottom:8px}.atlas-filterbar{width:100%}.atlas-filterbar button{font-size:10px;padding:10px 11px}.atlas-live{font-size:9px}.atlas-grid{grid-template-columns:1fr;gap:21px}.atlas-card{transform:none!important;min-height:395px}.atlas-card-art{height:215px}.atlas-planetoid{width:145px;height:145px}.atlas-halo{width:214px;height:214px}.atlas-halo-b{width:265px;height:265px}.atlas-card-body{padding:24px}.atlas-card h3{font-size:27px}.atlas-card p{font-size:13px}.atlas-bottom{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.atlas-planetoid,.atlas-iceberg,.atlas-floater{animation:none!important}.atlas-card,.atlas-main-cta{transition:none!important;transform:none!important}}

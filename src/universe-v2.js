@@ -7,18 +7,26 @@
 const THREE_URL='https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js';
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 export const PORTALS=Object.freeze([
- {id:'code',title:'CODE NEXUS',subtitle:'Real compilers and programming',href:'../studio/',color:0x69efff},
- {id:'cyber',title:'CYBER SHIELD',subtitle:'Defend the digital world',href:'../#cyber-arena',color:0xffce7b},
- {id:'ai',title:'AI LABORATORY',subtitle:'Train and test intelligence',href:'../#ai-core',color:0xb2a2ff},
- {id:'horizon',title:'HORIZON CONNECT',subtitle:'The connected event universe',href:'../horizon/',color:0xbafa70},
- {id:'build',title:'BUILDERS REALM',subtitle:'Make architecture work',href:'../#builders-realm',color:0x74f5c0}
+ {id:'code',title:'CODE NEXUS',subtitle:'Compile, debug and build real programs',href:'../studio/',color:0x53ddff,category:'Technology',icon:'⌘'},
+ {id:'cyber',title:'CYBER SHIELD',subtitle:'Practice digital defense and threat awareness',href:'../#cyber-arena',color:0xffcd7b,category:'Technology',icon:'⛨'},
+ {id:'ai',title:'AI LABORATORY',subtitle:'Explore working machine-learning experiments',href:'../#ai-core',color:0xb6a1ff,category:'Technology',icon:'✺'},
+ {id:'biology',title:'BIOLOGY · HEART',subtitle:'Rotate a 3D heart and follow blood flow',href:'../pocket-3d-lab/',color:0xff8ea2,category:'Science',icon:'♥'},
+ {id:'physics',title:'PHYSICS STUDIO',subtitle:'Explore circuits and electricity',href:'../legacy/#electricity',color:0x63e3fa,category:'Science',icon:'⚡'},
+ {id:'maths',title:'MATHEMATICS ISLAND',subtitle:'Discover fractions through visual puzzles',href:'../legacy/#fractions',color:0xffb96a,category:'Science',icon:'π'},
+ {id:'eco',title:'ECO PLANET',subtitle:'Experiment with environmental choices',href:'../legacy/#eco',color:0x91f5a6,category:'Science',icon:'✿'},
+ {id:'horizon',title:'HORIZON CONNECT',subtitle:'Explore the interactive event platform',href:'../horizon/',color:0xcaff81,category:'Community',icon:'◈'},
+ {id:'build',title:'BUILDERS REALM',subtitle:'Connect software and architecture systems',href:'../#builders-realm',color:0x85dcff,category:'Technology',icon:'▤'}
 ]);
 export const CAMERA_STOPS=Object.freeze([
- {position:[-6.8,5.7,19],target:[-7,1.3,-4]},
- {position:[-5.6,6.2,20],target:[-4.1,3.7,-10]},
- {position:[5.6,6.3,20],target:[4.1,3.7,-10]},
- {position:[7.4,5.5,19],target:[7.3,1.9,-4]},
- {position:[0,4.2,21],target:[0,-2.6,-14]}
+ {position:[-11,5.1,12],target:[-10.4,2.6,-2.5]},
+ {position:[-8.2,7.2,8],target:[-7.2,5.2,-10.6]},
+ {position:[-.7,8.7,3],target:[-.7,6.6,-17.1]},
+ {position:[7.7,7.3,8],target:[7.1,4.8,-11.1]},
+ {position:[11,5,12],target:[10.6,2.5,-2.5]},
+ {position:[9.0,.4,1],target:[8,-1.8,-15.8]},
+ {position:[2.2,-.3,-4],target:[1.8,-3.0,-20]},
+ {position:[-7.4,-.2,0],target:[-6.5,-1.9,-16.0]},
+ {position:[0,3.9,-8],target:[0,1.0,-25]}
 ]);
 export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
  if(!host||!window.WebGLRenderingContext)throw Error('This browser cannot display a WebGL world.');
@@ -121,10 +129,122 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
    j%3===0?materials.pearl:materials.neon,Math.cos(a)*4.7,Math.sin(a)*3.8,Math.sin(a*2)*.9);
   item.rotation.z=a;
  }
- // Five floating islands, each represented by a real 3D portal and a link target.
+ // Nine independently explorable learning archipelagos surround the central energy engine.
  const islandCoords=[
-  [-9.1,1.25,-4.8],[-4.8,3.0,-12.5],[5.1,3.1,-12.8],[9,1.15,-4.9],[.4,-3.1,-17.5]
+  [-10.8,1.6,-2.5],[-7.2,4.1,-10.6],[-.7,5.4,-17.1],
+  [7.1,4.0,-11.1],[10.6,1.6,-2.5],[8,-2.9,-15.8],
+  [1.8,-4.4,-20],[-6.5,-3.1,-16],[0,.0,-25]
  ];
+
+ // Nine distinct glowing science / technology landmarks.
+ // They share simple, original Three.js primitives; all can be selected by the island.
+ function decorateIsland(def,group,neonMaterial,crystalMaterial){
+  const metal=materials.metal,pearl=materials.pearl;
+  const orb=(x,y,z,r,mat=crystalMaterial)=>mesh(group,new T.IcosahedronGeometry(r,1),mat,x,y,z);
+  const column=(x,z,height,r=.14,mat=metal)=>mesh(group,new T.CylinderGeometry(r*.8,r,height,7),mat,x,height*.5-.16,z);
+  const bridgeBeam=(a,b,r=.045,mat=neonMaterial)=>line(group,[new T.Vector3(...a),new T.Vector3(...b)],mat,r);
+  const blocks=(x,y,z,w,h,d,mat=metal)=>mesh(group,box(w,h,d),mat,x,y,z);
+  const decorative=new T.Group();group.add(decorative);
+  // Technology & science sculptures sit on the upper deck behind the glowing gateway.
+  switch(def.id){
+   case 'code':{
+    const screen=blocks(0,2.55,-.54,1.9,1.15,.12,materials.glass);
+    screen.rotation.y=-.08;
+    for(let i=0;i<5;i++){
+     const row=blocks(-.55+(i%2)*.12,2.92-i*.16,-.42,i%3===0?.9:1.3,.042,.045,i%2?neonMaterial:materials.pearl);
+    }
+    blocks(0,1.97,-.52,1.2,.10,.75,metal);
+    break;
+   }
+   case 'cyber':{
+    const shield=new T.Shape();
+    shield.moveTo(0,3.42);shield.lineTo(.81,3.12);shield.lineTo(.74,2.33);
+    shield.quadraticCurveTo(.48,1.88,0,1.61);
+    shield.quadraticCurveTo(-.48,1.88,-.74,2.33);
+    shield.lineTo(-.81,3.12);shield.closePath();
+    const symbol=mesh(group,new T.ExtrudeGeometry(shield,{depth:.12,bevelEnabled:true,bevelSegments:2,steps:1,bevelSize:.05,bevelThickness:.04}),crystalMaterial,0,0,-.68);
+    symbol.userData.portal=def.id;
+    bridgeBeam([-.29,2.68,-.45],[-.04,2.38,-.44],.09,materials.pearl);
+    bridgeBeam([-.04,2.38,-.44],[.36,2.86,-.44],.09,materials.pearl);
+    break;
+   }
+   case 'ai':{
+    const coords=[[-.8,2.85,-.64],[-.4,3.41,-.56],[.27,3.28,-.62],[.82,2.68,-.64],[.37,2.10,-.54],[-.49,2.10,-.57],[0,2.77,-.38]];
+    for(let i=0;i<coords.length;i++)orb(...coords[i],i===6?.23:.14,i===6?materials.pearl:crystalMaterial);
+    const edges=[[0,1],[0,5],[1,2],[2,3],[2,6],[3,4],[4,5],[4,6],[5,6],[1,6]];
+    for(const [a,b] of edges)bridgeBeam(coords[a],coords[b],.024,neonMaterial);
+    break;
+   }
+   case 'biology':{
+    // Heart pictogram built from two ellipsoids and a tapered ventricle.
+    const tissue=new T.MeshStandardMaterial({color:0xff777f,roughness:.46,emissive:0xa92941,emissiveIntensity:.27});
+    const left=mesh(group,sphere(.49,16),tissue,-.34,2.85,-.53);
+    const right=mesh(group,sphere(.49,16),tissue,.35,2.85,-.53);
+    left.scale.set(1,1.15,.70);right.scale.set(1,1.15,.70);
+    const chamber=mesh(group,new T.ConeGeometry(.73,1.53,24),tissue,0,2.11,-.55);
+    chamber.rotation.z=Math.PI;
+    // The two colored vessels represent blood-flow teaching notation.
+    bridgeBeam([-.22,3.65,-.56],[-.42,4.06,-.46],.13,materials.crystal);
+    bridgeBeam([.21,3.67,-.56],[.41,4.06,-.44],.13,neonMaterial);
+    break;
+   }
+   case 'physics':{
+    for(let k=0;k<3;k++){
+     const ring=mesh(group,new T.TorusGeometry(.62,.075,9,45),k===1?materials.pearl:neonMaterial,0,2.64,-.57);
+     ring.rotation.y=k*Math.PI/3;ring.rotation.x=.2+k*.45;
+    }
+    orb(0,2.64,-.48,.29,materials.pearl);
+    column(-.9,-.5,.75);column(.9,-.5,.75);
+    bridgeBeam([-.9,.6,-.5],[.9,.6,-.5],.045,neonMaterial);
+    break;
+   }
+   case 'maths':{
+    const poly=mesh(group,new T.OctahedronGeometry(.86,0),materials.pearl,0,2.75,-.56);
+    poly.rotation.z=.36;
+    const gridCube=mesh(group,new T.BoxGeometry(1.6,1.6,1.6),new T.MeshBasicMaterial({color:def.color,wireframe:true,transparent:true,opacity:.65}),0,2.75,-.57);
+    gridCube.rotation.y=.23;
+    orb(0,3.77,-.53,.16,crystalMaterial);
+    break;
+   }
+   case 'eco':{
+    column(0,-.45,1.9,.22,new T.MeshStandardMaterial({color:0x9d744e,roughness:.84}));
+    for(let j=0;j<3;j++){
+     const leaves=mesh(group,new T.ConeGeometry(1.1-j*.22,1.25,7),crystalMaterial,0,2.24+j*.56,-.45);
+     leaves.rotation.y=j*.38;
+    }
+    const waterfall=new T.MeshBasicMaterial({color:0x65e4fd,transparent:true,opacity:.57,side:T.DoubleSide,depthWrite:false});
+    const fall=mesh(group,new T.CylinderGeometry(.23,.38,2.0,10,1,true),waterfall,-1.24,-1.2,.46);
+    fall.userData.portal=def.id;
+    break;
+   }
+   case 'horizon':{
+    for(let k=-2;k<=2;k++){
+     const height=1+(2-Math.abs(k))*.49;
+     const tower=blocks(k*.47,1.88+height*.5,-.64,.33,height,.4,k%2?materials.crystal:metal);
+     for(let w=0;w<3;w++)blocks(k*.47,1.98+w*.27,-.4,.21,.041,.045,neonMaterial);
+    }
+    const beacon=orb(0,4.18,-.61,.28,materials.pearl);
+    break;
+   }
+   case 'build':{
+    for(let k=0;k<3;k++){
+     const frame=mesh(group,new T.BoxGeometry(1.65-k*.25,.16,1.35-k*.16),k%2?materials.glass:crystalMaterial,0,2.06+k*.53,-.52);
+     frame.rotation.y=k*.16;frame.userData.portal=def.id;
+    }
+    for(let k=-1;k<=1;k++){
+     column(k*.6,-.92,1.65,.065,neonMaterial);
+    }
+    orb(0,4.18,-.49,.28,materials.pearl);
+    break;
+   }
+  }
+  // Each portal receives a small levitating ringed satellite for parallax depth.
+  for(let j=0;j<3;j++){
+   const a=j*2.09+def.color*.00001;
+   const sat=orb(Math.cos(a)*2.9,1.0+Math.sin(a)*.42,Math.sin(a)*1.75,.12,neonMaterial);
+   sat.userData.portal=def.id;
+  }
+ }
  const portals=[],islands=[];
  function buildIsland(def,i){
   const [x,y,z]=islandCoords[i],group=new T.Group();group.position.set(x,y,z);scene.add(group);
@@ -156,13 +276,20 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
   }
   const baseRing=mesh(group,new T.TorusGeometry(1.35,.018,5,60),lightMat,0,-1.95,0);baseRing.rotation.x=Math.PI/2;
   mesh(group,new T.ConeGeometry(.3,1.4,6),crystalMat,0,-2.65,0);
+  decorateIsland(def,group,lightMat,crystalMat);
+  // An array of thin light columns suggests a hovering launch pad.
+  for(let b=0;b<8;b++){
+   const a=b*Math.PI/4;
+   const glyph=mesh(group,new T.CapsuleGeometry(.025,.10,3,6),lightMat,Math.cos(a)*1.87,.10,Math.sin(a)*1.87);
+   glyph.userData.portal=def.id;
+  }
   portals.push({id:def.id,def,group,gate,emblem,halo,light:lightMat});
   islands.push(group);
   return group;
  }
  PORTALS.forEach(buildIsland);
  // Bridges are luminous ribbons with small running energy lights.
- const bridgePaths=[[0,1],[1,4],[4,2],[2,3],[1,2]];
+ const bridgePaths=[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,0],[7,8],[8,6],[2,8],[3,8]];
  const bridges=[];
  for(const [a,b] of bridgePaths){
   const start=new T.Vector3(...islandCoords[a]).add(new T.Vector3(0,-.05,0));
@@ -266,15 +393,19 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
   selected=index;
   const stop=CAMERA_STOPS[index];
   targetPos.set(...stop.position);targetLook.set(...stop.target);
+  if(paused){
+   camera.position.copy(targetPos);cameraTarget.copy(targetLook);
+   camera.lookAt(cameraTarget);renderer.render(scene,camera);
+  }
   const message=PORTALS[index];
   host.dispatchEvent(new CustomEvent('brootherhood:portal',{bubbles:true,detail:{id,title:message.title,subtitle:message.subtitle,index}}));
  }
  const onGuide=e=>{
   const type=e.detail?.world||'';
-  const match={code:'code',cyber:'cyber',ai:'ai',network:'horizon',build:'build'}[type];
+  const match={code:'code',cyber:'cyber',ai:'ai',network:'horizon',build:'build',science:'biology',maths:'maths',physics:'physics',environment:'eco'}[type];
   if(match&&interactive)selectPortal(match);
  };
- const onMotion=e=>{paused=Boolean(e.detail?.paused)||reduced.matches;cancelAnimationFrame(raf);if(!paused&&running&&!disposed){last=0;raf=requestAnimationFrame(tick);}else{drawFrame();}};
+ const onMotion=e=>{paused=Boolean(e.detail?.paused);cancelAnimationFrame(raf);if(!paused&&running&&!disposed){last=0;raf=requestAnimationFrame(tick);}else{drawFrame();}};
  const onVisibility=()=>{if(document.hidden){cancelAnimationFrame(raf);}else if(running&&!paused&&!disposed){last=0;raf=requestAnimationFrame(tick);}};
  const setSize=()=>{
   if(disposed||!host.isConnected)return;
@@ -359,5 +490,5 @@ export async function mountUniverse(host,{mode='hero',onPortal,onReady}={}){
  camera.position.copy(targetPos);cameraTarget.copy(targetLook);camera.lookAt(cameraTarget);
  setSize();
  if(typeof onReady==='function')onReady({portals:PORTALS});
- return{selectPortal,setPaused(value){paused=Boolean(value)||reduced.matches;cancelAnimationFrame(raf);if(!paused&&running){last=0;raf=requestAnimationFrame(tick);}else drawFrame();},dispose:cleanup};
+ return{selectPortal,setPaused(value){paused=Boolean(value);cancelAnimationFrame(raf);if(!paused&&running){last=0;raf=requestAnimationFrame(tick);}else drawFrame();},dispose:cleanup};
 }

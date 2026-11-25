@@ -29,7 +29,7 @@
 
 **Interactive 3D walkthrough:** https://royalpuskar.github.io/BROOTHERHOOD/experience/?tour=1
 
-The homepage has a premium original automotive-editorial visual language inspired by the high-end branded advertisement style the creator requested, **without using BMW trademarks, assets, or representing any automaker**. It uses cinematic real-time 3D rather than a screenshot: the procedural WebGL archipelago is mounted directly behind the hero. A newly authored SVG campus illustration gives an instant, non-WebGL fallback. The visual design includes an original BROOTHERHOOD logo, fluorescent lime entry CTA, glowing glass navigation, clear product statistics, four real feature cards, a story section and a fully working three-feature showcase.
+BROOTHERHOOD’s homepage brings its learning worlds together in an original cinematic experience. A procedural WebGL archipelago renders in real time behind the hero, while an original SVG campus illustration provides a fast fallback when WebGL is unavailable. The interface pairs the BROOTHERHOOD identity with a lime entry button, glass navigation, clear project statistics, four feature cards, a story section, and a working three-feature showcase. Its visual language draws on automotive editorial design while using no automaker trademarks or assets and implying no affiliation with an automaker.
 
 The real buttons open real experiences. "Take the 3D Tour" starts the actual automated, stop-able Three.js guided fly-through **only once 3D is ready**, and respects reduced-motion settings. The top search opens a working, keyboard-friendly menu with actual lesson destinations. The showcase's next/previous/dot controls change the featured item and its link.
 
